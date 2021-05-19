@@ -10,10 +10,10 @@
 	</parent>
 	<groupId>edu.thn</groupId>
 	<artifactId>ciom</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>ciom</name>
-	<description>Demo project for Spring Boot</description>
+	<description>graduation project for tian.huining</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -51,6 +51,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>ciom</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
