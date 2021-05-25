@@ -22,7 +22,7 @@ body,td,th {
 }
 body {
     margin:0 auto;
-	background-image: url(<%=basePath%>shouye/login/images/loginbg.jpg);
+	background-image: url(/static/images/loginbg.jpg);
 	background-repeat: no-repeat;
 	background-position: center top;
 	background-color:#F2F2F2;
@@ -73,20 +73,20 @@ a:active {
 	border-radius:3px;
 }
 #logtab .input1{
-	background-image: url(<%=basePath%>shouye/login/images/login_3.jpg);
+	background-image: url(/static/images/login_3.jpg);
 	background-repeat: no-repeat;
 	background-position: left center;
 }
 
 #logtab .input2{
-	background-image: url(<%=basePath%>shouye/login/images/login_6.jpg);
+	background-image: url(/static/images/login_6.jpg);
 	background-repeat: no-repeat;
 	background-position: left center;
 }
 
 #logtab .input3{
     width:100px!important;
-	background-image: url(<%=basePath%>shouye/login/images/login_11.jpg);
+	background-image: url(/static/images/login_11.jpg);
 	background-repeat: no-repeat;
 	background-position: left center;
 }
@@ -97,17 +97,13 @@ a:active {
 -->
 </style> 
 
-<style> 
-
+<style>
 a:link{text-decoration: none;color: gray}
-
 a:active{text-decoration:blink}
-
 a:hover{text-decoration:underline;color: red}
-
 a:visited{text-decoration: none;color: yellow}
+</style>
 
-</style> 
 <script language="javascript">
 function checklogin()
 {
@@ -127,7 +123,7 @@ function checklogin()
 <body>
 
 <div class="login2016">
-<form class="formname" action="<%=basePath%>login" name="login" method="post" onSubmit="return checklogin();">
+<form class="formname" action="/login" name="login" method="post" onSubmit="return checklogin();">
   <table width="100%" border="0" cellspacing="0" cellpadding="0" id="logtab">
     <tr>
       <td><input type="text" name="userName"  class="input1" /></td>
@@ -138,21 +134,23 @@ function checklogin()
     <tr>
       <td><table width="100%" border="0" cellspacing="0" cellpadding="0" id="logtab">
         <tr>
-          <td><select name="loginType" class="select">
-							<option value="admin">管理员</option>
-                            <option value="user"><%=newJcpeizhi.getUserBieming()%></option>
-							<option value="yonghu"><%=newJcpeizhi.getYonghuBieming()%></option>
-						</select></td>
+          <td>
+              <select name="loginType" class="select">
+                <option value="admin">管理员</option>
+                <option value="user"><%=newJcpeizhi.getUserBieming()%></option>
+                <option value="yonghu"><%=newJcpeizhi.getYonghuBieming()%></option>
+              </select>
+            </td>
           <td></td>
         </tr>
       </table></td>
     </tr>
     <tr>
-      <td valign="middle"><input type="image" src="<%=basePath%>shouye/login/images/login_14.jpg" width="274" height="40" border="0"  style="padding-left:0px;width:224px;"/></td>
+      <td valign="middle"><input type="image" src="/static/images/login_14.jpg" width="274" height="40" border="0"  style="padding-left:0px;width:224px;"/></td>
     </tr>
   </table> </form>
-  <a href="<%=basePath%>user/zhuceuser.jsp"><%=newJcpeizhi.getUserBieming()%>注册</a>&nbsp;&nbsp;
-  <a href="<%=basePath%>yonghu/zhuceyonghu.jsp"><%=newJcpeizhi.getYonghuBieming()%>注册</a><br>
+  <a href="../user/zhuceuser"><%=newJcpeizhi.getUserBieming()%>注册</a>&nbsp;&nbsp;
+  <a href="../yonghu/zhuceyonghu"><%=newJcpeizhi.getYonghuBieming()%>注册</a><br>
   <font color="red">${error }</font>
 </div>
 </body></html>

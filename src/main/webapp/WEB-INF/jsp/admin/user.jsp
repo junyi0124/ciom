@@ -1,16 +1,25 @@
 <%@ page language="java" import="edu.thn.ciom.pojo.*"  pageEncoding="utf-8"%>
-<% Jcpeizhi newJcpeizhi = (Jcpeizhi)session.getAttribute("jcpeizhi"); %>
+<%
+PeizhiPojo newJcpeizhi = null;
+if( session == null ) {
+    session = request.getSession();
+}
+if( session != null ) {
+    newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi");
+}
+if( newJcpeizhi == null ) response.sendRedirect("../index");
+%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title><%=newJcpeizhi.getUserBieming()%>信息</title>
-<link rel="stylesheet" type="text/css" href="../jquery-easyui-1.3.3/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="../jquery-easyui-1.3.3/themes/icon.css">
-<script type="text/javascript" src="../jquery-easyui-1.3.3/jquery.min.js"></script>
-<script type="text/javascript" src="../jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="../jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
+<title><%= newJcpeizhi==null ? "--" : newJcpeizhi.getUserBieming()%>信息</title>
+<link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/icon.css">
+<script type="text/javascript" src="/static/jquery-easyui-1.3.3/jquery.min.js"></script>
+<script type="text/javascript" src="/static/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/static/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript">
 var url;
 	function searchUser(){
@@ -47,7 +56,7 @@ var url;
 	}
 	
 	function openUserAddDialog(){
-		$("#dlg").dialog("open").dialog("setTitle","添加<%=newJcpeizhi.getUserBieming()%>信息");
+		$("#dlg").dialog("open").dialog("setTitle","添加<%= newJcpeizhi==null ? "--" : newJcpeizhi.getUserBieming()%>信息");
 		url="../addUser";
 	}
 	
@@ -91,7 +100,7 @@ var url;
 			return;
 		}
 		var row=selectedRows[0];
-		$("#dlg").dialog("open").dialog("setTitle","编辑<%=newJcpeizhi.getUserBieming()%>信息");
+		$("#dlg").dialog("open").dialog("setTitle","编辑<%= newJcpeizhi==null ? "--" : newJcpeizhi.getUserBieming()%>信息");
 		$("#fm").form("load",row);
 		url="../addUser?userId="+row.userId;
 	}
@@ -185,7 +194,7 @@ var url;
 	}
 	
 	function daoruUsers(){
-		$("#daoru").dialog("open").dialog("setTitle","导入<%=newJcpeizhi.getUserBieming()%>信息");
+		$("#daoru").dialog("open").dialog("setTitle","导入<%= newJcpeizhi==null ? "--" : newJcpeizhi.getUserBieming()%>信息");
 		daoruurl="../daoruUser";
 	}
 	
@@ -222,7 +231,7 @@ var url;
 			return;
 		}
 		var row=selectedRows[0];
-		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=newJcpeizhi.getUserBieming()%>信息");
+		$("#shangchuan").dialog("open").dialog("setTitle","上传<%= newJcpeizhi==null ? "--" : newJcpeizhi.getUserBieming()%>信息");
 		$("#shchfm").form("load",row);
 		shchurl="../shangchuanUser?userId="+row.userId;
 	}
@@ -301,7 +310,7 @@ var url;
 </head>
 <body style="margin: 5px;">
 <!--startprint-->
-	<table id="dg" title="<%=newJcpeizhi.getUserBieming()%>信息" class="easyui-datagrid" fitColumns="true"
+	<table id="dg" title="<%= newJcpeizhi==null ? "--" : newJcpeizhi.getUserBieming()%>信息" class="easyui-datagrid" fitColumns="true"
 	 pagination="true" url="../getUsers" fit="true" rownumbers="true" toolbar="#tb">
 		<thead>
 			<tr>
@@ -314,8 +323,8 @@ var url;
 				<th field="userAge" width="10">年龄</th>
 				<th field="userPhone" width="40">电话</th>
 				<th field="userMark1" width="60">驾照</th>
-				<th field="buzhiId" width="10" hidden="true"><%=newJcpeizhi.getBuzhiBieming()%>ID</th>
-				<th field="buzhiName" width="20"><%=newJcpeizhi.getBuzhiBieming()%></th>
+				<th field="buzhiId" width="10" hidden="true"><%= newJcpeizhi==null ? "--" : newJcpeizhi.getBuzhiBieming()%>ID</th>
+				<th field="buzhiName" width="20"><%= newJcpeizhi==null ? "--" : newJcpeizhi.getBuzhiBieming()%></th>
 				<th field="userDate" width="20" formatter="datetostr">时间</th>
 			</tr>
 		</thead>
@@ -335,7 +344,7 @@ var url;
 			<option value="0">男</option>
 			<option value="1">女</option>
 		</select>
-		&nbsp;<%=newJcpeizhi.getBuzhiBieming()%>：&nbsp;<input class="easyui-combobox" id="s_buzhiId" name="s_buzhiId"  data-options="panelHeight:'auto',editable:false,valueField:'buzhiId',textField:'buzhiName',url:'../buzhiComboList'"/>
+		&nbsp;<%= newJcpeizhi==null ? "--" : newJcpeizhi.getBuzhiBieming()%>：&nbsp;<input class="easyui-combobox" id="s_buzhiId" name="s_buzhiId"  data-options="panelHeight:'auto',editable:false,valueField:'buzhiId',textField:'buzhiName',url:'../buzhiComboList'"/>
 		<a href="javascript:searchUser()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
 		</div>
 	</div>
@@ -369,7 +378,7 @@ var url;
 				<tr>
 					<td>驾照：</td>
 					<td><input type="text" name="userMark1" id="userMark1" class="easyui-validatebox" required="true"/></td>
-					<td><%=newJcpeizhi.getBuzhiBieming()%>：</td>
+					<td><%= newJcpeizhi==null ? "--" : newJcpeizhi.getBuzhiBieming()%>：</td>
 					<td><input class="easyui-combobox" id="buzhiId" name="buzhiId"  data-options="panelHeight:'auto',editable:false,valueField:'buzhiId',textField:'buzhiName',url:'../buzhiComboList'"/></td>
 				</tr>
 			</table>
@@ -380,7 +389,7 @@ var url;
 		<a href="javascript:saveUser()" class="easyui-linkbutton" iconCls="icon-ok">保存</a>
 		<a href="javascript:closeUserDialog()" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>
 	</div>
-<!--上传-->	
+    <!--上传-->
 	<div id="shangchuan" class="easyui-dialog" style="width: 320px;height: 140px;padding: 10px 20px"
 		closed="true" buttons="#shangchuan-buttons">
 		<form id="shchfm" method="post" enctype="multipart/form-data">
@@ -396,7 +405,7 @@ var url;
 		<a href="javascript:saveShangchuanUser()" class="easyui-linkbutton" iconCls="icon-ok">保存</a>
 		<a href="javascript:closeShangchuanUser()" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>
 	</div>
-<!--导入-->	
+    <!--导入-->
 	<div id="daoru" class="easyui-dialog" style="width: 320px;height: 140px;padding: 10px 20px"
 		closed="true" buttons="#daoru-buttons">
 		<form id="drfm" method="post" enctype="multipart/form-data">

@@ -3,7 +3,7 @@ import="edu.thn.ciom.pojo.*,edu.thn.ciom.util.*,java.util.List,java.util.ArrayLi
 pageEncoding="utf-8"%>
 <%
 	StringBuffer jcpeizhiparam = new StringBuffer("ceshiId=1");
-	List<Jcpeizhi> jcpeizhis = new ArrayList<Jcpeizhi>();
+	List<PeizhiPojo> jcpeizhis = new ArrayList<PeizhiPojo>();
 	Jcpeizhi jcpeizhi = null;
 	int jcpeizhisshuliang = 0;
 	String jcpeizhipath = request.getContextPath();
@@ -15,7 +15,7 @@ pageEncoding="utf-8"%>
 		JSONArray jcpeizhijsonArray = (JSONArray)jcpeizhiresult.get("rows");
 		//System.out.println(jcpeizhijsonArray);
 		jcpeizhis = JSONArray.toList(jcpeizhijsonArray, new Jcpeizhi(), new JsonConfig());
-		if(jcpeizhis.size()>0){
+		if(jcpeizhis.size() > 0){
 			jcpeizhi = jcpeizhis.get(0);
 		}
 		//for(int i = 0;i < jcpeizhis.size();i++){

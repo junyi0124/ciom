@@ -1,11 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
+<%@ page language="java" contentType="text/html;charset=utf-8"
     pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html language="zh-CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>修改密码</title>
@@ -39,37 +38,37 @@ body{background: #fff 50% 0 no-repeat;margin:0;padding:0;}
 .msg-wrap{margin-left:50px;}</style>
 </head>
 
-	<script type="text/javascript">
-		function check() {
-			var adminPassword = document.form1.adminPassword.value;
-			var adminPassword1 = document.form1.adminPassword1.value;
-			var adminPassword2 = document.form1.adminPassword2.value;
-			var reg = /^[a-zA-Z0-9_]{6,}$/;
-			if (document.form1.adminPassword1.value == "") {
-				alert("请输入确认密码");
-				document.form1.adminPassword1.focus();
-				return false;
-			}
-			if (document.form1.adminPassword1.value != document.form1.adminPassword2.value) {
-				alert("两次输入密码不一致");
-				document.form1.adminPassword2.focus();
-				return false;
-			}
-		}
-	</script>
+<script type="text/javascript">
+    function check() {
+        var adminPassword = document.form1.adminPassword.value;
+        var adminPassword1 = document.form1.adminPassword1.value;
+        var adminPassword2 = document.form1.adminPassword2.value;
+        var reg = /^[a-zA-Z0-9_]{6,}$/;
+        if (document.form1.adminPassword1.value == "") {
+            alert("请输入确认密码");
+            document.form1.adminPassword1.focus();
+            return false;
+        }
+        if (document.form1.adminPassword1.value != document.form1.adminPassword2.value) {
+            alert("两次输入密码不一致");
+            document.form1.adminPassword2.focus();
+            return false;
+        }
+    }
+</script>
 <body>
 <div id="login">
-        <div class="logo">修改密码</div>
-        <div class="main">
-            <form class="formname" action="<%=basePath%>mimaAdmin" name="form1" method="post" onSubmit="return check()">
-            <ul>
-                <li>原密码： <input class="wa" type="password" name="adminPassword" id="adminPassword"/></li>
-                <li>新密码： <input class="wa" type="password" name="adminPassword1" id="adminPassword1"/></li>
-                <li>再输入： <input class="wa" type="password" name="adminPassword2" id="adminPassword2"/></li>
-                <li><input type="submit" value="修 改" class="bnt" style="width:48%" />&nbsp;<input type="reset" value="重 置" class="bnt" style="width:48%" /></li>
-                <li><font color="red">${error }</font></li>
-            </ul>
-            </form>
+    <div class="logo">修改密码</div>
+    <div class="main">
+        <form class="formname" action="<%=basePath%>mimaAdmin" name="form1" method="post" onSubmit="return check()">
+        <ul>
+            <li>原密码： <input class="wa" type="password" name="adminPassword" id="adminPassword"/></li>
+            <li>新密码： <input class="wa" type="password" name="adminPassword1" id="adminPassword1"/></li>
+            <li>再输入： <input class="wa" type="password" name="adminPassword2" id="adminPassword2"/></li>
+            <li><input type="submit" value="修 改" class="bnt" style="width:48%" />&nbsp;<input type="reset" value="重 置" class="bnt" style="width:48%" /></li>
+            <li><font color="red">${error }</font></li>
+        </ul>
+        </form>
             
     </div>
 </div>

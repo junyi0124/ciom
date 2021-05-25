@@ -544,7 +544,7 @@ public class PeizhiPojo implements Serializable {
      *
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
-    public String getBuzhibieming() {
+    public String getBuzhiBieming() {
         return buzhibieming;
     }
 
@@ -554,8 +554,8 @@ public class PeizhiPojo implements Serializable {
      *
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
-    public PeizhiPojo withBuzhibieming(String buzhibieming) {
-        this.setBuzhibieming(buzhibieming);
+    public PeizhiPojo withBuzhiBieming(String buzhibieming) {
+        this.setBuzhiBieming(buzhibieming);
         return this;
     }
 
@@ -567,7 +567,7 @@ public class PeizhiPojo implements Serializable {
      *
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
-    public void setBuzhibieming(String buzhibieming) {
+    public void setBuzhiBieming(String buzhibieming) {
         this.buzhibieming = buzhibieming == null ? null : buzhibieming.trim();
     }
 
@@ -579,7 +579,7 @@ public class PeizhiPojo implements Serializable {
      *
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
-    public String getUserbieming() {
+    public String getUserBieming() {
         return userbieming;
     }
 
@@ -589,7 +589,7 @@ public class PeizhiPojo implements Serializable {
      *
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
-    public PeizhiPojo withUserbieming(String userbieming) {
+    public PeizhiPojo withUserBieming(String userbieming) {
         this.setUserbieming(userbieming);
         return this;
     }
@@ -859,7 +859,7 @@ public class PeizhiPojo implements Serializable {
      *
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
-    public String getYonghubieming() {
+    public String getYonghuBieming() {
         return yonghubieming;
     }
 
