@@ -4,7 +4,7 @@ pageEncoding="utf-8"%>
 <%
 	StringBuffer jcpeizhiparam = new StringBuffer("ceshiId=1");
 	List<PeizhiPojo> jcpeizhis = new ArrayList<PeizhiPojo>();
-	Jcpeizhi jcpeizhi = null;
+	PeizhiPojo jcpeizhi = null;
 	int jcpeizhisshuliang = 0;
 	String jcpeizhipath = request.getContextPath();
 	String jcpeizhibasePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+jcpeizhipath+"/";
