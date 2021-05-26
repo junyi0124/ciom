@@ -8,33 +8,33 @@ pageEncoding="utf-8"%>
     
 <%
 	// 权限验证
-	Admin admin = (Admin)session.getAttribute("admin");
+	AdminPojo admin = (AdminPojo)session.getAttribute("admin");
 	if(admin==null){
 		System.out.println("没有得到adminId");
-		response.sendRedirect("shouye/index.jsp");
+		response.sendRedirect("../shouye/index");
 		return;
 	}
-	Jcpeizhi newJcpeizhi = (Jcpeizhi)session.getAttribute("jcpeizhi");
-	List<Jcbiaoti> jcbiaotis = (List<Jcbiaoti>)session.getAttribute("jcbiaotis");
-	List<List<Jcdaohang>> jcdaohangslist = (List<List<Jcdaohang>>)session.getAttribute("jcdaohangslist");
-	List<Jcdaohang> jcdaohangs = new ArrayList<Jcdaohang>();
+	PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi");
+	List<BiaotiPojo> jcbiaotis = (List<BiaotiPojo>)session.getAttribute("jcbiaotis");
+	List<List<DaohangPojo>> jcdaohangslist = (List<List<DaohangPojo>>)session.getAttribute("jcdaohangslist");
+	List<DaohangPojo> jcdaohangs = new ArrayList<DaohangPojo>();
 	for(int i=0;i<jcdaohangslist.size();i++){
-		List<Jcdaohang> rows = jcdaohangslist.get(i);
+		List<DaohangPojo> rows = jcdaohangslist.get(i);
 		for(int j=0;j<rows.size();j++){
 			jcdaohangs.add(rows.get(j));
 		}
 	}
-	String adminName = admin.getAdminName();
+	String adminName = admin.getAdminname();
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title><%=newJcpeizhi.getJcpeizhiName()%></title>
-    <link rel="stylesheet" href="<%=basePath%>houtai/muban10/assets/css/layui.css">
-    <link rel="stylesheet" href="<%=basePath%>houtai/muban10/assets/css/admin.css">
-    <link rel="icon" href="<%=basePath%>houtai/muban10/favicon.ico">
+    <title><%=newJcpeizhi.getJcpeizhiname()%></title>
+    <link rel="stylesheet" href="/static/muban10/assets/css/layui.css">
+    <link rel="stylesheet" href="/static//muban10/assets/css/admin.css">
+    <link rel="icon" href="/static//muban10/favicon.ico">
 </head>
 <body class="layui-layout-body">
     <div class="layui-layout layui-layout-admin">
@@ -61,7 +61,7 @@ pageEncoding="utf-8"%>
             <div class="layui-side-scroll">
 
                 <div class="custom-logo">
-                    <h1><%=newJcpeizhi.getJcpeizhiName()%></h1>
+                    <h1><%=newJcpeizhi.getJcpeizhiname()%></h1>
                 </div>
                 <ul id="Nav" class="layui-nav layui-nav-tree">
                     <li class="layui-nav-item">
@@ -83,11 +83,12 @@ pageEncoding="utf-8"%>
 		            <li class="layui-nav-item">
                         <a href="javascript:;">
                             <i class="layui-icon">&#xe857;</i>
-                            <em><%=jcbiaotis.get(i).getJcbiaotiName() %></em>
+                            <em><%=jcbiaotis.get(i).getJcbiaotiname() %></em>
                         </a>
                         <dl class="layui-nav-child">
                         <%for(int j = 0; j < jcdaohangslist.get(i).size(); j++){ %>
-		                    <dd><a href="<%=basePath%>admin/<%=jcdaohangslist.get(i).get(j).getJcdaohangNeirong() %>"><%=jcdaohangslist.get(i).get(j).getJcdaohangName() %></a></dd>
+		                    <dd><a href="<%=basePath%>admin/<%=jcdaohangslist.get(i).get(j).getJcdaohangneirong() %>">
+		                    <%=jcdaohangslist.get(i).get(j).getJcdaohangname() %></a></dd>
                         <%} %>
 						</dl>
                     </li>
@@ -105,12 +106,12 @@ pageEncoding="utf-8"%>
         </div>
 
         <div class="layui-footer">
-            <p><%=newJcpeizhi.getJcpeizhiName()%></p>
+            <p><%=newJcpeizhi.getJcpeizhiname()%></p>
         </div>
 
         <div class="mobile-mask"></div>
     </div>
-    <script src="<%=basePath%>houtai/muban10/assets/layui.js"></script>
-    <script src="<%=basePath%>houtai/muban10/index.js" data-main="home"></script>
+    <script src="/static/muban10/assets/layui.js"></script>
+    <script src="/static/muban10/index.js" data-main="home"></script>
 </body>
 </html>

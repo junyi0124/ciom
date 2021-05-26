@@ -50,5 +50,10 @@ public class JspController {
         return "jiazai/jcpeizhibaohan";
     }
 
+    @RequestMapping(value = "/houtai/adminMain", method= RequestMethod.GET)
+    public String backend_admin() {
+        return "houtai/adminMain";
+    }
+
 }
 

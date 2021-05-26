@@ -29,7 +29,7 @@
     })();
 
     layui.config({
-        base: 'assets/lay/modules/'
+        base: 'static/muban10/'   //assets/lay/modules/
     }).extend(app).use(entry || 'home');
 
 })();
