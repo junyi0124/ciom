@@ -70,13 +70,13 @@ pageEncoding="utf-8"%>
                             <em>主页</em>
                         </a>
                         <dl class="layui-nav-child">
-                            <dd><a href="<%=basePath%>shouye/neiye.jsp">欢迎页</a></dd>
+                            <dd><a href="<%=basePath%>shouye/neiye">欢迎页</a></dd>
                         </dl>
                         <dl class="layui-nav-child">
-                            <dd><a href="<%=basePath%>admin/adminmima.jsp">修改密码</a></dd>
+                            <dd><a href="<%=basePath%>admin/adminmima">修改密码</a></dd>
                         </dl>
                         <dl class="layui-nav-child">
-                            <dd><a href="<%=basePath%>admin/rizhi.jsp">登录日志</a></dd>
+                            <dd><a href="<%=basePath%>admin/rizhi">登录日志</a></dd>
                         </dl>
                     </li>
                     <%for(int i = 0; i < jcbiaotis.size(); i++){ %>

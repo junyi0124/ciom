@@ -47,7 +47,7 @@ public class LoginController {
         rizhi.setRizhiname(userName);
         rizhi.setDate(date);
         rizhi.setDengluip(ip);
-        //rizhiService.save(rizhi);
+        rizhiService.save(rizhi);
 
         if (!StringUtils.hasText(userName) || !StringUtils.hasText(password)) {
             request.setAttribute("error", "用户名或密码为空！");

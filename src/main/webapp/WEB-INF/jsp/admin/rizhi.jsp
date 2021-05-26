@@ -1,5 +1,5 @@
 <%@ page language="java" import="edu.thn.ciom.pojo.*"  pageEncoding="utf-8"%>
-<% Jcpeizhi newJcpeizhi = (Jcpeizhi)session.getAttribute("jcpeizhi"); %>
+<% PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -124,9 +124,9 @@
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true"></th>
-				<th field="rizhiId" width="10" hidden="true">编号</th>
-				<th field="rizhiName" width="50">用户名</th>
-				<th field="dengluIp" width="50">IP</th>
+				<th field="rizhiid" width="10" hidden="true">编号</th>
+				<th field="rizhiname" width="50">用户名</th>
+				<th field="dengluip" width="50">IP</th>
 				<th field="date" width="50" formatter="datetostr">日期</th>
 			</tr>
 		</thead>

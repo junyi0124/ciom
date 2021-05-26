@@ -48,12 +48,11 @@ public interface RizhiPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Insert({
-        "insert into t_rizhi (rizhiName, dengluIp, ",
-        "date)",
-        "values (#{rizhiname,jdbcType=VARCHAR}, #{dengluip,jdbcType=VARCHAR}, ",
-        "#{date,jdbcType=TIMESTAMP})"
+        "insert into t_rizhi (rizhiName, dengluIp, date)",
+        "values (#{rizhiname,jdbcType=VARCHAR}, #{dengluip,jdbcType=VARCHAR}, CURRENT_TIMESTAMP())"
+        //"#{date,jdbcType=TIMESTAMP})"
     })
-    @SelectKey(statement="CALL IDENTITY()", keyProperty="rizhiid", before=false, resultType=Integer.class)
+//    @SelectKey(statement="CALL IDENTITY()", keyProperty="rizhiid", before=false, resultType=Integer.class)
     int insert(RizhiPojo record);
 
     /**

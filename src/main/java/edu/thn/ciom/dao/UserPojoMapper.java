@@ -83,7 +83,8 @@ public interface UserPojoMapper {
         "#{buyuanname,jdbcType=VARCHAR}, #{buzhiid,jdbcType=INTEGER}, ",
         "#{buzhiname,jdbcType=VARCHAR})"
     })
-    @SelectKey(statement="CALL IDENTITY()", keyProperty="userid", before=false, resultType=Integer.class)
+    //statement="CALL IDENTITY()",
+    //@SelectKey(useGeneratedKeys="true", keyProperty="userid", before=false, resultType=Integer.class)
     int insert(UserPojo record);
 
     /**
