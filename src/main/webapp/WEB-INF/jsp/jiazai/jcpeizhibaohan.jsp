@@ -2,7 +2,7 @@
 import="edu.thn.ciom.pojo.*,edu.thn.ciom.util.*,java.util.List,java.util.ArrayList,net.sf.json.JSONArray,net.sf.json.JSONObject,net.sf.json.JsonConfig"
 pageEncoding="utf-8"%>
 <%
-	StringBuffer jcpeizhiparam = new StringBuffer("ceshiId=1");
+	StringBuffer jcpeizhiparam = new StringBuffer("jcpeizhiId=1");
 	List<PeizhiPojo> jcpeizhis = new ArrayList<PeizhiPojo>();
 	PeizhiPojo jcpeizhi = null;
 	int jcpeizhisshuliang = 0;
@@ -14,13 +14,13 @@ pageEncoding="utf-8"%>
 	if(jcpeizhiresult!=null){
 		JSONArray jcpeizhijsonArray = (JSONArray)jcpeizhiresult.get("rows");
 		//System.out.println(jcpeizhijsonArray);
-		jcpeizhis = JSONArray.toList(jcpeizhijsonArray, new Jcpeizhi(), new JsonConfig());
+		jcpeizhis = JSONArray.toList(jcpeizhijsonArray, new PeizhiPojo(), new JsonConfig());
 		if(jcpeizhis.size() > 0){
 			jcpeizhi = jcpeizhis.get(0);
 		}
-		//for(int i = 0;i < jcpeizhis.size();i++){
-		//	System.out.println(jcpeizhis.get(i).getJcpeizhiName());
-		//}
+		for(int i = 0;i < jcpeizhis.size();i++){
+			System.out.println(jcpeizhis.get(i).getJcpeizhiname());
+		}
 		jcpeizhisshuliang = (Integer)jcpeizhiresult.get("total");
 	}
 	session.setAttribute("jcpeizhi", jcpeizhi);

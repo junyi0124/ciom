@@ -19,10 +19,14 @@ public class JcpeizhiService {
         // TODO Auto-generated method stub
         PeizhiPojoExample example = new PeizhiPojoExample();
         PeizhiPojoExample.Criteria criteria = example.createCriteria();
-        if (StringUtils.hasText(record.getBuzhiBieming()))
-            criteria.andBumenbiemingLike(record.getBuzhiBieming());
-//        if (StringUtils.hasText(record.getAdminpassword()))
-//            criteria.andAdminpasswordLike(record.getAdminpassword());
+        if(record!=null){
+            if (StringUtils.hasText(record.getBuzhiBieming()))
+                criteria.andBumenbiemingLike(record.getBuzhiBieming());
+            if (record.getJcpeizhiid() != 0)
+                criteria.andJcpeizhiidEqualTo(record.getJcpeizhiid());
+        }
+
+        if (rows == 0) return peizhiPojoMapper.selectByExample(example);
         RowBounds rb = new RowBounds(page * rows, rows);
         return peizhiPojoMapper.selectByExampleWithRowbounds(example, rb);
     }
