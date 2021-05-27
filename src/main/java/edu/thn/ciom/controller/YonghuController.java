@@ -718,7 +718,7 @@ public class YonghuController {
         response.setCharacterEncoding("UTF-8");
         String sdate = request.getParameter("sdate");
         String edate = request.getParameter("edate");
-        String tijiaoUrl = "yonghuTongji";
+        String tijiaoUrl = "yonghuTongji"; //?用户统计
         List<Integer> bumenIds = new ArrayList<Integer>();
         List<String> tongjiNames = new ArrayList<String>();
         List<Double> tongjiZongshus = new ArrayList<Double>();
@@ -726,15 +726,15 @@ public class YonghuController {
         List<YongHuPojo> yonghus = new ArrayList<YongHuPojo>();
         Double zongshu = 0.0;
         try {
-            bumens = bumenService.queryBumens(null, 0, 0);
-            for (int i = 0; i < bumens.size(); i++) {
-                bumenIds.add(bumens.get(i).getBumenId());
-                tongjiNames.add(bumens.get(i).getBumenName());
-            }
+//            bumens = bumenService.queryBumens(null, 0, 0);
+//            for (int i = 0; i < bumens.size(); i++) {
+//                bumenIds.add(bumens.get(i).getBumenId());
+//                tongjiNames.add(bumens.get(i).getBumenName());
+//            }
             for (int i = 0; i < bumenIds.size(); i++) {
                 Double yonghuZongshu = 0.0;
                 YongHuPojo yonghu = new YongHuPojo();
-                yonghu.setBumenId(bumenIds.get(i));
+                yonghu.setBumenid(bumenIds.get(i));
                 yonghus = yonghuService.queryYonghus(yonghu, null, 0, 0, sdate, edate, null, null);
                 for (int j = 0; j < yonghus.size(); j++) {
                     yonghuZongshu = yonghuZongshu + yonghus.size();
@@ -784,122 +784,122 @@ public class YonghuController {
         }
     }
 
-    @RequestMapping("/daoruYonghu")
-    public void daoruYonghu(HttpServletRequest request, HttpServletResponse response, MultipartFile uploadFile)
-            throws Exception {
-        try {
-            String directory = "/file";
-            String targetDirectory = request.getSession().getServletContext().getRealPath(directory);
-            String fileName = uploadFile.getOriginalFilename();
-            File dir = new File(targetDirectory, fileName);
-            if (!dir.exists()) {
-                dir.mkdirs();
-            }
-            //MultipartFile自带的解析方法
-            uploadFile.transferTo(dir);
-            excelFile = new FileInputStream(dir);
-            List<List<String>> list = new ArrayList<List<String>>();
-            list = ExcelUtil.jiexiExcel(excelFile);
-            for (int i = 1; i < list.size(); i++) {
-                List<String> row = list.get(i);
-                String yonghuName = row.get(0);
-                String yonghuPassword = row.get(1);
-                String yonghuXingming = row.get(2);
-                String yonghuSex = row.get(3);
-                String yonghuAge = row.get(4);
-                String yonghuMinzu = row.get(5);
-                String yonghuPhone = row.get(6);
-                String byuzhiId = row.get(7);
-                Yonghu yonghu = new Yonghu();
+//    @RequestMapping("/daoruYonghu")
+//    public void daoruYonghu(HttpServletRequest request, HttpServletResponse response, MultipartFile uploadFile)
+//            throws Exception {
+//        try {
+//            String directory = "/file";
+//            String targetDirectory = request.getSession().getServletContext().getRealPath(directory);
+//            String fileName = uploadFile.getOriginalFilename();
+//            File dir = new File(targetDirectory, fileName);
+//            if (!dir.exists()) {
+//                dir.mkdirs();
+//            }
+//            //MultipartFile自带的解析方法
+//            uploadFile.transferTo(dir);
+//            excelFile = new FileInputStream(dir);
+//            List<List<String>> list = new ArrayList<List<String>>();
+//            list = ExcelUtil.jiexiExcel(excelFile);
+//            for (int i = 1; i < list.size(); i++) {
+//                List<String> row = list.get(i);
+//                String yonghuName = row.get(0);
+//                String yonghuPassword = row.get(1);
+//                String yonghuXingming = row.get(2);
+//                String yonghuSex = row.get(3);
+//                String yonghuAge = row.get(4);
+//                String yonghuMinzu = row.get(5);
+//                String yonghuPhone = row.get(6);
+//                String byuzhiId = row.get(7);
+//                Yonghu yonghu = new Yonghu();
+//
+//                if (StringUtils.hasText(yonghuName)) {
+//                    yonghu.setYonghuName(yonghuName);
+//                }
+//                if (StringUtils.hasText(yonghuPassword)) {
+//                    yonghu.setYonghuPassword(yonghuPassword);
+//                }
+//                if (StringUtils.hasText(yonghuAge)) {
+//                    yonghu.setYonghuAge(Integer.parseInt(yonghuAge));
+//                }
+//                if (StringUtils.hasText(yonghuXingming)) {
+//                    yonghu.setYonghuXingming(yonghuXingming);
+//                }
+//                if (StringUtils.hasText(yonghuSex)) {
+//                    if (yonghuSex.equals("男")) {
+//                        yonghu.setYonghuSex(0);
+//                    } else if (yonghuSex.equals("女")) {
+//                        yonghu.setYonghuSex(1);
+//                    } else {
+//                        yonghu.setYonghuSex(0);
+//                    }
+//                }
+//                if (StringUtils.hasText(yonghuMinzu)) {
+//                    yonghu.setYonghuMinzu(yonghuMinzu);
+//                }
+//                if (StringUtils.hasText(yonghuPhone)) {
+//                    yonghu.setYonghuPhone(yonghuPhone);
+//                }
+//                if (StringUtils.hasText(byuzhiId)) {
+//                    yonghu.setByuzhiId(Integer.parseInt(byuzhiId));
+//                    Byuzhi byuzhi = new Byuzhi();
+//                    byuzhi = byuzhiService.getByuzhi(Integer.parseInt(byuzhiId));
+//                    yonghu.setByuzhiName(byuzhi.getByuzhiName());
+//                    yonghu.setByumenId(byuzhi.getByumenId());
+//                    yonghu.setByumenName(byuzhi.getByumenName());
+//                    yonghu.setByuyuanid(byuzhi.getByuyuanid());
+//                    yonghu.setByuyuanname(byuzhi.getByuyuanname());
+//                }
+//                Date date = new Date();
+//                yonghu.setYonghudate(date);
+//                yonghuService.save(yonghu);
+//            }
+//            JSONObject result = new JSONObject();
+//            result.put("success", "true");
+//            ResponseUtil.write(response, result);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
-                if (StringUtils.hasText(yonghuName)) {
-                    yonghu.setYonghuName(yonghuName);
-                }
-                if (StringUtils.hasText(yonghuPassword)) {
-                    yonghu.setYonghuPassword(yonghuPassword);
-                }
-                if (StringUtils.hasText(yonghuAge)) {
-                    yonghu.setYonghuAge(Integer.parseInt(yonghuAge));
-                }
-                if (StringUtils.hasText(yonghuXingming)) {
-                    yonghu.setYonghuXingming(yonghuXingming);
-                }
-                if (StringUtils.hasText(yonghuSex)) {
-                    if (yonghuSex.equals("男")) {
-                        yonghu.setYonghuSex(0);
-                    } else if (yonghuSex.equals("女")) {
-                        yonghu.setYonghuSex(1);
-                    } else {
-                        yonghu.setYonghuSex(0);
-                    }
-                }
-                if (StringUtils.hasText(yonghuMinzu)) {
-                    yonghu.setYonghuMinzu(yonghuMinzu);
-                }
-                if (StringUtils.hasText(yonghuPhone)) {
-                    yonghu.setYonghuPhone(yonghuPhone);
-                }
-                if (StringUtils.hasText(byuzhiId)) {
-                    yonghu.setByuzhiId(Integer.parseInt(byuzhiId));
-                    Byuzhi byuzhi = new Byuzhi();
-                    byuzhi = byuzhiService.getByuzhi(Integer.parseInt(byuzhiId));
-                    yonghu.setByuzhiName(byuzhi.getByuzhiName());
-                    yonghu.setByumenId(byuzhi.getByumenId());
-                    yonghu.setByumenName(byuzhi.getByumenName());
-                    yonghu.setByuyuanid(byuzhi.getByuyuanid());
-                    yonghu.setByuyuanname(byuzhi.getByuyuanname());
-                }
-                Date date = new Date();
-                yonghu.setYonghudate(date);
-                yonghuService.save(yonghu);
-            }
-            JSONObject result = new JSONObject();
-            result.put("success", "true");
-            ResponseUtil.write(response, result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @RequestMapping("/daochuYonghu")
-    public void daochuYonghu(HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
-        try {
-            Date date = new Date();
-            String strdate = DateUtil.formatDate(date, "yyyyMMddhhmmss");
-            String excelName = strdate + ".xls";
-            String mubanLujing = "";
-            String daochuLujing = "" + excelName;
-            String delIds =  request.getParameter("delIds");
-            JSONObject result = new JSONObject();
-            String str[] = delIds.split(",");
-            List<List<String>> list = new ArrayList<List<String>>();
-            YongHuPojo yonghu = new YongHuPojo();
-            for (int i = 0; i < str.length; i++) {
-                List<String> row = new ArrayList<String>();
-                yonghu = yonghuService.getYonghu(Integer.parseInt(str[i]));
-                row.add(TypeUtil.toString(i + 1));
-                row.add(yonghu.getYonghuxingming());
-                row.add(yonghu.getByuzhiname());
-                row.add(yonghu.getYonghuphone());
-                row.add(yonghu.getYonghuage().toString());
-                if (yonghu.getYonghusex() == 0) {
-                    row.add("男");
-                } else {
-                    row.add("女");
-                }
-                list.add(row);
-            }
-            if (ExcelUtil.daochuExcle(list, mubanLujing, daochuLujing)) {
-                result.put("success", "true");
-                ResponseUtil.write(response, result);
-            } else {
-                result.put("success", "true");
-                result.put("errorMsg", "导出Excel出错！");
-                ResponseUtil.write(response, result);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    @RequestMapping("/daochuYonghu")
+//    public void daochuYonghu(HttpServletRequest request, HttpServletResponse response)
+//            throws Exception {
+//        try {
+//            Date date = new Date();
+//            String strdate = DateUtil.formatDate(date, "yyyyMMddhhmmss");
+//            String excelName = strdate + ".xls";
+//            String mubanLujing = "";
+//            String daochuLujing = "" + excelName;
+//            String delIds =  request.getParameter("delIds");
+//            JSONObject result = new JSONObject();
+//            String str[] = delIds.split(",");
+//            List<List<String>> list = new ArrayList<List<String>>();
+//            YongHuPojo yonghu = new YongHuPojo();
+//            for (int i = 0; i < str.length; i++) {
+//                List<String> row = new ArrayList<String>();
+//                yonghu = yonghuService.getYonghu(Integer.parseInt(str[i]));
+//                row.add(TypeUtil.toString(i + 1));
+//                row.add(yonghu.getYonghuxingming());
+//                row.add(yonghu.getByuzhiname());
+//                row.add(yonghu.getYonghuphone());
+//                row.add(yonghu.getYonghuage().toString());
+//                if (yonghu.getYonghusex() == 0) {
+//                    row.add("男");
+//                } else {
+//                    row.add("女");
+//                }
+//                list.add(row);
+//            }
+//            if (ExcelUtil.daochuExcle(list, mubanLujing, daochuLujing)) {
+//                result.put("success", "true");
+//                ResponseUtil.write(response, result);
+//            } else {
+//                result.put("success", "true");
+//                result.put("errorMsg", "导出Excel出错！");
+//                ResponseUtil.write(response, result);
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 }
