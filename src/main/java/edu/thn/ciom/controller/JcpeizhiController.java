@@ -88,7 +88,7 @@ public class JcpeizhiController {
                 jcpeizhi.setBuzhiBieming(buzhiBieming);
             }
             if (StringUtils.hasText(userBieming)) {
-                jcpeizhi.setUserbieming(userBieming);
+                jcpeizhi.setUserBieming(userBieming);
             }
             if (StringUtils.hasText(uxtypeBieming)) {
                 jcpeizhi.setUxtypebieming(uxtypeBieming);
@@ -112,7 +112,7 @@ public class JcpeizhiController {
                 jcpeizhi.setByuzhibieming(byuzhiBieming);
             }
             if (StringUtils.hasText(yonghuBieming)) {
-                jcpeizhi.setYonghubieming(yonghuBieming);
+                jcpeizhi.setYonghuBieming(yonghuBieming);
             }
             if (StringUtils.hasText(yxtypeBieming)) {
                 jcpeizhi.setYxtypebieming(yxtypeBieming);

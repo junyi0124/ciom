@@ -11,11 +11,11 @@ pageEncoding="utf-8"%>
 	
 	String jcpeizhiurl = jcpeizhibasePath + "getJcpeizhis";
 	JSONObject jcpeizhiresult = PostUtil.sendPost(jcpeizhiurl, jcpeizhiparam.toString());
-	if(jcpeizhiresult!=null){
+	if(jcpeizhiresult != null) {
 		JSONArray jcpeizhijsonArray = (JSONArray)jcpeizhiresult.get("rows");
 		//System.out.println(jcpeizhijsonArray);
 		jcpeizhis = JSONArray.toList(jcpeizhijsonArray, new PeizhiPojo(), new JsonConfig());
-		if(jcpeizhis.size() > 0){
+		if( jcpeizhis.size() > 0){
 			jcpeizhi = jcpeizhis.get(0);
 		}
 		for(int i = 0;i < jcpeizhis.size();i++){

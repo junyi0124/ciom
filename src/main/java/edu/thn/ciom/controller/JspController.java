@@ -54,6 +54,11 @@ public class JspController {
         return "admin/rizhi";
     }
 
+    @RequestMapping(value = "/admin/buzhi", method = RequestMethod.GET)
+    public String admin_buzhi() {
+        return "admin/buzhi";
+    }
+
     @RequestMapping(value = "/jiazai/jcpeizhibaohan", method = RequestMethod.GET)
     public String load_peizhi() {
         return "jiazai/jcpeizhibaohan";

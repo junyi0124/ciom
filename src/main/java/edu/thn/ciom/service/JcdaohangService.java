@@ -19,9 +19,14 @@ public class JcdaohangService {
     public List queryJcdaohangs(DaohangPojo record, int page, int rows) {
         // TODO Auto-generated method stub
         DaohangPojoExample example = new DaohangPojoExample();
+        DaohangPojoExample.Criteria criteria = example.createCriteria();
+        if (record != null) {
+            criteria.andJcbiaotiidEqualTo(record.getJcbiaotiid());
+            criteria.andJcdaohangtype1EqualTo(record.getJcdaohangtype1());
+        }
 
         if (rows == 0) return daohangPojoMapper.selectByExample(example);
-        RowBounds rb = new RowBounds(page * rows, rows);
+        RowBounds rb = new RowBounds((page - 1) * rows, rows);
         return daohangPojoMapper.selectByExampleWithRowbounds(example, rb);
     }
 

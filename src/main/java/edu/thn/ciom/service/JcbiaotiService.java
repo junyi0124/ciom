@@ -20,13 +20,14 @@ public class JcbiaotiService {
         // TODO Auto-generated method stub
         BiaotiPojoExample example = new BiaotiPojoExample();
         BiaotiPojoExample.Criteria criteria = example.createCriteria();
-        if(StringUtils.hasText(record.getJcbiaotimark()))
-            criteria.andJcbiaotimarkLike(record.getJcbiaotimark());
 
-        if(rows==0)
-            return biaotiPojoMapper.selectByExample(example);
+        if(record!=null) {
+                criteria.andJcbiaotitypeEqualTo(record.getJcbiaotitype());
+                criteria.andJcbiaotitype1EqualTo(record.getJcbiaotitype1());
+        }
 
-        RowBounds rb = new RowBounds(page*rows, rows);
+        if(rows==0) return biaotiPojoMapper.selectByExample(example);
+        RowBounds rb = new RowBounds((page- 1)*rows, rows);
         return biaotiPojoMapper.selectByExampleWithRowbounds(example, rb);
     }
 

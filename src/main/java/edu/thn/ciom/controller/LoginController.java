@@ -191,8 +191,8 @@ public class LoginController {
         for (int i = 0; i < jcbiaotis.size(); i++) {
             List<DaohangPojo> jcdaohangs = new ArrayList<DaohangPojo>();
             DaohangPojo jcdaohang = new DaohangPojo();
-            jcdaohang.setJcdaohangtype1(0);
             jcdaohang.setJcbiaotiid(jcbiaotis.get(i).getJcbiaotiid());
+            jcdaohang.setJcdaohangtype1(0);
             jcdaohangs = jcdaohangService.queryJcdaohangs(jcdaohang, 0, 0);
             jcdaohangslist.add(jcdaohangs);
         }

@@ -590,7 +590,7 @@ public class PeizhiPojo implements Serializable {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     public PeizhiPojo withUserBieming(String userbieming) {
-        this.setUserbieming(userbieming);
+        this.setUserBieming(userbieming);
         return this;
     }
 
@@ -602,7 +602,7 @@ public class PeizhiPojo implements Serializable {
      *
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
-    public void setUserbieming(String userbieming) {
+    public void setUserBieming(String userbieming) {
         this.userbieming = userbieming == null ? null : userbieming.trim();
     }
 
@@ -870,7 +870,7 @@ public class PeizhiPojo implements Serializable {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     public PeizhiPojo withYonghubieming(String yonghubieming) {
-        this.setYonghubieming(yonghubieming);
+        this.setYonghuBieming(yonghubieming);
         return this;
     }
 
@@ -882,7 +882,7 @@ public class PeizhiPojo implements Serializable {
      *
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
-    public void setYonghubieming(String yonghubieming) {
+    public void setYonghuBieming(String yonghubieming) {
         this.yonghubieming = yonghubieming == null ? null : yonghubieming.trim();
     }
 

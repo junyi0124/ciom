@@ -10,7 +10,7 @@
 	User user = (User)session.getAttribute("user");
 	if(user==null){
 		System.out.println("没有得到userId");
-		response.sendRedirect("shouye/index.jsp");
+		response.sendRedirect("shouye/index");
 		return;
 	}
 	Jcpeizhi newJcpeizhi = (Jcpeizhi)session.getAttribute("jcpeizhi");

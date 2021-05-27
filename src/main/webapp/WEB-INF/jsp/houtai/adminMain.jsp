@@ -50,8 +50,8 @@ pageEncoding="utf-8"%>
                 <li class="layui-nav-item">
                     <a href="javascript:;">管理员，<%=adminName %></a>
                     <dl class="layui-nav-child">
-                        <dd><a href="<%=basePath%>admin/adminmima.jsp">修改密码</a></dd>
-                        <dd><a href="<%=basePath%>shouye/tuichu.jsp">退出</a></dd>
+                        <dd><a href="<%=basePath%>admin/adminmima">修改密码</a></dd>
+                        <dd><a href="<%=basePath%>shouye/tuichu">退出</a></dd>
                     </dl>
                 </li>
             </ul>
@@ -83,7 +83,7 @@ pageEncoding="utf-8"%>
 		            <li class="layui-nav-item">
                         <a href="javascript:;">
                             <i class="layui-icon">&#xe857;</i>
-                            <em><%=jcbiaotis.get(i).getJcbiaotiname() %></em>
+                            <em><%= jcbiaotis.get(i).getJcbiaotiname() %></em>
                         </a>
                         <dl class="layui-nav-child">
                         <%for(int j = 0; j < jcdaohangslist.get(i).size(); j++){ %>

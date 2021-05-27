@@ -10,7 +10,7 @@
 	Yonghu yonghu = (Yonghu)session.getAttribute("yonghu");
 	if(yonghu==null){
 		System.out.println("没有得到yonghuId");
-		response.sendRedirect("shouye/index.jsp");
+		response.sendRedirect("shouye/index");
 		return;
 	}
 	Jcpeizhi newJcpeizhi = (Jcpeizhi)session.getAttribute("jcpeizhi");
@@ -42,8 +42,8 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;"><%=newJcpeizhi.getYonghuBieming()%>，<%=yonghuName %></a>
                     <dl class="layui-nav-child">
-                        <dd><a href="<%=basePath%>yonghu/yonghumima.jsp">修改密码</a></dd>
-                        <dd><a href="<%=basePath%>shouye/tuichu.jsp">退出</a></dd>
+                        <dd><a href="<%=basePath%>yonghu/yonghumima">修改密码</a></dd>
+                        <dd><a href="<%=basePath%>shouye/tuichu">退出</a></dd>
                     </dl>
                 </li>
             </ul>
@@ -62,13 +62,13 @@
                             <em>个人信息</em>
                         </a>
                         <dl class="layui-nav-child">
-                            <dd><a href="<%=basePath%>shouye/neiye.jsp">欢迎页</a></dd>
+                            <dd><a href="<%=basePath%>shouye/neiye">欢迎页</a></dd>
                         </dl>
                         <dl class="layui-nav-child">
-                            <dd><a href="<%=basePath%>yonghu/yonghu.jsp">个人信息</a></dd>
+                            <dd><a href="<%=basePath%>yonghu/yonghu">个人信息</a></dd>
                         </dl>
                         <dl class="layui-nav-child">
-                            <dd><a href="<%=basePath%>yonghu/yonghumima.jsp">修改密码</a></dd>
+                            <dd><a href="<%=basePath%>yonghu/yonghumima">修改密码</a></dd>
                         </dl>
                     </li>
                     <%for(int i = 0; i < jcbiaotis.size(); i++){ %>
