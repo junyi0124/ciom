@@ -23,9 +23,9 @@ var url;
 	}
 	
 	function saveYonghu(){
-		$("#fm").form("submit",{
-			url:url,
-			onSubmit:function(){
+		$("#fm").form("submit", {
+			url : url,
+			onSubmit:function() {
 				return $(this).form("validate");
 			},
 			success:function(result){
@@ -139,7 +139,7 @@ var url;
 		}
 	}
 	
-	function daochuYonghu(){
+	function daochuYonghu() {
 		var selectedRows=$("#dg").datagrid('getSelections');
 		if(selectedRows.length==0){
 			$.messager.alert("系统提示","请选择要导出的数据！");

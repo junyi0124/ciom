@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title><%=newJcpeizhi.getBuzhiBieming()%>信息</title>
+<title><%=newJcpeizhi.getBuzhibieming()%>信息</title>
 
 <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/icon.css">
@@ -48,7 +48,7 @@
 	}
 	
 	function openBuzhiAddDialog(){
-		$("#dlg").dialog("open").dialog("setTitle","添加<%=newJcpeizhi.getBuzhiBieming()%>信息");
+		$("#dlg").dialog("open").dialog("setTitle","添加<%=newJcpeizhi.getBuzhibieming()%>信息");
 		url="../addBuzhi";
 	}
 	
@@ -93,7 +93,7 @@
 			return;
 		}
 		var row=selectedRows[0];
-		$("#dlg").dialog("open").dialog("setTitle","编辑<%=newJcpeizhi.getBuzhiBieming()%>信息");
+		$("#dlg").dialog("open").dialog("setTitle","编辑<%=newJcpeizhi.getBuzhibieming()%>信息");
 		$("#fm").form("load",row);
 		url="../addBuzhi?buzhiId="+row.buzhiId;
 	}
@@ -109,7 +109,7 @@
 </script>
 </head>
 <body style="margin: 5px;">
-	<table id="dg" title="<%=newJcpeizhi.getBuzhiBieming()%>信息" class="easyui-datagrid" fitColumns="true"
+	<table id="dg" title="<%=newJcpeizhi.getBuzhibieming()%>信息" class="easyui-datagrid" fitColumns="true"
 	 pagination="true" url="../getBuzhis" fit="true" rownumbers="true" toolbar="#tb">
 		<thead>
 			<tr>
