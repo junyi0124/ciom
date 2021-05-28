@@ -12,7 +12,9 @@ public class JspController {
 
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String defaultView() {  return "forward:/shouye/index";  }
+    public String defaultView() {
+        return "forward:/shouye/index";
+    }
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String Index() {

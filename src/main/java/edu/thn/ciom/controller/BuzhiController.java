@@ -1,17 +1,18 @@
 package edu.thn.ciom.controller;
 
-import edu.thn.ciom.pojo.*;
-import edu.thn.ciom.service.*;
-import edu.thn.ciom.util.*;
-import org.springframework.stereotype.Controller;
+import edu.thn.ciom.pojo.BuzhiPojo;
+import edu.thn.ciom.service.BuzhiService;
+import edu.thn.ciom.util.ResponseUtil;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 @Controller
 public class BuzhiController {
     @Autowired
@@ -29,20 +30,20 @@ public class BuzhiController {
         try {
             JSONObject result = new JSONObject();
 
-            String buzhiName = (String) request.getParameter("buzhiName");
-            String buzhiMark = (String) request.getParameter("buzhiMark");
-            String buzhiMark1 = (String) request.getParameter("buzhiMark1");
-            String buzhiMark2 = (String) request.getParameter("buzhiMark2");
-            String buzhiType = (String) request.getParameter("buzhiType");
-            String buzhiType1 = (String) request.getParameter("buzhiType1");
-            String buzhiType2 = (String) request.getParameter("buzhiType2");
-            String buzhiDouble = (String) request.getParameter("buzhiDouble");
-            String buzhiDouble1 = (String) request.getParameter("buzhiDouble1");
-            String buzhiDouble2 = (String) request.getParameter("buzhiDouble2");
-            String buyuanId = (String) request.getParameter("buyuanId");
-            String buyuanName = (String) request.getParameter("buyuanName");
-            String bumenId = (String) request.getParameter("bumenId");
-            String buzhiId = (String) request.getParameter("buzhiId");
+            String buzhiName = request.getParameter("buzhiName");
+            String buzhiMark = request.getParameter("buzhiMark");
+            String buzhiMark1 = request.getParameter("buzhiMark1");
+            String buzhiMark2 = request.getParameter("buzhiMark2");
+            String buzhiType = request.getParameter("buzhiType");
+            String buzhiType1 = request.getParameter("buzhiType1");
+            String buzhiType2 = request.getParameter("buzhiType2");
+            String buzhiDouble = request.getParameter("buzhiDouble");
+            String buzhiDouble1 = request.getParameter("buzhiDouble1");
+            String buzhiDouble2 = request.getParameter("buzhiDouble2");
+            String buyuanId = request.getParameter("buyuanId");
+            String buyuanName = request.getParameter("buyuanName");
+            String bumenId = request.getParameter("bumenId");
+            String buzhiId = request.getParameter("buzhiId");
             BuzhiPojo buzhi = new BuzhiPojo();
 
             if (StringUtils.hasText(buzhiId)) {
@@ -81,14 +82,14 @@ public class BuzhiController {
             if (StringUtils.hasText(bumenId)) {
                 buzhi.setBumenid(Integer.parseInt(bumenId));
             }
-            if(StringUtils.hasText(buzhiName)) {
+            if (StringUtils.hasText(buzhiName)) {
                 buzhi.setBumenname(buzhiName);
             }
             if (StringUtils.hasText(buyuanId)) {
                 buzhi.setBuyuanid(Integer.parseInt(buyuanId));
             }
 
-            if(StringUtils.hasText(buyuanName)) {
+            if (StringUtils.hasText(buyuanName)) {
                 buzhi.setBuyuanname(buyuanName);
             }
             if (StringUtils.hasText(buzhiId)) {
@@ -109,12 +110,12 @@ public class BuzhiController {
                           HttpServletResponse response) throws Exception {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        String page = (String) request.getParameter("page");
-        String rows = (String) request.getParameter("rows");
-        String buzhiName = (String) request.getParameter("buzhiName");
-        String buzhiType = (String) request.getParameter("buzhiType");
-        String buyuanId = (String) request.getParameter("buyuanId");
-        String bumenId = (String) request.getParameter("bumenId");
+        String page = request.getParameter("page");
+        String rows = request.getParameter("rows");
+        String buzhiName = request.getParameter("buzhiName");
+        String buzhiType = request.getParameter("buzhiType");
+        String buyuanId = request.getParameter("buyuanId");
+        String bumenId = request.getParameter("bumenId");
         BuzhiPojo buzhi = new BuzhiPojo();
         if (StringUtils.hasText(buzhiName)) {
             buzhi.setBuzhiname(buzhiName);
@@ -129,15 +130,15 @@ public class BuzhiController {
             buzhi.setBumenid(Integer.parseInt(bumenId));
         }
         PageBean pageBean = null;
-        if ((StringUtils.hasText(page))&&(!page.equals("null"))) {
+        if ((StringUtils.hasText(page)) && (!page.equals("null"))) {
             pageBean = new PageBean(Integer.parseInt(page), Integer.parseInt(rows));
-        }else{
-            pageBean = new PageBean(0,0);
+        } else {
+            pageBean = new PageBean(0, 0);
         }
         try {
             JSONArray jsonArray = JSONArray.fromObject(buzhiService.queryBuzhis(buzhi, pageBean.getStart(), pageBean.getRows()));
             JSONObject result = new JSONObject();
-            int total = buzhiService.queryBuzhis(buzhi, 0,0).size();
+            int total = buzhiService.queryBuzhis(buzhi, 0, 0).size();
             result.put("rows", jsonArray);
             result.put("total", total);
             ResponseUtil.write(response, result);
@@ -150,10 +151,10 @@ public class BuzhiController {
     public void deleteBuzhi(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         try {
-            String delIds = (String) request.getParameter("delIds");
+            String delIds = request.getParameter("delIds");
             System.out.println("delIds = " + delIds);
             JSONObject result = new JSONObject();
-            String str[] = delIds.split(",");
+            String[] str = delIds.split(",");
             for (int i = 0; i < str.length; i++) {
                 buzhiService.deleteBuzhi(Integer.parseInt(str[i]));
             }
@@ -170,10 +171,10 @@ public class BuzhiController {
             throws Exception {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        String buzhiName = (String) request.getParameter("buzhiName");
-        String buzhiType = (String) request.getParameter("buzhiType");
-        String buyuanId = (String) request.getParameter("buyuanId");
-        String bumenId = (String) request.getParameter("bumenId");
+        String buzhiName = request.getParameter("buzhiName");
+        String buzhiType = request.getParameter("buzhiType");
+        String buyuanId = request.getParameter("buyuanId");
+        String bumenId = request.getParameter("bumenId");
         BuzhiPojo buzhi = new BuzhiPojo();
         if (StringUtils.hasText(buzhiName)) {
             buzhi.setBuzhiname(buzhiName);
@@ -188,12 +189,12 @@ public class BuzhiController {
             buzhi.setBumenid(Integer.parseInt(bumenId));
         }
         try {
-            JSONArray jsonArray=new JSONArray();
-            JSONObject jsonObject=new JSONObject();
+            JSONArray jsonArray = new JSONArray();
+            JSONObject jsonObject = new JSONObject();
             jsonObject.put("id", "");
             jsonObject.put("buzhiName", "请选择...");
             jsonArray.add(jsonObject);
-            jsonArray.addAll(JSONArray.fromObject(buzhiService.queryBuzhis(buzhi,0,0)));
+            jsonArray.addAll(JSONArray.fromObject(buzhiService.queryBuzhis(buzhi, 0, 0)));
             ResponseUtil.write(response, jsonArray);
         } catch (Exception e) {
             e.printStackTrace();

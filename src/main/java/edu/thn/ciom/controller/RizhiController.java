@@ -3,10 +3,10 @@ package edu.thn.ciom.controller;
 import edu.thn.ciom.pojo.RizhiPojo;
 import edu.thn.ciom.service.RizhiService;
 import edu.thn.ciom.util.ResponseUtil;
-import org.springframework.stereotype.Controller;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -23,15 +23,15 @@ public class RizhiController {
                           HttpServletResponse response) throws Exception {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        String page = (String) request.getParameter("page");
-        String rows = (String) request.getParameter("rows");
-        String rizhiName = (String) request.getParameter("rizhiName");
-        String rizhiId = (String) request.getParameter("rizhiId");
+        String page = request.getParameter("page");
+        String rows = request.getParameter("rows");
+        String rizhiName = request.getParameter("rizhiName");
+        String rizhiId = request.getParameter("rizhiId");
         PageBean pageBean = null;
-        if ((StringUtils.hasText(page))&&(!page.equals("null"))) {
+        if ((StringUtils.hasText(page)) && (!page.equals("null"))) {
             pageBean = new PageBean(Integer.parseInt(page), Integer.parseInt(rows));
-        }else{
-            pageBean = new PageBean(0,0);
+        } else {
+            pageBean = new PageBean(0, 0);
         }
         RizhiPojo rizhi = new RizhiPojo();
         try {
@@ -56,10 +56,10 @@ public class RizhiController {
     public void deleteRizhi(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         try {
-            String delIds = (String) request.getParameter("delIds");
+            String delIds = request.getParameter("delIds");
             System.out.println("delIds = " + delIds);
             JSONObject result = new JSONObject();
-            String str[] = delIds.split(",");
+            String[] str = delIds.split(",");
             for (int i = 0; i < str.length; i++) {
                 rizhiService.deleteRizhi(Integer.parseInt(str[i]));
             }

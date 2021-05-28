@@ -26,30 +26,30 @@ public class UserController {
                          HttpServletResponse response) throws Exception {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        String page = (String) request.getParameter("page");
-        String rows = (String) request.getParameter("rows");
-        String userName = (String) request.getParameter("userName");
-        String userXingming = (String) request.getParameter("userXingming");
-        String userId = (String) request.getParameter("userId");
-        String userMinzu = (String) request.getParameter("userMinzu");
-        String userType = (String) request.getParameter("userType");
-        String userType1 = (String) request.getParameter("userType1");
-        String userType2 = (String) request.getParameter("userType2");
-        String roleId = (String) request.getParameter("roleId");
-        String bumenId = (String) request.getParameter("bumenId");
-        String buyuanId = (String) request.getParameter("buyuanId");
-        String buzhiId = (String) request.getParameter("buzhiId");
-        String userSex = (String) request.getParameter("userSex");
-        String sdate = (String) request.getParameter("sdate");
-        String edate = (String) request.getParameter("edate");
-        String sdate1 = (String) request.getParameter("sdate1");
-        String edate1 = (String) request.getParameter("edate1");
+        String page = request.getParameter("page");
+        String rows = request.getParameter("rows");
+        String userName = request.getParameter("userName");
+        String userXingming = request.getParameter("userXingming");
+        String userId = request.getParameter("userId");
+        String userMinzu = request.getParameter("userMinzu");
+        String userType = request.getParameter("userType");
+        String userType1 = request.getParameter("userType1");
+        String userType2 = request.getParameter("userType2");
+        String roleId = request.getParameter("roleId");
+        String bumenId = request.getParameter("bumenId");
+        String buyuanId = request.getParameter("buyuanId");
+        String buzhiId = request.getParameter("buzhiId");
+        String userSex = request.getParameter("userSex");
+        String sdate = request.getParameter("sdate");
+        String edate = request.getParameter("edate");
+        String sdate1 = request.getParameter("sdate1");
+        String edate1 = request.getParameter("edate1");
         UserPojo user = new UserPojo();
         PageBean pageBean = null;
-        if ((StringUtils.hasText(page))&&(!page.equals("null"))) {
+        if ((StringUtils.hasText(page)) && (!page.equals("null"))) {
             pageBean = new PageBean(Integer.parseInt(page), Integer.parseInt(rows));
-        }else{
-            pageBean = new PageBean(0,0);
+        } else {
+            pageBean = new PageBean(0, 0);
         }
         try {
 
@@ -98,9 +98,9 @@ public class UserController {
                 edate1 = DateUtil.formatDate(date, "yyyy-MM-dd HH:mm:ss");
             }
             JSONArray jsonArray = JSONArray.fromObject(userService.queryUsers(
-                    user,null, pageBean.getStart(), pageBean.getRows(), sdate, edate, sdate1, edate1));
+                    user, null, pageBean.getStart(), pageBean.getRows(), sdate, edate, sdate1, edate1));
             JSONObject result = new JSONObject();
-            int total = userService.queryUsers(user,null, 0,0, sdate, edate, sdate1, edate1).size();
+            int total = userService.queryUsers(user, null, 0, 0, sdate, edate, sdate1, edate1).size();
             result.put("rows", jsonArray);
             result.put("total", total);
             ResponseUtil.write(response, result);

@@ -3,9 +3,13 @@ package edu.thn.ciom.controller;
 import edu.thn.ciom.pojo.*;
 import edu.thn.ciom.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,12 +38,15 @@ public class LoginController {
     private JcpeizhiService jcpeizhiService;
 
 
-    @RequestMapping("/login")
+    @RequestMapping(value = "/login",
+            method = RequestMethod.POST,
+            produces = {"application/json;charset=UTF-8"},
+            consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public void loginUser(HttpServletRequest request,
                           HttpServletResponse response) throws Exception {
-        String userName = (String) request.getParameter("userName");
-        String password = (String) request.getParameter("password");
-        String loginType = (String) request.getParameter("loginType");
+        String userName = request.getParameter("userName");
+        String password = request.getParameter("password");
+        String loginType = request.getParameter("loginType");
 
         String ip = request.getRemoteAddr();
         Date date = new Date();
@@ -136,7 +143,7 @@ public class LoginController {
                             if (jcbiaotis.size() == 0) {
                                 request.setAttribute("error", "系统还未配置标题，联系管理员！");
                                 // 服务器跳转
-                                request.getRequestDispatcher("shouye/index").forward(request, response);
+                                response.sendRedirect("shouye/index");//.forward(request, response);
                             } else {
                                 List<List<DaohangPojo>> jcdaohangslist = jiazaiDaohang(jcbiaotis);
                                 session.setAttribute("jcdaohangslist", jcdaohangslist);

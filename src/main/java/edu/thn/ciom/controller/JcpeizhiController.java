@@ -29,41 +29,41 @@ public class JcpeizhiController {
         try {
             JSONObject result = new JSONObject();
 
-            String jcpeizhiName = (String) request.getParameter("jcpeizhiName");
-            String jcpeizhiNeirong = (String) request.getParameter("jcpeizhiNeirong");
-            String jcpeizhiMark = (String) request.getParameter("jcpeizhiMark");
-            String bumenBieming = (String) request.getParameter("bumenBieming");
-            String buyuanBieming = (String) request.getParameter("buyuanBieming");
-            String buzhiBieming = (String) request.getParameter("buzhiBieming");
-            String userBieming = (String) request.getParameter("userBieming");
-            String uxtypeBieming = (String) request.getParameter("uxtypeBieming");
-            String uxinxiBieming = (String) request.getParameter("uxinxiBieming");
-            String uyijianBieming = (String) request.getParameter("uyijianBieming");
-            String roleBieming = (String) request.getParameter("roleBieming");
-            String byumenBieming = (String) request.getParameter("byumenBieming");
-            String byuyuanBieming = (String) request.getParameter("byuyuanBieming");
-            String byuzhiBieming = (String) request.getParameter("byuzhiBieming");
-            String yonghuBieming = (String) request.getParameter("yonghuBieming");
-            String yxtypeBieming = (String) request.getParameter("yxtypeBieming");
-            String yxinxiBieming = (String) request.getParameter("yxinxiBieming");
-            String yyijianBieming = (String) request.getParameter("yyijianBieming");
-            String yhroleBieming = (String) request.getParameter("yhroleBieming");
-            String ggtypeBieming = (String) request.getParameter("ggtypeBieming");
-            String gonggaoBieming = (String) request.getParameter("gonggaoBieming");
-            String ggpinglunBieming = (String) request.getParameter("ggpinglunBieming");
-            String shujuBieming = (String) request.getParameter("shujuBieming");
-            String sjduochuBieming = (String) request.getParameter("sjduochuBieming");
-            String sjjianchuBieming = (String) request.getParameter("sjjianchuBieming");
-            String sjlaiyuanBieming = (String) request.getParameter("sjlaiyuanBieming");
-            String sjleixingBieming = (String) request.getParameter("sjleixingBieming");
-            String sjpinglunBieming = (String) request.getParameter("sjpinglunBieming");
-            String sjqitaBieming = (String) request.getParameter("sjqitaBieming");
-            String sjshaochuBieming = (String) request.getParameter("sjshaochuBieming");
-            String sjxingtaiBieming = (String) request.getParameter("sjxingtaiBieming");
-            String jcpeizhiType = (String) request.getParameter("jcpeizhiType");
-            String jcpeizhiType1 = (String) request.getParameter("jcpeizhiType1");
-            String jcpeizhiType2 = (String) request.getParameter("jcpeizhiType2");
-            String jcpeizhiId = (String) request.getParameter("jcpeizhiId");
+            String jcpeizhiName = request.getParameter("jcpeizhiName");
+            String jcpeizhiNeirong = request.getParameter("jcpeizhiNeirong");
+            String jcpeizhiMark = request.getParameter("jcpeizhiMark");
+            String bumenBieming = request.getParameter("bumenBieming");
+            String buyuanBieming = request.getParameter("buyuanBieming");
+            String buzhiBieming = request.getParameter("buzhiBieming");
+            String userBieming = request.getParameter("userBieming");
+            String uxtypeBieming = request.getParameter("uxtypeBieming");
+            String uxinxiBieming = request.getParameter("uxinxiBieming");
+            String uyijianBieming = request.getParameter("uyijianBieming");
+            String roleBieming = request.getParameter("roleBieming");
+            String byumenBieming = request.getParameter("byumenBieming");
+            String byuyuanBieming = request.getParameter("byuyuanBieming");
+            String byuzhiBieming = request.getParameter("byuzhiBieming");
+            String yonghuBieming = request.getParameter("yonghuBieming");
+            String yxtypeBieming = request.getParameter("yxtypeBieming");
+            String yxinxiBieming = request.getParameter("yxinxiBieming");
+            String yyijianBieming = request.getParameter("yyijianBieming");
+            String yhroleBieming = request.getParameter("yhroleBieming");
+            String ggtypeBieming = request.getParameter("ggtypeBieming");
+            String gonggaoBieming = request.getParameter("gonggaoBieming");
+            String ggpinglunBieming = request.getParameter("ggpinglunBieming");
+            String shujuBieming = request.getParameter("shujuBieming");
+            String sjduochuBieming = request.getParameter("sjduochuBieming");
+            String sjjianchuBieming = request.getParameter("sjjianchuBieming");
+            String sjlaiyuanBieming = request.getParameter("sjlaiyuanBieming");
+            String sjleixingBieming = request.getParameter("sjleixingBieming");
+            String sjpinglunBieming = request.getParameter("sjpinglunBieming");
+            String sjqitaBieming = request.getParameter("sjqitaBieming");
+            String sjshaochuBieming = request.getParameter("sjshaochuBieming");
+            String sjxingtaiBieming = request.getParameter("sjxingtaiBieming");
+            String jcpeizhiType = request.getParameter("jcpeizhiType");
+            String jcpeizhiType1 = request.getParameter("jcpeizhiType1");
+            String jcpeizhiType2 = request.getParameter("jcpeizhiType2");
+            String jcpeizhiId = request.getParameter("jcpeizhiId");
             PeizhiPojo jcpeizhi = new PeizhiPojo();
 
             if (StringUtils.hasText(jcpeizhiId)) {
@@ -195,7 +195,7 @@ public class JcpeizhiController {
         String rows = request.getParameter("rows");
         String jcpeizhiName = request.getParameter("jcpeizhiName");
         String jcpeizhiId = request.getParameter("jcpeizhiId");
-        String jcpeizhiType =request.getParameter("jcpeizhiType");
+        String jcpeizhiType = request.getParameter("jcpeizhiType");
         String jcpeizhiType1 = request.getParameter("jcpeizhiType1");
         PeizhiPojo jcpeizhi = new PeizhiPojo();
         PageBean pageBean = null;
@@ -239,7 +239,7 @@ public class JcpeizhiController {
         String jcpeizhiId = request.getParameter("jcpeizhiId");
         int id = Integer.parseInt(jcpeizhiId);
         PeizhiPojo jcpeizhi = jcpeizhiService.getJcpeizhi(id);
-        if(jcpeizhi!=null) {
+        if (jcpeizhi != null) {
             JSONObject result = new JSONObject();
             JSONArray jsonArray = JSONArray.fromObject(jcpeizhi);
             result.put("rows", jsonArray);
@@ -253,10 +253,10 @@ public class JcpeizhiController {
     public void deleteJcpeizhi(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         try {
-            String delIds = (String) request.getParameter("delIds");
+            String delIds = request.getParameter("delIds");
             System.out.println("delIds = " + delIds);
             JSONObject result = new JSONObject();
-            String str[] = delIds.split(",");
+            String[] str = delIds.split(",");
             for (int i = 0; i < str.length; i++) {
                 jcpeizhiService.deleteJcpeizhi(Integer.parseInt(str[i]));
             }
@@ -273,7 +273,7 @@ public class JcpeizhiController {
             throws Exception {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        String jcpeizhiType = (String) request.getParameter("jcpeizhiType");
+        String jcpeizhiType = request.getParameter("jcpeizhiType");
         PeizhiPojo jcpeizhi = new PeizhiPojo();
         try {
             if (StringUtils.hasText(jcpeizhiType)) {

@@ -1,12 +1,13 @@
 package edu.thn.ciom.controller;
 
-import edu.thn.ciom.pojo.*;
-import edu.thn.ciom.util.*;
-import edu.thn.ciom.service.*;
-import org.springframework.stereotype.Controller;
+import edu.thn.ciom.pojo.YongHuPojo;
+import edu.thn.ciom.service.YonghuService;
+import edu.thn.ciom.util.DateUtil;
+import edu.thn.ciom.util.ResponseUtil;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -15,7 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
@@ -148,38 +148,38 @@ public class YonghuController {
         try {
             JSONObject result = new JSONObject();
 
-            String yonghuName =  request.getParameter("yonghuName");
+            String yonghuName = request.getParameter("yonghuName");
             String yonghuPassword = request.getParameter("yonghuPassword");
-            String yonghuAge =  request.getParameter("yonghuAge");
-            String yonghuXingming =  request.getParameter("yonghuXingming");
-            String yonghuSex =  request.getParameter("yonghuSex");
-            String yonghuPhone =  request.getParameter("yonghuPhone");
-            String yonghuMark =  request.getParameter("yonghuMark");
-            String yonghuMark1 =  request.getParameter("yonghuMark1");
-            String yonghuMark2 =  request.getParameter("yonghuMark2");
-            String yonghuMark3 =  request.getParameter("yonghuMark3");
-            String yonghuMark4 =  request.getParameter("yonghuMark4");
-            String yonghuDate =  request.getParameter("yonghuDate");
-            String yonghuDate1 =  request.getParameter("yonghuDate1");
-            String yonghuDate2 =  request.getParameter("yonghuDate2");
-            String yonghuType =  request.getParameter("yonghuType");
-            String yonghuType1 =  request.getParameter("yonghuType1");
-            String yonghuType2 =  request.getParameter("yonghuType2");
-            String yonghuZong =  request.getParameter("yonghuZong");
-            String yonghuZong1 =  request.getParameter("yonghuZong1");
-            String yonghuZong2 =  request.getParameter("yonghuZong2");
-            String yonghuDouble =  request.getParameter("yonghuDouble");
-            String yonghuDouble1 =  request.getParameter("yonghuDouble1");
-            String yonghuDouble2 =  request.getParameter("yonghuDouble2");
-            String yhroleId =  request.getParameter("yhroleId");
-            String byumenId =  request.getParameter("byumenId");
-            String byuyuanId =  request.getParameter("byuyuanId");
-            String byuzhiId =  request.getParameter("byuzhiId");
-            String userId =  request.getParameter("userId");
-            String bumenId =  request.getParameter("bumenId");
-            String buyuanId =  request.getParameter("buyuanId");
-            String buzhiId =  request.getParameter("buzhiId");
-            String yonghuId =  request.getParameter("yonghuId");
+            String yonghuAge = request.getParameter("yonghuAge");
+            String yonghuXingming = request.getParameter("yonghuXingming");
+            String yonghuSex = request.getParameter("yonghuSex");
+            String yonghuPhone = request.getParameter("yonghuPhone");
+            String yonghuMark = request.getParameter("yonghuMark");
+            String yonghuMark1 = request.getParameter("yonghuMark1");
+            String yonghuMark2 = request.getParameter("yonghuMark2");
+            String yonghuMark3 = request.getParameter("yonghuMark3");
+            String yonghuMark4 = request.getParameter("yonghuMark4");
+            String yonghuDate = request.getParameter("yonghuDate");
+            String yonghuDate1 = request.getParameter("yonghuDate1");
+            String yonghuDate2 = request.getParameter("yonghuDate2");
+            String yonghuType = request.getParameter("yonghuType");
+            String yonghuType1 = request.getParameter("yonghuType1");
+            String yonghuType2 = request.getParameter("yonghuType2");
+            String yonghuZong = request.getParameter("yonghuZong");
+            String yonghuZong1 = request.getParameter("yonghuZong1");
+            String yonghuZong2 = request.getParameter("yonghuZong2");
+            String yonghuDouble = request.getParameter("yonghuDouble");
+            String yonghuDouble1 = request.getParameter("yonghuDouble1");
+            String yonghuDouble2 = request.getParameter("yonghuDouble2");
+            String yhroleId = request.getParameter("yhroleId");
+            String byumenId = request.getParameter("byumenId");
+            String byuyuanId = request.getParameter("byuyuanId");
+            String byuzhiId = request.getParameter("byuzhiId");
+            String userId = request.getParameter("userId");
+            String bumenId = request.getParameter("bumenId");
+            String buyuanId = request.getParameter("buyuanId");
+            String buzhiId = request.getParameter("buzhiId");
+            String yonghuId = request.getParameter("yonghuId");
             YongHuPojo yonghu = new YongHuPojo();
 
             if (StringUtils.hasText(yonghuId)) {
@@ -352,9 +352,9 @@ public class YonghuController {
             throws Exception {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        String yonghuId =  request.getParameter("yonghuId");
-        String yonghuPassword =  request.getParameter("yonghuPassword");
-        String yonghuPassword1 =  request.getParameter("yonghuPassword1");
+        String yonghuId = request.getParameter("yonghuId");
+        String yonghuPassword = request.getParameter("yonghuPassword");
+        String yonghuPassword1 = request.getParameter("yonghuPassword1");
         YongHuPojo yonghu = new YongHuPojo();
         try {
             yonghu = yonghuService.getYonghu(Integer.parseInt(yonghuId));
@@ -380,8 +380,8 @@ public class YonghuController {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         try {
-            String yonghuName =  request.getParameter("yonghuName");
-            String yonghuPhone =  request.getParameter("yonghuPhone");
+            String yonghuName = request.getParameter("yonghuName");
+            String yonghuPhone = request.getParameter("yonghuPhone");
             YongHuPojo yonghu = new YongHuPojo();
 
             if (StringUtils.hasText(yonghuName)) {
@@ -613,9 +613,9 @@ public class YonghuController {
     public void deleteYonghu(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         JSONObject result = new JSONObject();
-        String delIds =  request.getParameter("delIds");
+        String delIds = request.getParameter("delIds");
         try {
-            String str[] = delIds.split(",");
+            String[] str = delIds.split(",");
             for (int i = 0; i < str.length; i++) {
                 yonghuService.deleteYonghu(Integer.parseInt(str[i]));
             }
@@ -632,22 +632,22 @@ public class YonghuController {
             throws Exception {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        String yonghuName =  request.getParameter("yonghuName");
-        String yonghuXingming =  request.getParameter("yonghuXingming");
-        String yonghuId =  request.getParameter("yonghuId");
-        String yonghuType =  request.getParameter("yonghuType");
-        String yonghuType1 =  request.getParameter("yonghuType1");
-        String yonghuType2 =  request.getParameter("yonghuType2");
-        String yhroleId =  request.getParameter("yhroleId");
-        String byumenId =  request.getParameter("byumenId");
-        String byuzhiId =  request.getParameter("byuzhiId");
-        String byuyuanId =  request.getParameter("byuyuanId");
-        String yonghuMinzu =  request.getParameter("yonghuMinzu");
-        String yonghuSex =  request.getParameter("yonghuSex");
-        String userId =  request.getParameter("userId");
-        String bumenId =  request.getParameter("bumenId");
-        String buyuanId =  request.getParameter("buyuanId");
-        String buzhiId =  request.getParameter("buzhiId");
+        String yonghuName = request.getParameter("yonghuName");
+        String yonghuXingming = request.getParameter("yonghuXingming");
+        String yonghuId = request.getParameter("yonghuId");
+        String yonghuType = request.getParameter("yonghuType");
+        String yonghuType1 = request.getParameter("yonghuType1");
+        String yonghuType2 = request.getParameter("yonghuType2");
+        String yhroleId = request.getParameter("yhroleId");
+        String byumenId = request.getParameter("byumenId");
+        String byuzhiId = request.getParameter("byuzhiId");
+        String byuyuanId = request.getParameter("byuyuanId");
+        String yonghuMinzu = request.getParameter("yonghuMinzu");
+        String yonghuSex = request.getParameter("yonghuSex");
+        String userId = request.getParameter("userId");
+        String bumenId = request.getParameter("bumenId");
+        String buyuanId = request.getParameter("buyuanId");
+        String buzhiId = request.getParameter("buzhiId");
         YongHuPojo yonghu = new YongHuPojo();
         try {
 //            if (StringUtils.hasText(yonghuXingming)) {
@@ -759,7 +759,7 @@ public class YonghuController {
     public void shangchuanYonghu(HttpServletRequest request, HttpServletResponse response, MultipartFile uploadFile)
             throws Exception {
         try {
-            String yonghuId =  request.getParameter("yonghuId");
+            String yonghuId = request.getParameter("yonghuId");
             String directory = "/file";
             String targetDirectory = request.getSession().getServletContext().getRealPath(directory);
             String fileName = uploadFile.getOriginalFilename();
