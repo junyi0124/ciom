@@ -135,11 +135,11 @@
 			<table>
 				<tr>
 					<td>名称：</td>
-					<td><input type="text" name="buzhiName" id="buzhiName" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="buzhiname" id="buzhiName" class="easyui-validatebox" required="true"/></td>
 				</tr>
 				<tr>
 					<td>描述：</td>
-					<td><input type="text" name="buzhiMark" id="buzhiMark" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="buzhimark" id="buzhiMark" class="easyui-validatebox" required="true"/></td>
 				</tr>
 			</table>
 		</form>

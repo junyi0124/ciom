@@ -43,7 +43,7 @@ public class BuzhiController {
             String buyuanId = request.getParameter("buyuanId");
             String buyuanName = request.getParameter("buyuanName");
             String bumenId = request.getParameter("bumenId");
-            String buzhiId = request.getParameter("buzhiId");
+            String buzhiId = request.getParameter("buzhiid");
             BuzhiPojo buzhi = new BuzhiPojo();
 
             if (StringUtils.hasText(buzhiId)) {

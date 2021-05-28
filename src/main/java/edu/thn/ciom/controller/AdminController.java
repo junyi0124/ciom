@@ -19,7 +19,7 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
-    @PostMapping(value = "/mimaAdmin", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    @RequestMapping("/mimaAdmin")
     public void mimaAdmin(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         try {
