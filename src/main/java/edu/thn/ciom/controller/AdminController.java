@@ -1,6 +1,7 @@
 package edu.thn.ciom.controller;
 
 import edu.thn.ciom.pojo.AdminPojo;
+import edu.thn.ciom.pojo.PeizhiPojo;
 import edu.thn.ciom.service.AdminService;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,10 @@ public class AdminController {
             AdminPojo admin = new AdminPojo();
             admin.setAdminname("admin");
             admin.setAdminpassword(adminPassword);
+
+//            PeizhiPojo p = new PeizhiPojo();
+//            p.getBuzhiBieming()
+
 
             if (adminService.queryAdmins(admin, 0, 0).size() == 1) {
                 admin = (AdminPojo) (adminService.queryAdmins(admin, 0, 0)).get(0);
