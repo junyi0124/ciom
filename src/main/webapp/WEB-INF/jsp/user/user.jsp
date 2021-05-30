@@ -1,6 +1,6 @@
 <%@ page language="java" import="edu.thn.ciom.pojo.*"  pageEncoding="utf-8"%>
 <% Jcpeizhi newJcpeizhi = (Jcpeizhi)session.getAttribute("jcpeizhi"); %>
-   
+   <% PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi"); %>
 <%
 	// 权限验证
 	User user = (User)session.getAttribute("user");

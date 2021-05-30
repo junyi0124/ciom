@@ -1,17 +1,18 @@
 <%@ page language="java" import="edu.thn.ciom.pojo.*"  pageEncoding="utf-8"%>
-<% Jcpeizhi newJcpeizhi = (Jcpeizhi)session.getAttribute("jcpeizhi"); %>
+<% PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi"); %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title><%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjleixingBieming()%></title>
+<title><%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjleixingbieming()%></title>
 
 <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/icon.css">
 <script type="text/javascript" src="/static/jquery-easyui-1.3.3/jquery.min.js"></script>
 <script type="text/javascript" src="/static/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="/static/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
+
 <script type="text/javascript">
 var url;
 	function searchSjleixing(){
@@ -45,7 +46,7 @@ var url;
 	}
 	
 	function openSjleixingAddDialog(){
-		$("#dlg").dialog("open").dialog("setTitle","添加<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjleixingBieming()%>");
+		$("#dlg").dialog("open").dialog("setTitle","添加<%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjleixingbieming()%>");
 		url="../addSjleixing";
 	}
 	
@@ -89,7 +90,7 @@ var url;
 			return;
 		}
 		var row=selectedRows[0];
-		$("#dlg").dialog("open").dialog("setTitle","编辑<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjleixingBieming()%>");
+		$("#dlg").dialog("open").dialog("setTitle","编辑<%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjleixingbieming()%>");
 		$("#fm").form("load",row);
 		url="../addSjleixing?sjleixingId="+row.sjleixingId;
 	}
@@ -192,7 +193,7 @@ var url;
 	}
 	
 	function daoruSjleixings(){
-		$("#daoru").dialog("open").dialog("setTitle","导入<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjleixingBieming()%>");
+		$("#daoru").dialog("open").dialog("setTitle","导入<%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjleixingbieming()%>");
 		daoruurl="../daoruSjleixing";
 	}
 	
@@ -229,9 +230,9 @@ var url;
 			return;
 		}
 		var row=selectedRows[0];
-		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjleixingBieming()%>");
+		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjleixingbieming()%>");
 		$("#shchfm").form("load",row);
-		shchurl="../shangchuanSjleixing?sjleixingId="+row.sjleixingId;
+		shchurl="../shangchuanSjleixing?sjleixingId="+row.sjleixingid;
 	}
 	
 	function closeShangchuanSjleixing(){
@@ -266,14 +267,14 @@ var url;
 </head>
 <body style="margin: 5px;">
 <!--startprint-->
-	<table id="dg" title="<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjleixingBieming()%>" class="easyui-datagrid" fitColumns="true"
+	<table id="dg" title="<%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjleixingbieming()%>" class="easyui-datagrid" fitColumns="true"
 	 pagination="true" url="../getSjleixings" fit="true" rownumbers="true" toolbar="#tb">
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true"></th>
-				<th field="sjleixingId" width="10" hidden="true">编号</th>
-				<th field="sjleixingName" width="40">名称</th>
-				<th field="sjleixingMark" width="40">备注</th>
+				<th field="sjleixingid" width="10" hidden="true">编号</th>
+				<th field="sjleixingname" width="40">名称</th>
+				<th field="sjleixingmark" width="40">备注</th>
 			</tr>
 		</thead>
 	</table>
