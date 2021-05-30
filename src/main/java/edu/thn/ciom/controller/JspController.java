@@ -70,6 +70,37 @@ public class JspController {
     public String backend_admin() {
         return "houtai/adminMain";
     }
+    /*
+    GET /admin/sjleixing    车辆类型
+    GET /admin/shuju        车辆信息
+    GET /admin/sjduochu     报价信息
+    GET /admin/sjjianchu    交流信息
+    GET /admin/sjshaochu    下单信息
+     */
 
+    @RequestMapping(value = "/houtai/yonghuMain", method = RequestMethod.GET)
+    public String backend_yonghu() {
+        return "houtai/yonghuMain";
+    }
+
+    /*
+    GET /yonghu/yonghu     个人信息
+    GET /yonghu/yonghumima 个人信息
+    GET /yonghu/shuju      车辆信息
+    GET /yonghu/sjduochu   报价信息
+    GET /yonghu/sjjianchu  交流信息
+    GET /yonghu/sjshaochu  下单信息
+     */
+
+    @RequestMapping(value = "/houtai/userMain", method = RequestMethod.GET)
+    public String backend_user() {
+        return "houtai/userMain";
+    }
+/*
+GET /user/shuju     车辆信息
+GET /user/sjduochu  报价信息
+GET /user/sjjianchu 交流信息
+GET /user/sjshaochu 下单信息
+ */
 }
 

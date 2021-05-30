@@ -315,17 +315,17 @@ var url;
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true"></th>
-				<th field="userId" width="10" hidden="true">编号</th>
-				<th field="userName" width="20">登录名</th>
-				<th field="userPassword" width="10" hidden="true">密码</th>
-				<th field="userXingming" width="20">姓名</th>
-				<th field="userSex" width="10" formatter="formatSex">性别</th>
-				<th field="userAge" width="10">年龄</th>
-				<th field="userPhone" width="40">电话</th>
-				<th field="userMark1" width="60">驾照</th>
-				<th field="buzhiId" width="10" hidden="true"><%= newJcpeizhi==null ? "--" : newJcpeizhi.getBuzhiBieming()%>ID</th>
-				<th field="buzhiName" width="20"><%= newJcpeizhi==null ? "--" : newJcpeizhi.getBuzhiBieming()%></th>
-				<th field="userDate" width="20" formatter="datetostr">时间</th>
+				<th field="userid" width="10" hidden="true">编号</th>
+				<th field="username" width="20">登录名</th>
+				<th field="userpassword" width="10" hidden="true">密码</th>
+				<th field="userxingming" width="20">姓名</th>
+				<th field="usersex" width="10" formatter="formatSex">性别</th>
+				<th field="userage" width="10">年龄</th>
+				<th field="userphone" width="40">电话</th>
+				<th field="usermark1" width="60">驾照</th>
+				<th field="buzhiid" width="10" hidden="true"><%= newJcpeizhi==null ? "--" : newJcpeizhi.getBuzhiBieming()%>ID</th>
+				<th field="buzhiname" width="20"><%= newJcpeizhi==null ? "--" : newJcpeizhi.getBuzhiBieming()%></th>
+				<th field="userdate" width="20" formatter="datetostr">时间</th>
 			</tr>
 		</thead>
 	</table>

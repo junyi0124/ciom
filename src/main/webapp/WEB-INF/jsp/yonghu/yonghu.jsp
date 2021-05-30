@@ -1,22 +1,21 @@
 <%@ page language="java" import="edu.thn.ciom.pojo.*"  pageEncoding="utf-8"%>
-<% Jcpeizhi newJcpeizhi = (Jcpeizhi)session.getAttribute("jcpeizhi"); %>
-   
+<% PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi"); %>
 <%
 	// 权限验证
-	Yonghu yonghu = (Yonghu)session.getAttribute("yonghu");
-	int yonghuId = yonghu.getYonghuId();
-	int buzhiId = yonghu.getBuzhiId();
+	YongHuPojo yonghu = (YongHuPojo)session.getAttribute("yonghu");
+	int yonghuId = yonghu.getYonghuid();
+	int buzhiId = yonghu.getBuzhiid();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>个人信息管理</title>
-<link rel="stylesheet" type="text/css" href="../jquery-easyui-1.3.3/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="../jquery-easyui-1.3.3/themes/icon.css">
-<script type="text/javascript" src="../jquery-easyui-1.3.3/jquery.min.js"></script>
-<script type="text/javascript" src="../jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="../jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/icon.css">
+<script type="text/javascript" src="/static/jquery-easyui-1.3.3/jquery.min.js"></script>
+<script type="text/javascript" src="/static/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/static/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript">
 var url;
 	function searchYonghu(){
@@ -73,7 +72,7 @@ var url;
 		}
 		var strIds=[];
 		for(var i=0;i<selectedRows.length;i++){
-			strIds.push(selectedRows[i].yonghuId);
+			strIds.push(selectedRows[i].yonghuid);
 		}
 		var ids=strIds.join(",");
 		$.messager.confirm("系统提示","您确认要删掉这<font color=red>"+selectedRows.length+"</font>条数据吗？",function(r){
@@ -104,7 +103,7 @@ var url;
 		var row=selectedRows[0];
 		$("#dlg").dialog("open").dialog("setTitle","编辑个人信息");
 		$("#fm").form("load",row);
-		url="../addYonghu?yonghuId="+row.yonghuId;
+		url="../addYonghu?yonghuId="+row.yonghuid;
 	}
 	
 	function formatSex(shujuSex, row) {  
@@ -158,7 +157,7 @@ var url;
 		}
 		var yonghuIds=[];
 		for(var i=0;i<selectedRows.length;i++){
-			yonghuIds.push(selectedRows[i].yonghuId);
+			yonghuIds.push(selectedRows[i].yonghuid);
 		}
 		var ids=yonghuIds.join(",");
 		$.messager.confirm("系统提示","您确认要导出数据吗？",function(r){
@@ -235,7 +234,7 @@ var url;
 		var row=selectedRows[0];
 		$("#shangchuan").dialog("open").dialog("setTitle","上传个人信息");
 		$("#shchfm").form("load",row);
-		shchurl="../shangchuanYonghu?yonghuId="+row.yonghuId;
+		shchurl="../shangchuanYonghu?yonghuId="+row.yonghuid;
 	}
 	
 	function closeShangchuanYonghu(){
@@ -290,21 +289,21 @@ var url;
 <body style="margin: 5px;">
 <!--startprint-->
 	<table id="dg" title="个人信息" class="easyui-datagrid" fitColumns="true"
-	 pagination="true" url="../getYonghus?yonghuId=<%=yonghuId %>" fit="true" rownumbers="true" toolbar="#tb">
+	 pagination="true" url="../getYonghus?yonghuId=<%=yonghuid %>" fit="true" rownumbers="true" toolbar="#tb">
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true"></th>
-				<th field="yonghuId" width="10" hidden="true">编号</th>
-				<th field="yonghuName" width="20">登录名</th>
-				<th field="yonghuPassword" width="10" hidden="true">密码</th>
-				<th field="yonghuXingming" width="20">姓名</th>
-				<th field="yonghuSex" width="10" formatter="formatSex">性别</th>
-				<th field="yonghuAge" width="10">年龄</th>
-				<th field="yonghuPhone" width="40">电话</th>
-				<th field="yonghuMark1" width="40">公司</th>
-				<th field="buzhiId" width="10" hidden="true"><%=newJcpeizhi.getBuzhiBieming()%>ID</th>
-				<th field="buzhiName" width="20"><%=newJcpeizhi.getBuzhiBieming()%></th>
-				<th field="yonghuDate" width="20" formatter="datetostr">时间</th>
+				<th field="yonghuid" width="10" hidden="true">编号</th>
+				<th field="yonghuname" width="20">登录名</th>
+				<th field="yonghupassword" width="10" hidden="true">密码</th>
+				<th field="yonghuxingming" width="20">姓名</th>
+				<th field="yonghusex" width="10" formatter="formatSex">性别</th>
+				<th field="yonghuage" width="10">年龄</th>
+				<th field="yonghuphone" width="40">电话</th>
+				<th field="yonghumark1" width="40">公司</th>
+				<th field="buzhiid" width="10" hidden="true"><%=newJcpeizhi.getBuzhiBieming()%>ID</th>
+				<th field="buzhiname" width="20"><%=newJcpeizhi.getBuzhiBieming()%></th>
+				<th field="yonghudate" width="20" formatter="datetostr">时间</th>
 			</tr>
 		</thead>
 	</table>
@@ -321,19 +320,19 @@ var url;
 			<table cellspacing="5px;">
 				<tr>
 					<td>姓名：</td>
-					<td><input type="text" name="yonghuXingming" id="yonghuXingming" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="yonghuxingming" id="yonghuxingming" class="easyui-validatebox" required="true"/></td>
 					<td>年龄：</td>
-					<td><input type="text" name="yonghuAge" id="yonghuAge" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="yonghuage" id="yonghuage" class="easyui-validatebox" required="true"/></td>
 				</tr>
 				<tr>
 					<td>性别：</td>
-					<td><select class="easyui-combobox" id="yonghuSex" name="yonghuSex" editable="false" panelHeight="auto" style="width: 155px">
+					<td><select class="easyui-combobox" id="yonghusex" name="yonghusex" editable="false" panelHeight="auto" style="width: 155px">
 					    <option value="">请选择...</option>
 						<option value="0">男</option>
 						<option value="1">女</option>
 					</select></td>
 					<td>电话：</td>
-					<td><input type="text" name="yonghuPhone" id="yonghuPhone" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="yonghuphone" id="yonghuphone" class="easyui-validatebox" required="true"/></td>
 				</tr>
 			</table>
 		</form>

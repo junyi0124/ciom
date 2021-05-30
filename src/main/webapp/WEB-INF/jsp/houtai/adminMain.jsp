@@ -2,8 +2,8 @@
 import="edu.thn.ciom.pojo.*,edu.thn.ciom.util.*,java.util.List,java.util.ArrayList,net.sf.json.JSONArray,net.sf.json.JSONObject,net.sf.json.JsonConfig"
 pageEncoding="utf-8"%>
 <%
-	String path = request.getContextPath();
-	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	//String path = request.getContextPath();
+	//String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
     
 <%
@@ -33,8 +33,8 @@ pageEncoding="utf-8"%>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title><%=newJcpeizhi.getJcpeizhiname()%></title>
     <link rel="stylesheet" href="/static/muban10/assets/css/layui.css">
-    <link rel="stylesheet" href="/static//muban10/assets/css/admin.css">
-    <link rel="icon" href="/static//muban10/favicon.ico">
+    <link rel="stylesheet" href="/static/muban10/assets/css/admin.css">
+    <link rel="icon" href="/static/muban10/favicon.ico">
 </head>
 <body class="layui-layout-body">
     <div class="layui-layout layui-layout-admin">
@@ -50,8 +50,8 @@ pageEncoding="utf-8"%>
                 <li class="layui-nav-item">
                     <a href="javascript:;">管理员，<%=adminName %></a>
                     <dl class="layui-nav-child">
-                        <dd><a href="<%=basePath%>admin/adminmima">修改密码</a></dd>
-                        <dd><a href="<%=basePath%>shouye/tuichu">退出</a></dd>
+                        <dd><a href="/admin/adminmima">修改密码</a></dd>
+                        <dd><a href="/shouye/tuichu">退出</a></dd>
                     </dl>
                 </li>
             </ul>
@@ -70,13 +70,13 @@ pageEncoding="utf-8"%>
                             <em>主页</em>
                         </a>
                         <dl class="layui-nav-child">
-                            <dd><a href="<%=basePath%>shouye/neiye">欢迎页</a></dd>
+                            <dd><a href="/shouye/neiye">欢迎页</a></dd>
                         </dl>
                         <dl class="layui-nav-child">
-                            <dd><a href="<%=basePath%>admin/adminmima">修改密码</a></dd>
+                            <dd><a href="/admin/adminmima">修改密码</a></dd>
                         </dl>
                         <dl class="layui-nav-child">
-                            <dd><a href="<%=basePath%>admin/rizhi">登录日志</a></dd>
+                            <dd><a href="/admin/rizhi">登录日志</a></dd>
                         </dl>
                     </li>
                     <%for(int i = 0; i < jcbiaotis.size(); i++){ %>
@@ -87,7 +87,7 @@ pageEncoding="utf-8"%>
                         </a>
                         <dl class="layui-nav-child">
                         <%for(int j = 0; j < jcdaohangslist.get(i).size(); j++){ %>
-		                    <dd><a href="<%=basePath%>admin/<%=jcdaohangslist.get(i).get(j).getJcdaohangneirong() %>">
+		                    <dd><a href="/admin/<%=jcdaohangslist.get(i).get(j).getJcdaohangneirong() %>">
 		                    <%=jcdaohangslist.get(i).get(j).getJcdaohangname() %></a></dd>
                         <%} %>
 						</dl>

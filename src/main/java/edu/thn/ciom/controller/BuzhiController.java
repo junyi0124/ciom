@@ -171,10 +171,10 @@ public class BuzhiController {
             throws Exception {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        String buzhiName = request.getParameter("buzhiName");
-        String buzhiType = request.getParameter("buzhiType");
-        String buyuanId = request.getParameter("buyuanId");
-        String bumenId = request.getParameter("bumenId");
+        String buzhiName = request.getParameter("buzhiname");
+        String buzhiType = request.getParameter("buzhiyype");
+        String buyuanId = request.getParameter("buyuanid");
+        String bumenId = request.getParameter("bumenid");
         BuzhiPojo buzhi = new BuzhiPojo();
         if (StringUtils.hasText(buzhiName)) {
             buzhi.setBuzhiname(buzhiName);
@@ -192,7 +192,7 @@ public class BuzhiController {
             JSONArray jsonArray = new JSONArray();
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("id", "");
-            jsonObject.put("buzhiName", "请选择...");
+            jsonObject.put("buzhiname", "请选择...");
             jsonArray.add(jsonObject);
             jsonArray.addAll(JSONArray.fromObject(buzhiService.queryBuzhis(buzhi, 0, 0)));
             ResponseUtil.write(response, jsonArray);
