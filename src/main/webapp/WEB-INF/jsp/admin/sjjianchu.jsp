@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title><%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjjianchuBieming()%></title>
+<title><%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjjianchubieming()%></title>
 
 <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/icon.css">
@@ -44,7 +44,7 @@ var url;
 	}
 	
 	function openSjjianchuAddDialog(){
-		$("#dlg").dialog("open").dialog("setTitle","添加<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjjianchuBieming()%>");
+		$("#dlg").dialog("open").dialog("setTitle","添加<%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjjianchubieming()%>");
 		url="../addSjjianchu";
 	}
 	
@@ -88,7 +88,7 @@ var url;
 			return;
 		}
 		var row=selectedRows[0];
-		$("#dlg").dialog("open").dialog("setTitle","编辑<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjjianchuBieming()%>");
+		$("#dlg").dialog("open").dialog("setTitle","编辑<%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjjianchubieming()%>");
 		$("#fm").form("load",row);
 		url="../addSjjianchu?sjjianchuId="+row.sjjianchuId;
 	}
@@ -182,7 +182,7 @@ var url;
 	}
 	
 	function daoruSjjianchus(){
-		$("#daoru").dialog("open").dialog("setTitle","导入<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjjianchuBieming()%>");
+		$("#daoru").dialog("open").dialog("setTitle","导入<%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjjianchubieming()%>");
 		daoruurl="../daoruSjjianchu";
 	}
 	
@@ -219,7 +219,7 @@ var url;
 			return;
 		}
 		var row=selectedRows[0];
-		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjjianchuBieming()%>");
+		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjjianchubieming()%>");
 		$("#shchfm").form("load",row);
 		shchurl="../shangchuanSjjianchu?sjjianchuId="+row.sjjianchuId;
 	}
@@ -298,7 +298,7 @@ var url;
 </head>
 <body style="margin: 5px;">
 <!--startprint-->
-	<table id="dg" title="<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjjianchuBieming()%>" class="easyui-datagrid" fitColumns="true"
+	<table id="dg" title="<%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjjianchubieming()%>" class="easyui-datagrid" fitColumns="true"
 	 pagination="true" url="../getSjjianchus" fit="true" rownumbers="true" toolbar="#tb">
 		<thead>
 			<tr>
@@ -306,8 +306,8 @@ var url;
 				<th field="sjjianchuId" width="10" hidden="true">编号</th>
 				<th field="userId" width="20" hidden="true"><%=newJcpeizhi.getUserBieming()%>ID</th>
 				<th field="userName" width="20"><%=newJcpeizhi.getUserBieming()%></th>
-				<th field="shujuId" width="20" hidden="true"><%=newJcpeizhi.getShujuBieming()%>ID</th>
-				<th field="shujuName" width="20"><%=newJcpeizhi.getShujuBieming()%></th>
+				<th field="shujuId" width="20" hidden="true"><%=newJcpeizhi.getShujubieming()%>ID</th>
+				<th field="shujuName" width="20"><%=newJcpeizhi.getShujubieming()%></th>
 				<th field="sjjianchuName" width="40">问题</th>
 				<th field="sjjianchuMark" width="80">描述</th>
 				<th field="yonghuId" width="10" hidden="true"><%=newJcpeizhi.getYonghuBieming()%>ID</th>
@@ -320,7 +320,7 @@ var url;
 	
 	<div id="tb">
 		<div>
-		&nbsp;<%=newJcpeizhi.getShujuBieming()%>：&nbsp;<input class="easyui-combobox" id="s_shujuId" name="s_shujuId"  data-options="panelHeight:'auto',editable:false,valueField:'shujuId',textField:'shujuName',url:'../shujuComboList'"/>
+		&nbsp;<%=newJcpeizhi.getShujubieming()%>：&nbsp;<input class="easyui-combobox" id="s_shujuId" name="s_shujuId"  data-options="panelHeight:'auto',editable:false,valueField:'shujuId',textField:'shujuName',url:'../shujuComboList'"/>
 		<a href="javascript:searchSjjianchu()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
 		</div>
 	</div>
