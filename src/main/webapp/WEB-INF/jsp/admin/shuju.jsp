@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title><%=newJcpeizhi.getShujuBieming()%>信息</title>
+<title><%=newJcpeizhi.getShujubieming()%>信息</title>
 
 <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/icon.css">
@@ -45,7 +45,7 @@ var url;
 	}
 	
 	function openShujuAddDialog(){
-		$("#dlg").dialog("open").dialog("setTitle","添加<%=newJcpeizhi.getShujuBieming()%>信息");
+		$("#dlg").dialog("open").dialog("setTitle","添加<%=newJcpeizhi.getShujubieming()%>信息");
 		url="../addShuju";
 	}
 	
@@ -89,7 +89,7 @@ var url;
 			return;
 		}
 		var row=selectedRows[0];
-		$("#dlg").dialog("open").dialog("setTitle","编辑<%=newJcpeizhi.getShujuBieming()%>信息");
+		$("#dlg").dialog("open").dialog("setTitle","编辑<%=newJcpeizhi.getShujubieming()%>信息");
 		$("#fm").form("load",row);
 		url="../addShuju?shujuId="+row.shujuId;
 	}
@@ -173,7 +173,7 @@ var url;
 	}
 	
 	function daoruShujus(){
-		$("#daoru").dialog("open").dialog("setTitle","导入<%=newJcpeizhi.getShujuBieming()%>信息");
+		$("#daoru").dialog("open").dialog("setTitle","导入<%=newJcpeizhi.getShujubieming()%>信息");
 		daoruurl="../daoruShuju";
 	}
 	
@@ -210,7 +210,7 @@ var url;
 			return;
 		}
 		var row=selectedRows[0];
-		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=newJcpeizhi.getShujuBieming()%>信息");
+		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=newJcpeizhi.getShujubieming()%>信息");
 		$("#shchfm").form("load",row);
 		shchurl="../shangchuanShuju?shujuId="+row.shujuId;
 	}
@@ -335,27 +335,27 @@ var url;
 </head>
 <body style="margin: 5px;">
 <!--startprint-->
-	<table id="dg" title="<%=newJcpeizhi.getShujuBieming()%>信息" class="easyui-datagrid" fitColumns="true"
+	<table id="dg" title="<%=newJcpeizhi.getShujubieming()%>信息" class="easyui-datagrid" fitColumns="true"
 	 pagination="true" url="../getShujus" fit="true" rownumbers="true" toolbar="#tb">
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true"></th>
-				<th field="shujuId" width="10" hidden="true">编号</th>
-				<th field="sjleixingId" width="20" hidden="true"><%=newJcpeizhi.getSjleixingBieming()%>ID</th>
-				<th field="sjleixingName" width="20"><%=newJcpeizhi.getSjleixingBieming()%></th>
-				<th field="shujuName" width="20">车牌</th>
-				<th field="shujuMark" width="20">品牌</th>
-				<th field="shujuMark1" width="20">型号</th>
-				<th field="shujuMark2" width="40">配置</th>
-				<th field="shujuMark3" width="20">购买年</th>
-				<th field="shujuZong" width="10">里程</th>
-				<th field="shujuDouble" width="10">购价</th>
-				<th field="shujuImg" width="20" formatter="formatChakan">照片</th>
-				<th field="userId" width="20" hidden="true"><%=newJcpeizhi.getUserBieming()%>ID</th>
-				<th field="userName" width="20"><%=newJcpeizhi.getUserBieming()%></th>
-				<th field="buzhiId" width="10" hidden="true"><%=newJcpeizhi.getBuzhiBieming()%>ID</th>
-				<th field="buzhiName" width="20"><%=newJcpeizhi.getBuzhiBieming()%></th>
-				<th field="shujuDate" width="20" formatter="datetostr">时间</th>
+				<th field="shujuid" width="10" hidden="true">编号</th>
+				<th field="sjleixingid" width="20" hidden="true"><%=newJcpeizhi.getSjleixingbieming()%>ID</th>
+				<th field="sjleixingname" width="20"><%=newJcpeizhi.getSjleixingbieming()%></th>
+				<th field="shujuname" width="20">车牌</th>
+				<th field="shujumark" width="20">品牌</th>
+				<th field="shujumark1" width="20">型号</th>
+				<th field="shujumark2" width="40">配置</th>
+				<th field="shujumark3" width="20">购买年</th>
+				<th field="shujuzong" width="10">里程</th>
+				<th field="shujudouble" width="10">购价</th>
+				<th field="shujuimg" width="20" formatter="formatChakan">照片</th>
+				<th field="userid" width="20" hidden="true"><%=newJcpeizhi.getUserBieming()%>ID</th>
+				<th field="username" width="20"><%=newJcpeizhi.getUserBieming()%></th>
+				<th field="buzhiid" width="10" hidden="true"><%=newJcpeizhi.getBuzhiBieming()%>ID</th>
+				<th field="buzhiname" width="20"><%=newJcpeizhi.getBuzhiBieming()%></th>
+				<th field="shujudate" width="20" formatter="datetostr">时间</th>
 			</tr>
 		</thead>
 	</table>
@@ -363,7 +363,7 @@ var url;
 	<div id="tb">
 		<div>
 		&nbsp;车牌：&nbsp;<input type="text" name="s_shujuName" id="s_shujuName" size="10"/>
-		&nbsp;<%=newJcpeizhi.getSjleixingBieming()%>：&nbsp;<input class="easyui-combobox" id="s_sjleixingId" name="s_sjleixingId"  data-options="panelHeight:'auto',editable:false,valueField:'sjleixingId',textField:'sjleixingName',url:'../sjleixingComboList'"/>
+		&nbsp;<%=newJcpeizhi.getSjleixingbieming()%>：&nbsp;<input class="easyui-combobox" id="s_sjleixingId" name="s_sjleixingId"  data-options="panelHeight:'auto',editable:false,valueField:'sjleixingId',textField:'sjleixingName',url:'../sjleixingComboList'"/>
 		<a href="javascript:searchShuju()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
 		</div>
 	</div>

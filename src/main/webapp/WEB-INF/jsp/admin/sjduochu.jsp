@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title><%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjduochuBieming()%></title>
+<title><%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjduochubieming()%></title>
 
 <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/icon.css">

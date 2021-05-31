@@ -31,10 +31,12 @@ pageEncoding="utf-8"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+	<link rel="icon" href="/static/muban10/favicon.ico">
     <title><%=newJcpeizhi.getJcpeizhiname()%></title>
     <link rel="stylesheet" href="/static/muban10/assets/css/layui.css">
     <link rel="stylesheet" href="/static/muban10/assets/css/admin.css">
-    <link rel="icon" href="/static/muban10/favicon.ico">
+
 </head>
 <body class="layui-layout-body">
     <div class="layui-layout layui-layout-admin">
@@ -66,7 +68,7 @@ pageEncoding="utf-8"%>
                 <ul id="Nav" class="layui-nav layui-nav-tree">
                     <li class="layui-nav-item">
                         <a href="javascript:;">
-                            <i class="layui-icon">&#xe609;</i>
+                            <i class="layui-icon layui-icon-layouts"></i>
                             <em>主页</em>
                         </a>
                         <dl class="layui-nav-child">
