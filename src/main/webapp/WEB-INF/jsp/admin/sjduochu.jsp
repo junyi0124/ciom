@@ -44,7 +44,7 @@ var url;
 	}
 	
 	function openSjduochuAddDialog(){
-		$("#dlg").dialog("open").dialog("setTitle","添加<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjduochuBieming()%>");
+		$("#dlg").dialog("open").dialog("setTitle","添加<%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjduochubieming()%>");
 		url="../addSjduochu";
 	}
 	
@@ -88,7 +88,7 @@ var url;
 			return;
 		}
 		var row=selectedRows[0];
-		$("#dlg").dialog("open").dialog("setTitle","编辑<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjduochuBieming()%>");
+		$("#dlg").dialog("open").dialog("setTitle","编辑<%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjduochubieming()%>");
 		$("#fm").form("load",row);
 		url="../addSjduochu?sjduochuId="+row.sjduochuId;
 	}
@@ -182,7 +182,7 @@ var url;
 	}
 	
 	function daoruSjduochus(){
-		$("#daoru").dialog("open").dialog("setTitle","导入<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjduochuBieming()%>");
+		$("#daoru").dialog("open").dialog("setTitle","导入<%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjduochubieming()%>");
 		daoruurl="../daoruSjduochu";
 	}
 	
@@ -219,7 +219,7 @@ var url;
 			return;
 		}
 		var row=selectedRows[0];
-		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjduochuBieming()%>");
+		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjduochubieming()%>");
 		$("#shchfm").form("load",row);
 		shchurl="../shangchuanSjduochu?sjduochuId="+row.sjduochuId;
 	}
@@ -298,30 +298,32 @@ var url;
 </head>
 <body style="margin: 5px;">
 <!--startprint-->
-	<table id="dg" title="<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjduochuBieming()%>" class="easyui-datagrid" fitColumns="true"
+	<table id="dg" title="<%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjduochubieming()%>" class="easyui-datagrid" fitColumns="true"
 	 pagination="true" url="../getSjduochus" fit="true" rownumbers="true" toolbar="#tb">
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true"></th>
-				<th field="sjduochuId" width="10" hidden="true">编号</th>
-				<th field="userId" width="20" hidden="true"><%=newJcpeizhi.getUserBieming()%>ID</th>
-				<th field="userName" width="20"><%=newJcpeizhi.getUserBieming()%></th>
-				<th field="shujuId" width="20" hidden="true"><%=newJcpeizhi.getShujuBieming()%>ID</th>
-				<th field="shujuName" width="20"><%=newJcpeizhi.getShujuBieming()%></th>
-				<th field="sjduochuName" width="40">保险</th>
-				<th field="sjduochuDouble" width="10">报价</th>
-				<th field="sjduochuMark" width="120">详情</th>
-				<th field="sjduochuImgName" width="20" formatter="formatXiazai">详情</th>
-				<th field="yonghuId" width="10" hidden="true"><%=newJcpeizhi.getYonghuBieming()%>ID</th>
-				<th field="yonghuName" width="20"><%=newJcpeizhi.getYonghuBieming()%></th>
-				<th field="sjduochuDate" width="20" formatter="datetostr">时间</th>
+				<th field="sjduochuid" width="10" hidden="true">编号</th>
+				<th field="userid" width="20" hidden="true"><%=newJcpeizhi.getUserBieming()%>ID</th>
+				<th field="username" width="20"><%=newJcpeizhi.getUserBieming()%></th>
+				<th field="shujuid" width="20" hidden="true"><%=newJcpeizhi.getShujubieming()%>ID</th>
+				<th field="shujuname" width="20"><%=newJcpeizhi.getShujubieming()%></th>
+				<th field="sjduochuname" width="40">保险</th>
+				<th field="sjduochudouble" width="10">报价</th>
+				<th field="sjduochumark" width="120">详情</th>
+				<th field="sjduochuimgname" width="20" formatter="formatXiazai">详情</th>
+				<th field="yonghuid" width="10" hidden="true"><%=newJcpeizhi.getYonghuBieming()%>ID</th>
+				<th field="yonghuname" width="20"><%=newJcpeizhi.getYonghuBieming()%></th>
+				<th field="sjduochudate" width="20" formatter="datetostr">时间</th>
 			</tr>
 		</thead>
 	</table>
 	
 	<div id="tb">
 		<div>
-		&nbsp;<%=newJcpeizhi.getShujuBieming()%>：&nbsp;<input class="easyui-combobox" id="s_shujuId" name="s_shujuId"  data-options="panelHeight:'auto',editable:false,valueField:'shujuId',textField:'shujuName',url:'../shujuComboList'"/>
+		&nbsp;<%=newJcpeizhi.getShujubieming()%>：&nbsp;
+		<input class="easyui-combobox" id="s_shujuId" name="s_shujuId"
+		    data-options="panelHeight:'auto',editable:false,valueField:'shujuid',textField:'shujuname',url:'../shujuComboList'"/>
 		<a href="javascript:searchSjduochu()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
 		</div>
 	</div>

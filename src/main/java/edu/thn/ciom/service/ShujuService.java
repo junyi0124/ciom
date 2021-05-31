@@ -11,7 +11,7 @@ import javax.swing.plaf.basic.BasicArrowButton;
 import java.util.List;
 
 @Service
-public class ShujuPojoService {
+public class ShujuService {
     @Autowired
     private ShujuPojoMapper shujuPojoMapper;
 

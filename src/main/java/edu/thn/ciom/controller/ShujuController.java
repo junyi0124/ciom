@@ -4,13 +4,12 @@ import edu.thn.ciom.pojo.LeiXingPojo;
 import edu.thn.ciom.pojo.ShujuPojo;
 import edu.thn.ciom.pojo.UserPojo;
 import edu.thn.ciom.pojo.YongHuPojo;
-import edu.thn.ciom.service.ShujuPojoService;
+import edu.thn.ciom.service.ShujuService;
 import edu.thn.ciom.service.TypeService;
 import edu.thn.ciom.service.UserService;
 import edu.thn.ciom.service.YonghuService;
 import edu.thn.ciom.util.DateUtil;
 import edu.thn.ciom.util.ResponseUtil;
-import edu.thn.ciom.util.TypeUtil;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
-import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -31,7 +29,7 @@ import java.util.List;
 @Controller
 public class ShujuController {
     @Autowired
-    private ShujuPojoService shujuService;
+    private ShujuService shujuService;
     @Autowired
     private TypeService typeService;
 
@@ -333,19 +331,19 @@ public class ShujuController {
         response.setCharacterEncoding("UTF-8");
         String shujuName = request.getParameter("shujuName");
         String shujuId = request.getParameter("shujuId");
-        String shujuType = request.getParameter("shujuType");
-        String shujuType1 = request.getParameter("shujuType1");
-        String sjleixingId = request.getParameter("sjleixingId");
-        String sjxingtaiId = request.getParameter("sjxingtaiId");
-        String shujuZong2 = request.getParameter("shujuZong2");
-        String yonghuId = request.getParameter("yonghuId");
-        String byumenId = request.getParameter("byumenId");
-        String byuyuanId = request.getParameter("byuyuanId");
-        String byuzhiId = request.getParameter("byuzhiId");
-        String userId = request.getParameter("userId");
-        String bumenId = request.getParameter("bumenId");
-        String buyuanId = request.getParameter("buyuanId");
-        String buzhiId = request.getParameter("buzhiId");
+//        String shujuType = request.getParameter("shujuType");
+//        String shujuType1 = request.getParameter("shujuType1");
+//        String sjleixingId = request.getParameter("sjleixingId");
+//        String sjxingtaiId = request.getParameter("sjxingtaiId");
+//        String shujuZong2 = request.getParameter("shujuZong2");
+//        String yonghuId = request.getParameter("yonghuId");
+//        String byumenId = request.getParameter("byumenId");
+//        String byuyuanId = request.getParameter("byuyuanId");
+//        String byuzhiId = request.getParameter("byuzhiId");
+//        String userId = request.getParameter("userId");
+//        String bumenId = request.getParameter("bumenId");
+//        String buyuanId = request.getParameter("buyuanId");
+//        String buzhiId = request.getParameter("buzhiId");
         ShujuPojo shuju = new ShujuPojo();
         try {
             if (StringUtils.hasText(shujuId)) {
@@ -396,7 +394,7 @@ public class ShujuController {
             JSONArray jsonArray = new JSONArray();
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("id", "");
-            jsonObject.put("shujuName", "请选择...");
+            jsonObject.put("shujuname", "请选择...");
             jsonArray.add(jsonObject);
             jsonArray.addAll(JSONArray.fromObject(shujuService.queryShujus(shuju,
                     0, 0, null, null, null, null)));
