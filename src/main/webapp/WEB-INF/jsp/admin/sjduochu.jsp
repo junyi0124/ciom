@@ -323,7 +323,7 @@ var url;
 		<div>
 		&nbsp;<%=newJcpeizhi.getShujubieming()%>：&nbsp;
 		<input class="easyui-combobox" id="s_shujuId" name="s_shujuId"
-		    data-options="panelHeight:'auto',editable:false,valueField:'shujuid',textField:'shujuname',url:'../shujuComboList'"/>
+		    data-options="panelHeight:'auto',editable:false,valueField:'id',textField:'value',url:'../shujuComboList'"/>
 		<a href="javascript:searchSjduochu()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
 		</div>
 	</div>

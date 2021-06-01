@@ -16,7 +16,7 @@ public class TypeService {
     @Autowired
     private LeiXingPojoMapper leiXingPojoMapper;
 
-    public List querySjleixings(LeiXingPojo record, int page, int rows) {
+    public List<LeiXingPojo> querySjleixings(LeiXingPojo record, int page, int rows) {
         LeiXingPojoExample example = new LeiXingPojoExample();
         LeiXingPojoExample.Criteria criteria = example.createCriteria();
 

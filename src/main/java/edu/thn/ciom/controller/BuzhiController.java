@@ -1,6 +1,7 @@
 package edu.thn.ciom.controller;
 
 import edu.thn.ciom.pojo.BuzhiPojo;
+import edu.thn.ciom.pojo.SelectListItem;
 import edu.thn.ciom.service.BuzhiService;
 import edu.thn.ciom.util.ResponseUtil;
 import net.sf.json.JSONArray;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.stream.Collectors;
 
 @Controller
 public class BuzhiController {
@@ -192,9 +194,12 @@ public class BuzhiController {
             JSONArray jsonArray = new JSONArray();
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("id", "");
-            jsonObject.put("buzhiname", "请选择...");
+            jsonObject.put("value", "请选择...");
             jsonArray.add(jsonObject);
-            jsonArray.addAll(JSONArray.fromObject(buzhiService.queryBuzhis(buzhi, 0, 0)));
+            jsonArray.addAll(
+                    JSONArray.fromObject(buzhiService.queryBuzhis(buzhi, 0, 0)
+                    .stream().map(d->new SelectListItem(d.getBuzhiid(), d.getBuzhiname()))
+                    .collect(Collectors.toList())));
             ResponseUtil.write(response, jsonArray);
         } catch (Exception e) {
             e.printStackTrace();

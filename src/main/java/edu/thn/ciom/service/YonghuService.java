@@ -22,7 +22,7 @@ public class YonghuService {
 
     private final String dateFormat = "yyyy-MM-dd hh:mm:ss";
 
-    public List queryYonghus(YongHuPojo record, String yonghuName, int page, int rows,
+    public List<YongHuPojo> queryYonghus(YongHuPojo record, String yonghuName, int page, int rows,
                              String sdate, String edate,
                              String sdate1, String edate1) {
 

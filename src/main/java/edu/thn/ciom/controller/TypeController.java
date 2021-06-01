@@ -1,6 +1,7 @@
 package edu.thn.ciom.controller;
 
 import edu.thn.ciom.pojo.LeiXingPojo;
+import edu.thn.ciom.pojo.SelectListItem;
 import edu.thn.ciom.service.TypeService;
 import edu.thn.ciom.util.ResponseUtil;
 import net.sf.json.JSONArray;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
+import java.util.stream.Collectors;
 
 @Controller
 public class TypeController {
@@ -186,10 +188,12 @@ public class TypeController {
             JSONArray jsonArray = new JSONArray();
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("id", "");
-            jsonObject.put("sjleixingName", "请选择...");
+            jsonObject.put("value", "请选择...");
             jsonArray.add(jsonObject);
-            jsonArray.addAll(JSONArray.fromObject(typeService.querySjleixings(sjleixing,
-                    0, 0)));
+            jsonArray.addAll(JSONArray.fromObject(
+                typeService.querySjleixings(sjleixing,0, 0)
+                .stream().map(d->new SelectListItem(d.getSjleixingid(), d.getSjleixingname()))
+                .collect(Collectors.toList())));
             ResponseUtil.write(response, jsonArray);
         } catch (Exception e) {
             e.printStackTrace();

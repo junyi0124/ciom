@@ -16,7 +16,7 @@ public class ShujuService {
     @Autowired
     private ShujuPojoMapper shujuPojoMapper;
 
-    public List<ShujuPojo> queryShujus(ShujuPojo record, int page, int rows, String sdate, String edate, String sdate1, String edate1) {
+    public List<ShujuPojo> queryShujus(ShujuPojo record, int page, int rows) {
         ShujuPojoExample example = new ShujuPojoExample();
         ShujuPojoExample.Criteria criteria = example.createCriteria();
 

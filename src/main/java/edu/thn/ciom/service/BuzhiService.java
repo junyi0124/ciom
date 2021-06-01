@@ -16,7 +16,7 @@ public class BuzhiService {
     @Autowired
     private BuzhiPojoMapper buzhiPojoMapper;
 
-    public List queryBuzhis(BuzhiPojo record, int page, int rows) {
+    public List<BuzhiPojo> queryBuzhis(BuzhiPojo record, int page, int rows) {
 
         BuzhiPojoExample example = new BuzhiPojoExample();
         BuzhiPojoExample.Criteria criteria = example.createCriteria();

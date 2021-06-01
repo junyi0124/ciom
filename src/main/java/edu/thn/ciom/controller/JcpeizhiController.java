@@ -281,8 +281,10 @@ public class JcpeizhiController {
             }
             JSONArray jsonArray = new JSONArray();
             JSONObject jsonObject = new JSONObject();
+//            jsonObject.put("id", "");
+//            jsonObject.put("jcpeizhiName", "请选择...");
             jsonObject.put("id", "");
-            jsonObject.put("jcpeizhiName", "请选择...");
+            jsonObject.put("value", "请选择...");
             jsonArray.add(jsonObject);
             jsonArray.addAll(JSONArray.fromObject(jcpeizhiService.queryJcpeizhis(jcpeizhi, 0, 0)));
             ResponseUtil.write(response, jsonArray);

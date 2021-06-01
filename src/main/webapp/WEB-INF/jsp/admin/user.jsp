@@ -344,7 +344,8 @@ var url;
 			<option value="0">男</option>
 			<option value="1">女</option>
 		</select>
-		&nbsp;<%= newJcpeizhi==null ? "--" : newJcpeizhi.getBuzhiBieming()%>：&nbsp;<input class="easyui-combobox" id="s_buzhiId" name="s_buzhiId"  data-options="panelHeight:'auto',editable:false,valueField:'buzhiId',textField:'buzhiName',url:'../buzhiComboList'"/>
+		&nbsp;<%= newJcpeizhi==null ? "--" : newJcpeizhi.getBuzhiBieming()%>：&nbsp;<input class="easyui-combobox" id="s_buzhiId" name="s_buzhiId"
+		data-options="panelHeight:'auto',editable:false,valueField:'id',textField:'value',url:'../buzhiComboList'"/>
 		<a href="javascript:searchUser()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
 		</div>
 	</div>

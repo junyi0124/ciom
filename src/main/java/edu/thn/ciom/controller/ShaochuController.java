@@ -433,7 +433,7 @@ public class ShaochuController {
             shuju.setUserid(Integer.parseInt(userId));
         }
         try {
-            shujus = shujuService.queryShujus(shuju, 0, 0, null, null, null, null);
+            shujus = shujuService.queryShujus(shuju, 0, 0);
             for (int i = 0; i < shujus.size(); i++) {
                 shujuIds.add(shujus.get(i).getShujuid());
                 tongjiNames.add(shujus.get(i).getShujuname());

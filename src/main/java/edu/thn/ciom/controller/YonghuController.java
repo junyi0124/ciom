@@ -1,5 +1,6 @@
 package edu.thn.ciom.controller;
 
+import edu.thn.ciom.pojo.SelectListItem;
 import edu.thn.ciom.pojo.YongHuPojo;
 import edu.thn.ciom.service.YonghuService;
 import edu.thn.ciom.util.DateUtil;
@@ -20,6 +21,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class YonghuController {
@@ -700,11 +702,15 @@ public class YonghuController {
 //            }
             JSONArray jsonArray = new JSONArray();
             JSONObject jsonObject = new JSONObject();
+//            jsonObject.put("id", "");
+//            jsonObject.put("yonghuName", "请选择...");
             jsonObject.put("id", "");
-            jsonObject.put("yonghuName", "请选择...");
+            jsonObject.put("value", "请选择...");
             jsonArray.add(jsonObject);
             jsonArray.addAll(JSONArray.fromObject(yonghuService.queryYonghus(yonghu,
-                    null, 0, 0, null, null, null, null)));
+                    null, 0, 0, null, null, null, null)
+                    .stream().map(d->new SelectListItem(d.getYonghuid().toString(), d.getYonghuname()))
+            .collect(Collectors.toList())));
             ResponseUtil.write(response, jsonArray);
         } catch (Exception e) {
             e.printStackTrace();

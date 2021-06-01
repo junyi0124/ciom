@@ -363,7 +363,8 @@ var url;
 	<div id="tb">
 		<div>
 		&nbsp;车牌：&nbsp;<input type="text" name="s_shujuName" id="s_shujuName" size="10"/>
-		&nbsp;<%=newJcpeizhi.getSjleixingbieming()%>：&nbsp;<input class="easyui-combobox" id="s_sjleixingId" name="s_sjleixingId"  data-options="panelHeight:'auto',editable:false,valueField:'sjleixingId',textField:'sjleixingName',url:'../sjleixingComboList'"/>
+		&nbsp;<%=newJcpeizhi.getSjleixingbieming()%>：&nbsp;<input class="easyui-combobox" id="s_sjleixingId" name="s_sjleixingId"
+		data-options="panelHeight:'auto',editable:false,valueField:'id',textField:'value',url:'../sjleixingComboList'"/>
 		<a href="javascript:searchShuju()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
 		</div>
 	</div>

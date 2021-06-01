@@ -1,9 +1,6 @@
 package edu.thn.ciom.controller;
 
-import edu.thn.ciom.pojo.LeiXingPojo;
-import edu.thn.ciom.pojo.ShujuPojo;
-import edu.thn.ciom.pojo.UserPojo;
-import edu.thn.ciom.pojo.YongHuPojo;
+import edu.thn.ciom.pojo.*;
 import edu.thn.ciom.service.ShujuService;
 import edu.thn.ciom.service.TypeService;
 import edu.thn.ciom.service.UserService;
@@ -131,9 +128,9 @@ public class ShujuController {
 //            }
             JSONArray jsonArray = JSONArray.fromObject(
                     shujuService.queryShujus(
-                            shuju, pageBean.getStart(), pageBean.getRows(), null, null, null, null));
+                            shuju, pageBean.getStart(), pageBean.getRows()));
             JSONObject result = new JSONObject();
-            int total = shujuService.queryShujus(shuju, 0, 0, null, null, null, null).size();
+            int total = shujuService.queryShujus(shuju, 0, 0).size();
             result.put("rows", jsonArray);
             result.put("total", total);
             ResponseUtil.write(response, result);
@@ -392,13 +389,13 @@ public class ShujuController {
 //            }
             JSONArray jsonArray = new JSONArray();
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("value0", "");
-            jsonObject.put("value1", "请选择...");
+            jsonObject.put("id", "");
+            jsonObject.put("value", "请选择...");
             jsonArray.add(jsonObject);
             jsonArray.addAll(JSONArray.fromObject(shujuService.queryShujus(shuju,
-                    0, 0, null, null, null, null)
+                    0, 0)
                     .stream()
-                    .map(dc -> new Pair<>(dc.getShujuid(), dc.getShujuname()))
+                    .map(dc -> new SelectListItem(dc.getShujuid(), dc.getShujuname()))
                     .collect(Collectors.toList())));
             ResponseUtil.write(response, jsonArray);
         } catch (Exception e) {
@@ -411,8 +408,8 @@ public class ShujuController {
             throws Exception {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        String sdate = request.getParameter("sdate");
-        String edate = request.getParameter("edate");
+//        String sdate = request.getParameter("sdate");
+//        String edate = request.getParameter("edate");
         String userId = request.getParameter("userId");
         String tijiaoUrl = "shujuTongji";
         List<Integer> sjleixingIds = new ArrayList<Integer>();
@@ -434,7 +431,7 @@ public class ShujuController {
             for (int i = 0; i < sjleixingIds.size(); i++) {
                 Double shujuZongshu = 0.0;
                 shuju.setSjleixingid(sjleixingIds.get(i));
-                shujus = shujuService.queryShujus(shuju, 0, 0, sdate, edate, null, null);
+                shujus = shujuService.queryShujus(shuju, 0, 0);
                 for (int j = 0; j < shujus.size(); j++) {
                     shujuZongshu = shujuZongshu + shujus.get(j).getShujuzong();
                 }
