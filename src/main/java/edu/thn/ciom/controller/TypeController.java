@@ -94,7 +94,7 @@ public class TypeController {
 
             if (StringUtils.hasText(sjleixingId)) {
                 typePojo = typeService.getSjleixing(Integer.parseInt(sjleixingId));
-                if(typePojo!=null) isNew = false;
+                if (typePojo != null) isNew = false;
             }
 
             if (StringUtils.hasText(sjleixingName)) {
@@ -191,9 +191,9 @@ public class TypeController {
             jsonObject.put("value", "请选择...");
             jsonArray.add(jsonObject);
             jsonArray.addAll(JSONArray.fromObject(
-                typeService.querySjleixings(sjleixing,0, 0)
-                .stream().map(d->new SelectListItem(d.getSjleixingid(), d.getSjleixingname()))
-                .collect(Collectors.toList())));
+                    typeService.querySjleixings(sjleixing, 0, 0)
+                            .stream().map(d -> new SelectListItem(d.getSjleixingid(), d.getSjleixingname()))
+                            .collect(Collectors.toList())));
             ResponseUtil.write(response, jsonArray);
         } catch (Exception e) {
             e.printStackTrace();

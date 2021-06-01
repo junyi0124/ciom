@@ -25,7 +25,7 @@ public class JianchuController {
     private YonghuService yonghuService;
     @Autowired
     private UserService userService;
-    
+
     @RequestMapping("/getSjjianchus")
     public void getSjjianchus(HttpServletRequest request,
                               HttpServletResponse response) throws Exception {
@@ -57,10 +57,10 @@ public class JianchuController {
 //        String edate1 = request.getParameter("edate1");
         JianChuPojo sjjianchu = new JianChuPojo();
         PageBean pageBean = null;
-        if ((StringUtils.hasText(page))&&(!page.equals("null"))) {
-            pageBean = new PageBean(Integer.parseInt(page),Integer.parseInt(rows));
-        }else{
-            pageBean = new PageBean(0,0);
+        if ((StringUtils.hasText(page)) && (!page.equals("null"))) {
+            pageBean = new PageBean(Integer.parseInt(page), Integer.parseInt(rows));
+        } else {
+            pageBean = new PageBean(0, 0);
         }
         try {
             if (StringUtils.hasText(shujuId)) {
@@ -129,7 +129,7 @@ public class JianchuController {
             JSONArray jsonArray = JSONArray.fromObject(jianchuService.querySjjianchus(
                     sjjianchu, pageBean.getStart(), pageBean.getRows()));
             JSONObject result = new JSONObject();
-            int total = jianchuService.querySjjianchus(sjjianchu, 0,0).size();
+            int total = jianchuService.querySjjianchus(sjjianchu, 0, 0).size();
             result.put("rows", jsonArray);
             result.put("total", total);
             ResponseUtil.write(response, result);
@@ -226,7 +226,7 @@ public class JianchuController {
             if (StringUtils.hasText(shujuId)) {
                 sjjianchu.setShujuid(Integer.parseInt(shujuId));
                 ShujuPojo shuju = shujuService.getShuju(Integer.parseInt(shujuId));
-                if(shuju!=null) sjjianchu.setShujuname(shuju.getShujuname());
+                if (shuju != null) sjjianchu.setShujuname(shuju.getShujuname());
 //                sjjianchu.setSjleixingId(shuju.getSjleixingId());
 //                sjjianchu.setSjleixingName(shuju.getSjleixingName());
 //                sjjianchu.setUserId(shuju.getUserId());
@@ -242,14 +242,14 @@ public class JianchuController {
             if (StringUtils.hasText(yonghuId)) {
                 sjjianchu.setYonghuid(Integer.parseInt(yonghuId));
                 YongHuPojo yonghu = yonghuService.getYonghu(Integer.parseInt(yonghuId));
-                if(yonghu!=null) sjjianchu.setYonghuname(yonghu.getYonghuname());
+                if (yonghu != null) sjjianchu.setYonghuname(yonghu.getYonghuname());
 //                sjjianchu.setBuzhiId(yonghu.getBuzhiId());
 //                sjjianchu.setBuzhiName(yonghu.getBuzhiName());
             }
             if (StringUtils.hasText(userId)) {
                 sjjianchu.setUserid(Integer.parseInt(userId));
                 UserPojo user = userService.getUser(Integer.parseInt(userId));
-                if(user!=null) sjjianchu.setUsername(user.getUsername());
+                if (user != null) sjjianchu.setUsername(user.getUsername());
 //                sjjianchu.setBumenId(user.getBumenId());
 //                sjjianchu.setBumenName(user.getBumenName());
 //                sjjianchu.setBuyuanId(user.getBuyuanId());
@@ -392,9 +392,9 @@ public class JianchuController {
             jsonArray.add(jsonObject);
             jsonArray.addAll(
                     JSONArray.fromObject(
-                        jianchuService.querySjjianchus(sjjianchu,0,0)
-                        .stream().map(j->new SelectListItem(j.getSjjianchuid().toString(), j.getSjjianchuimgname()))
-                        .collect(Collectors.toList())));
+                            jianchuService.querySjjianchus(sjjianchu, 0, 0)
+                                    .stream().map(j -> new SelectListItem(j.getSjjianchuid().toString(), j.getSjjianchuimgname()))
+                                    .collect(Collectors.toList())));
 
             ResponseUtil.write(response, jsonArray);
         } catch (Exception e) {

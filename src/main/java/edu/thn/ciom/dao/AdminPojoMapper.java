@@ -2,7 +2,9 @@ package edu.thn.ciom.dao;
 
 import edu.thn.ciom.pojo.AdminPojo;
 import edu.thn.ciom.pojo.AdminPojoExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
@@ -36,8 +38,8 @@ public interface AdminPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Delete({
-        "delete from t_admin",
-        "where adminId = #{adminid,jdbcType=INTEGER}"
+            "delete from t_admin",
+            "where adminId = #{adminid,jdbcType=INTEGER}"
     })
     int deleteByPrimaryKey(Integer adminid);
 
@@ -48,10 +50,10 @@ public interface AdminPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Insert({
-        "insert into t_admin (adminName, adminPassword)",
-        "values (#{adminname,jdbcType=VARCHAR}, #{adminpassword,jdbcType=VARCHAR})"
+            "insert into t_admin (adminName, adminPassword)",
+            "values (#{adminname,jdbcType=VARCHAR}, #{adminpassword,jdbcType=VARCHAR})"
     })
-    @SelectKey(statement="CALL IDENTITY()", keyProperty="adminid", before=false, resultType=Integer.class)
+    @SelectKey(statement = "CALL IDENTITY()", keyProperty = "adminid", before = false, resultType = Integer.class)
     int insert(AdminPojo record);
 
     /**
@@ -85,10 +87,10 @@ public interface AdminPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Select({
-        "select",
-        "adminId, adminName, adminPassword",
-        "from t_admin",
-        "where adminId = #{adminid,jdbcType=INTEGER}"
+            "select",
+            "adminId, adminName, adminPassword",
+            "from t_admin",
+            "where adminId = #{adminid,jdbcType=INTEGER}"
     })
     @ResultMap("edu.thn.ciom.dao.AdminPojoMapper.BaseResultMap")
     AdminPojo selectByPrimaryKey(Integer adminid);
@@ -124,10 +126,10 @@ public interface AdminPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Update({
-        "update t_admin",
-        "set adminName = #{adminname,jdbcType=VARCHAR},",
-          "adminPassword = #{adminpassword,jdbcType=VARCHAR}",
-        "where adminId = #{adminid,jdbcType=INTEGER}"
+            "update t_admin",
+            "set adminName = #{adminname,jdbcType=VARCHAR},",
+            "adminPassword = #{adminpassword,jdbcType=VARCHAR}",
+            "where adminId = #{adminid,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(AdminPojo record);
 }

@@ -198,8 +198,8 @@ public class BuzhiController {
             jsonArray.add(jsonObject);
             jsonArray.addAll(
                     JSONArray.fromObject(buzhiService.queryBuzhis(buzhi, 0, 0)
-                    .stream().map(d->new SelectListItem(d.getBuzhiid(), d.getBuzhiname()))
-                    .collect(Collectors.toList())));
+                            .stream().map(d -> new SelectListItem(d.getBuzhiid(), d.getBuzhiname()))
+                            .collect(Collectors.toList())));
             ResponseUtil.write(response, jsonArray);
         } catch (Exception e) {
             e.printStackTrace();

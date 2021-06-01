@@ -17,9 +17,9 @@ import java.util.List;
 @MapperScan("edu.thn.ciom.dao")
 public class CiomApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CiomApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(CiomApplication.class, args);
+    }
 //	@Override
 //	public void run(ApplicationArguments args) throws Exception {
 //		//generateArtifacts();

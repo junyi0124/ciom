@@ -24,7 +24,7 @@ public class DateUtil {
         return sdf.parse(str);
     }
 
-    public static Pair<Boolean,Date> tryParse(String str, String format) {
+    public static Pair<Boolean, Date> tryParse(String str, String format) {
         SimpleDateFormat sdf = new SimpleDateFormat(format);
         try {
             return new Pair<>(true, sdf.parse(str));

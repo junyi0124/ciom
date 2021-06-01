@@ -23,8 +23,8 @@ public class YonghuService {
     private final String dateFormat = "yyyy-MM-dd hh:mm:ss";
 
     public List<YongHuPojo> queryYonghus(YongHuPojo record, String yonghuName, int page, int rows,
-                             String sdate, String edate,
-                             String sdate1, String edate1) {
+                                         String sdate, String edate,
+                                         String sdate1, String edate1) {
 
         YongHuPojoExample example = new YongHuPojoExample();
         YongHuPojoExample.Criteria criteria = example.createCriteria();
@@ -39,9 +39,9 @@ public class YonghuService {
         if (StringUtils.hasText(edate)) {
             ed = DateUtil.tryParse(edate, dateFormat);
         }
-        if(sd.getValue0() && ed.getValue0()) criteria.andYonghudateBetween(sd.getValue1(), ed.getValue1());
-        if(sd.getValue0() && !ed.getValue0()) criteria.andYonghudateGreaterThanOrEqualTo(sd.getValue1());
-        if(!sd.getValue0() && ed.getValue0()) criteria.andYonghudateLessThanOrEqualTo(ed.getValue1());
+        if (sd.getValue0() && ed.getValue0()) criteria.andYonghudateBetween(sd.getValue1(), ed.getValue1());
+        if (sd.getValue0() && !ed.getValue0()) criteria.andYonghudateGreaterThanOrEqualTo(sd.getValue1());
+        if (!sd.getValue0() && ed.getValue0()) criteria.andYonghudateLessThanOrEqualTo(ed.getValue1());
 
         if (rows == 0) return yongHuPojoMapper.selectByExample(example);
         RowBounds rb = new RowBounds(page * rows, rows);

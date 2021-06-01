@@ -19,7 +19,7 @@ public class JcpeizhiService {
         // TODO Auto-generated method stub
         PeizhiPojoExample example = new PeizhiPojoExample();
         PeizhiPojoExample.Criteria criteria = example.createCriteria();
-        if(record!=null){
+        if (record != null) {
             if (StringUtils.hasText(record.getBuzhiBieming()))
                 criteria.andBumenbiemingLike(record.getBuzhiBieming());
             if (record.getJcpeizhiid() != 0)

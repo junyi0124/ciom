@@ -2,7 +2,9 @@ package edu.thn.ciom.dao;
 
 import edu.thn.ciom.pojo.DaohangPojo;
 import edu.thn.ciom.pojo.DaohangPojoExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
@@ -36,8 +38,8 @@ public interface DaohangPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Delete({
-        "delete from t_jcdaohang",
-        "where jcdaohangId = #{jcdaohangid,jdbcType=INTEGER}"
+            "delete from t_jcdaohang",
+            "where jcdaohangId = #{jcdaohangid,jdbcType=INTEGER}"
     })
     int deleteByPrimaryKey(Integer jcdaohangid);
 
@@ -48,20 +50,20 @@ public interface DaohangPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Insert({
-        "insert into t_jcdaohang (jcdaohangName, jcdaohangNeirong, ",
-        "jcdaohangMark, jcdaohangMark1, ",
-        "jcdaohangMark2, jcdaohangPaixu, ",
-        "jcdaohangType, jcdaohangType1, ",
-        "jcdaohangType2, jcbiaotiId, ",
-        "jcbiaotiName)",
-        "values (#{jcdaohangname,jdbcType=VARCHAR}, #{jcdaohangneirong,jdbcType=VARCHAR}, ",
-        "#{jcdaohangmark,jdbcType=VARCHAR}, #{jcdaohangmark1,jdbcType=VARCHAR}, ",
-        "#{jcdaohangmark2,jdbcType=VARCHAR}, #{jcdaohangpaixu,jdbcType=INTEGER}, ",
-        "#{jcdaohangtype,jdbcType=INTEGER}, #{jcdaohangtype1,jdbcType=INTEGER}, ",
-        "#{jcdaohangtype2,jdbcType=INTEGER}, #{jcbiaotiid,jdbcType=INTEGER}, ",
-        "#{jcbiaotiname,jdbcType=VARCHAR})"
+            "insert into t_jcdaohang (jcdaohangName, jcdaohangNeirong, ",
+            "jcdaohangMark, jcdaohangMark1, ",
+            "jcdaohangMark2, jcdaohangPaixu, ",
+            "jcdaohangType, jcdaohangType1, ",
+            "jcdaohangType2, jcbiaotiId, ",
+            "jcbiaotiName)",
+            "values (#{jcdaohangname,jdbcType=VARCHAR}, #{jcdaohangneirong,jdbcType=VARCHAR}, ",
+            "#{jcdaohangmark,jdbcType=VARCHAR}, #{jcdaohangmark1,jdbcType=VARCHAR}, ",
+            "#{jcdaohangmark2,jdbcType=VARCHAR}, #{jcdaohangpaixu,jdbcType=INTEGER}, ",
+            "#{jcdaohangtype,jdbcType=INTEGER}, #{jcdaohangtype1,jdbcType=INTEGER}, ",
+            "#{jcdaohangtype2,jdbcType=INTEGER}, #{jcbiaotiid,jdbcType=INTEGER}, ",
+            "#{jcbiaotiname,jdbcType=VARCHAR})"
     })
-    @SelectKey(statement="CALL IDENTITY()", keyProperty="jcdaohangid", before=false, resultType=Integer.class)
+    @SelectKey(statement = "CALL IDENTITY()", keyProperty = "jcdaohangid", before = false, resultType = Integer.class)
     int insert(DaohangPojo record);
 
     /**
@@ -95,12 +97,12 @@ public interface DaohangPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Select({
-        "select",
-        "jcdaohangId, jcdaohangName, jcdaohangNeirong, jcdaohangMark, jcdaohangMark1, ",
-        "jcdaohangMark2, jcdaohangPaixu, jcdaohangType, jcdaohangType1, jcdaohangType2, ",
-        "jcbiaotiId, jcbiaotiName",
-        "from t_jcdaohang",
-        "where jcdaohangId = #{jcdaohangid,jdbcType=INTEGER}"
+            "select",
+            "jcdaohangId, jcdaohangName, jcdaohangNeirong, jcdaohangMark, jcdaohangMark1, ",
+            "jcdaohangMark2, jcdaohangPaixu, jcdaohangType, jcdaohangType1, jcdaohangType2, ",
+            "jcbiaotiId, jcbiaotiName",
+            "from t_jcdaohang",
+            "where jcdaohangId = #{jcdaohangid,jdbcType=INTEGER}"
     })
     @ResultMap("edu.thn.ciom.dao.DaohangPojoMapper.BaseResultMap")
     DaohangPojo selectByPrimaryKey(Integer jcdaohangid);
@@ -136,19 +138,19 @@ public interface DaohangPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Update({
-        "update t_jcdaohang",
-        "set jcdaohangName = #{jcdaohangname,jdbcType=VARCHAR},",
-          "jcdaohangNeirong = #{jcdaohangneirong,jdbcType=VARCHAR},",
-          "jcdaohangMark = #{jcdaohangmark,jdbcType=VARCHAR},",
-          "jcdaohangMark1 = #{jcdaohangmark1,jdbcType=VARCHAR},",
-          "jcdaohangMark2 = #{jcdaohangmark2,jdbcType=VARCHAR},",
-          "jcdaohangPaixu = #{jcdaohangpaixu,jdbcType=INTEGER},",
-          "jcdaohangType = #{jcdaohangtype,jdbcType=INTEGER},",
-          "jcdaohangType1 = #{jcdaohangtype1,jdbcType=INTEGER},",
-          "jcdaohangType2 = #{jcdaohangtype2,jdbcType=INTEGER},",
-          "jcbiaotiId = #{jcbiaotiid,jdbcType=INTEGER},",
-          "jcbiaotiName = #{jcbiaotiname,jdbcType=VARCHAR}",
-        "where jcdaohangId = #{jcdaohangid,jdbcType=INTEGER}"
+            "update t_jcdaohang",
+            "set jcdaohangName = #{jcdaohangname,jdbcType=VARCHAR},",
+            "jcdaohangNeirong = #{jcdaohangneirong,jdbcType=VARCHAR},",
+            "jcdaohangMark = #{jcdaohangmark,jdbcType=VARCHAR},",
+            "jcdaohangMark1 = #{jcdaohangmark1,jdbcType=VARCHAR},",
+            "jcdaohangMark2 = #{jcdaohangmark2,jdbcType=VARCHAR},",
+            "jcdaohangPaixu = #{jcdaohangpaixu,jdbcType=INTEGER},",
+            "jcdaohangType = #{jcdaohangtype,jdbcType=INTEGER},",
+            "jcdaohangType1 = #{jcdaohangtype1,jdbcType=INTEGER},",
+            "jcdaohangType2 = #{jcdaohangtype2,jdbcType=INTEGER},",
+            "jcbiaotiId = #{jcbiaotiid,jdbcType=INTEGER},",
+            "jcbiaotiName = #{jcbiaotiname,jdbcType=VARCHAR}",
+            "where jcdaohangId = #{jcdaohangid,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(DaohangPojo record);
 }

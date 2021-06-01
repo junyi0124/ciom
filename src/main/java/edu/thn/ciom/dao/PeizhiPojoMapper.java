@@ -2,7 +2,9 @@ package edu.thn.ciom.dao;
 
 import edu.thn.ciom.pojo.PeizhiPojo;
 import edu.thn.ciom.pojo.PeizhiPojoExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
@@ -36,8 +38,8 @@ public interface PeizhiPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Delete({
-        "delete from t_jcpeizhi",
-        "where jcpeizhiId = #{jcpeizhiid,jdbcType=INTEGER}"
+            "delete from t_jcpeizhi",
+            "where jcpeizhiId = #{jcpeizhiid,jdbcType=INTEGER}"
     })
     int deleteByPrimaryKey(Integer jcpeizhiid);
 
@@ -48,42 +50,42 @@ public interface PeizhiPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Insert({
-        "insert into t_jcpeizhi (jcpeizhiName, jcpeizhiNeirong, ",
-        "jcpeizhiMark, bumenBieming, ",
-        "buyuanBieming, buzhiBieming, ",
-        "userBieming, uxtypeBieming, ",
-        "uxinxiBieming, uyijianBieming, ",
-        "roleBieming, byumenBieming, ",
-        "byuyuanBieming, byuzhiBieming, ",
-        "yonghuBieming, yxtypeBieming, ",
-        "yxinxiBieming, yyijianBieming, ",
-        "yhroleBieming, ggtypeBieming, ",
-        "gonggaoBieming, ggpinglunBieming, ",
-        "shujuBieming, sjduochuBieming, ",
-        "sjjianchuBieming, sjlaiyuanBieming, ",
-        "sjleixingBieming, sjpinglunBieming, ",
-        "sjqitaBieming, sjshaochuBieming, ",
-        "sjxingtaiBieming, jcpeizhiType, ",
-        "jcpeizhiType1, jcpeizhiType2)",
-        "values (#{jcpeizhiname,jdbcType=VARCHAR}, #{jcpeizhineirong,jdbcType=VARCHAR}, ",
-        "#{jcpeizhimark,jdbcType=VARCHAR}, #{bumenbieming,jdbcType=VARCHAR}, ",
-        "#{buyuanbieming,jdbcType=VARCHAR}, #{buzhibieming,jdbcType=VARCHAR}, ",
-        "#{userbieming,jdbcType=VARCHAR}, #{uxtypebieming,jdbcType=VARCHAR}, ",
-        "#{uxinxibieming,jdbcType=VARCHAR}, #{uyijianbieming,jdbcType=VARCHAR}, ",
-        "#{rolebieming,jdbcType=VARCHAR}, #{byumenbieming,jdbcType=VARCHAR}, ",
-        "#{byuyuanbieming,jdbcType=VARCHAR}, #{byuzhibieming,jdbcType=VARCHAR}, ",
-        "#{yonghubieming,jdbcType=VARCHAR}, #{yxtypebieming,jdbcType=VARCHAR}, ",
-        "#{yxinxibieming,jdbcType=VARCHAR}, #{yyijianbieming,jdbcType=VARCHAR}, ",
-        "#{yhrolebieming,jdbcType=VARCHAR}, #{ggtypebieming,jdbcType=VARCHAR}, ",
-        "#{gonggaobieming,jdbcType=VARCHAR}, #{ggpinglunbieming,jdbcType=VARCHAR}, ",
-        "#{shujubieming,jdbcType=VARCHAR}, #{sjduochubieming,jdbcType=VARCHAR}, ",
-        "#{sjjianchubieming,jdbcType=VARCHAR}, #{sjlaiyuanbieming,jdbcType=VARCHAR}, ",
-        "#{sjleixingbieming,jdbcType=VARCHAR}, #{sjpinglunbieming,jdbcType=VARCHAR}, ",
-        "#{sjqitabieming,jdbcType=VARCHAR}, #{sjshaochubieming,jdbcType=VARCHAR}, ",
-        "#{sjxingtaibieming,jdbcType=VARCHAR}, #{jcpeizhitype,jdbcType=INTEGER}, ",
-        "#{jcpeizhitype1,jdbcType=INTEGER}, #{jcpeizhitype2,jdbcType=INTEGER})"
+            "insert into t_jcpeizhi (jcpeizhiName, jcpeizhiNeirong, ",
+            "jcpeizhiMark, bumenBieming, ",
+            "buyuanBieming, buzhiBieming, ",
+            "userBieming, uxtypeBieming, ",
+            "uxinxiBieming, uyijianBieming, ",
+            "roleBieming, byumenBieming, ",
+            "byuyuanBieming, byuzhiBieming, ",
+            "yonghuBieming, yxtypeBieming, ",
+            "yxinxiBieming, yyijianBieming, ",
+            "yhroleBieming, ggtypeBieming, ",
+            "gonggaoBieming, ggpinglunBieming, ",
+            "shujuBieming, sjduochuBieming, ",
+            "sjjianchuBieming, sjlaiyuanBieming, ",
+            "sjleixingBieming, sjpinglunBieming, ",
+            "sjqitaBieming, sjshaochuBieming, ",
+            "sjxingtaiBieming, jcpeizhiType, ",
+            "jcpeizhiType1, jcpeizhiType2)",
+            "values (#{jcpeizhiname,jdbcType=VARCHAR}, #{jcpeizhineirong,jdbcType=VARCHAR}, ",
+            "#{jcpeizhimark,jdbcType=VARCHAR}, #{bumenbieming,jdbcType=VARCHAR}, ",
+            "#{buyuanbieming,jdbcType=VARCHAR}, #{buzhibieming,jdbcType=VARCHAR}, ",
+            "#{userbieming,jdbcType=VARCHAR}, #{uxtypebieming,jdbcType=VARCHAR}, ",
+            "#{uxinxibieming,jdbcType=VARCHAR}, #{uyijianbieming,jdbcType=VARCHAR}, ",
+            "#{rolebieming,jdbcType=VARCHAR}, #{byumenbieming,jdbcType=VARCHAR}, ",
+            "#{byuyuanbieming,jdbcType=VARCHAR}, #{byuzhibieming,jdbcType=VARCHAR}, ",
+            "#{yonghubieming,jdbcType=VARCHAR}, #{yxtypebieming,jdbcType=VARCHAR}, ",
+            "#{yxinxibieming,jdbcType=VARCHAR}, #{yyijianbieming,jdbcType=VARCHAR}, ",
+            "#{yhrolebieming,jdbcType=VARCHAR}, #{ggtypebieming,jdbcType=VARCHAR}, ",
+            "#{gonggaobieming,jdbcType=VARCHAR}, #{ggpinglunbieming,jdbcType=VARCHAR}, ",
+            "#{shujubieming,jdbcType=VARCHAR}, #{sjduochubieming,jdbcType=VARCHAR}, ",
+            "#{sjjianchubieming,jdbcType=VARCHAR}, #{sjlaiyuanbieming,jdbcType=VARCHAR}, ",
+            "#{sjleixingbieming,jdbcType=VARCHAR}, #{sjpinglunbieming,jdbcType=VARCHAR}, ",
+            "#{sjqitabieming,jdbcType=VARCHAR}, #{sjshaochubieming,jdbcType=VARCHAR}, ",
+            "#{sjxingtaibieming,jdbcType=VARCHAR}, #{jcpeizhitype,jdbcType=INTEGER}, ",
+            "#{jcpeizhitype1,jdbcType=INTEGER}, #{jcpeizhitype2,jdbcType=INTEGER})"
     })
-    @SelectKey(statement="CALL IDENTITY()", keyProperty="jcpeizhiid", before=false, resultType=Integer.class)
+    @SelectKey(statement = "CALL IDENTITY()", keyProperty = "jcpeizhiid", before = false, resultType = Integer.class)
     int insert(PeizhiPojo record);
 
     /**
@@ -117,16 +119,16 @@ public interface PeizhiPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Select({
-        "select",
-        "jcpeizhiId, jcpeizhiName, jcpeizhiNeirong, jcpeizhiMark, bumenBieming, buyuanBieming, ",
-        "buzhiBieming, userBieming, uxtypeBieming, uxinxiBieming, uyijianBieming, roleBieming, ",
-        "byumenBieming, byuyuanBieming, byuzhiBieming, yonghuBieming, yxtypeBieming, ",
-        "yxinxiBieming, yyijianBieming, yhroleBieming, ggtypeBieming, gonggaoBieming, ",
-        "ggpinglunBieming, shujuBieming, sjduochuBieming, sjjianchuBieming, sjlaiyuanBieming, ",
-        "sjleixingBieming, sjpinglunBieming, sjqitaBieming, sjshaochuBieming, sjxingtaiBieming, ",
-        "jcpeizhiType, jcpeizhiType1, jcpeizhiType2",
-        "from t_jcpeizhi",
-        "where jcpeizhiId = #{jcpeizhiid,jdbcType=INTEGER}"
+            "select",
+            "jcpeizhiId, jcpeizhiName, jcpeizhiNeirong, jcpeizhiMark, bumenBieming, buyuanBieming, ",
+            "buzhiBieming, userBieming, uxtypeBieming, uxinxiBieming, uyijianBieming, roleBieming, ",
+            "byumenBieming, byuyuanBieming, byuzhiBieming, yonghuBieming, yxtypeBieming, ",
+            "yxinxiBieming, yyijianBieming, yhroleBieming, ggtypeBieming, gonggaoBieming, ",
+            "ggpinglunBieming, shujuBieming, sjduochuBieming, sjjianchuBieming, sjlaiyuanBieming, ",
+            "sjleixingBieming, sjpinglunBieming, sjqitaBieming, sjshaochuBieming, sjxingtaiBieming, ",
+            "jcpeizhiType, jcpeizhiType1, jcpeizhiType2",
+            "from t_jcpeizhi",
+            "where jcpeizhiId = #{jcpeizhiid,jdbcType=INTEGER}"
     })
     @ResultMap("edu.thn.ciom.dao.PeizhiPojoMapper.BaseResultMap")
     PeizhiPojo selectByPrimaryKey(Integer jcpeizhiid);
@@ -162,42 +164,42 @@ public interface PeizhiPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Update({
-        "update t_jcpeizhi",
-        "set jcpeizhiName = #{jcpeizhiname,jdbcType=VARCHAR},",
-          "jcpeizhiNeirong = #{jcpeizhineirong,jdbcType=VARCHAR},",
-          "jcpeizhiMark = #{jcpeizhimark,jdbcType=VARCHAR},",
-          "bumenBieming = #{bumenbieming,jdbcType=VARCHAR},",
-          "buyuanBieming = #{buyuanbieming,jdbcType=VARCHAR},",
-          "buzhiBieming = #{buzhibieming,jdbcType=VARCHAR},",
-          "userBieming = #{userbieming,jdbcType=VARCHAR},",
-          "uxtypeBieming = #{uxtypebieming,jdbcType=VARCHAR},",
-          "uxinxiBieming = #{uxinxibieming,jdbcType=VARCHAR},",
-          "uyijianBieming = #{uyijianbieming,jdbcType=VARCHAR},",
-          "roleBieming = #{rolebieming,jdbcType=VARCHAR},",
-          "byumenBieming = #{byumenbieming,jdbcType=VARCHAR},",
-          "byuyuanBieming = #{byuyuanbieming,jdbcType=VARCHAR},",
-          "byuzhiBieming = #{byuzhibieming,jdbcType=VARCHAR},",
-          "yonghuBieming = #{yonghubieming,jdbcType=VARCHAR},",
-          "yxtypeBieming = #{yxtypebieming,jdbcType=VARCHAR},",
-          "yxinxiBieming = #{yxinxibieming,jdbcType=VARCHAR},",
-          "yyijianBieming = #{yyijianbieming,jdbcType=VARCHAR},",
-          "yhroleBieming = #{yhrolebieming,jdbcType=VARCHAR},",
-          "ggtypeBieming = #{ggtypebieming,jdbcType=VARCHAR},",
-          "gonggaoBieming = #{gonggaobieming,jdbcType=VARCHAR},",
-          "ggpinglunBieming = #{ggpinglunbieming,jdbcType=VARCHAR},",
-          "shujuBieming = #{shujubieming,jdbcType=VARCHAR},",
-          "sjduochuBieming = #{sjduochubieming,jdbcType=VARCHAR},",
-          "sjjianchuBieming = #{sjjianchubieming,jdbcType=VARCHAR},",
-          "sjlaiyuanBieming = #{sjlaiyuanbieming,jdbcType=VARCHAR},",
-          "sjleixingBieming = #{sjleixingbieming,jdbcType=VARCHAR},",
-          "sjpinglunBieming = #{sjpinglunbieming,jdbcType=VARCHAR},",
-          "sjqitaBieming = #{sjqitabieming,jdbcType=VARCHAR},",
-          "sjshaochuBieming = #{sjshaochubieming,jdbcType=VARCHAR},",
-          "sjxingtaiBieming = #{sjxingtaibieming,jdbcType=VARCHAR},",
-          "jcpeizhiType = #{jcpeizhitype,jdbcType=INTEGER},",
-          "jcpeizhiType1 = #{jcpeizhitype1,jdbcType=INTEGER},",
-          "jcpeizhiType2 = #{jcpeizhitype2,jdbcType=INTEGER}",
-        "where jcpeizhiId = #{jcpeizhiid,jdbcType=INTEGER}"
+            "update t_jcpeizhi",
+            "set jcpeizhiName = #{jcpeizhiname,jdbcType=VARCHAR},",
+            "jcpeizhiNeirong = #{jcpeizhineirong,jdbcType=VARCHAR},",
+            "jcpeizhiMark = #{jcpeizhimark,jdbcType=VARCHAR},",
+            "bumenBieming = #{bumenbieming,jdbcType=VARCHAR},",
+            "buyuanBieming = #{buyuanbieming,jdbcType=VARCHAR},",
+            "buzhiBieming = #{buzhibieming,jdbcType=VARCHAR},",
+            "userBieming = #{userbieming,jdbcType=VARCHAR},",
+            "uxtypeBieming = #{uxtypebieming,jdbcType=VARCHAR},",
+            "uxinxiBieming = #{uxinxibieming,jdbcType=VARCHAR},",
+            "uyijianBieming = #{uyijianbieming,jdbcType=VARCHAR},",
+            "roleBieming = #{rolebieming,jdbcType=VARCHAR},",
+            "byumenBieming = #{byumenbieming,jdbcType=VARCHAR},",
+            "byuyuanBieming = #{byuyuanbieming,jdbcType=VARCHAR},",
+            "byuzhiBieming = #{byuzhibieming,jdbcType=VARCHAR},",
+            "yonghuBieming = #{yonghubieming,jdbcType=VARCHAR},",
+            "yxtypeBieming = #{yxtypebieming,jdbcType=VARCHAR},",
+            "yxinxiBieming = #{yxinxibieming,jdbcType=VARCHAR},",
+            "yyijianBieming = #{yyijianbieming,jdbcType=VARCHAR},",
+            "yhroleBieming = #{yhrolebieming,jdbcType=VARCHAR},",
+            "ggtypeBieming = #{ggtypebieming,jdbcType=VARCHAR},",
+            "gonggaoBieming = #{gonggaobieming,jdbcType=VARCHAR},",
+            "ggpinglunBieming = #{ggpinglunbieming,jdbcType=VARCHAR},",
+            "shujuBieming = #{shujubieming,jdbcType=VARCHAR},",
+            "sjduochuBieming = #{sjduochubieming,jdbcType=VARCHAR},",
+            "sjjianchuBieming = #{sjjianchubieming,jdbcType=VARCHAR},",
+            "sjlaiyuanBieming = #{sjlaiyuanbieming,jdbcType=VARCHAR},",
+            "sjleixingBieming = #{sjleixingbieming,jdbcType=VARCHAR},",
+            "sjpinglunBieming = #{sjpinglunbieming,jdbcType=VARCHAR},",
+            "sjqitaBieming = #{sjqitabieming,jdbcType=VARCHAR},",
+            "sjshaochuBieming = #{sjshaochubieming,jdbcType=VARCHAR},",
+            "sjxingtaiBieming = #{sjxingtaibieming,jdbcType=VARCHAR},",
+            "jcpeizhiType = #{jcpeizhitype,jdbcType=INTEGER},",
+            "jcpeizhiType1 = #{jcpeizhitype1,jdbcType=INTEGER},",
+            "jcpeizhiType2 = #{jcpeizhitype2,jdbcType=INTEGER}",
+            "where jcpeizhiId = #{jcpeizhiid,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(PeizhiPojo record);
 }

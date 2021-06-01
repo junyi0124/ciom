@@ -2,7 +2,9 @@ package edu.thn.ciom.dao;
 
 import edu.thn.ciom.pojo.PingLunPojo;
 import edu.thn.ciom.pojo.PingLunPojoExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
@@ -36,8 +38,8 @@ public interface PingLunPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Delete({
-        "delete from t_sjpinglun",
-        "where sjpinglunId = #{sjpinglunid,jdbcType=INTEGER}"
+            "delete from t_sjpinglun",
+            "where sjpinglunId = #{sjpinglunid,jdbcType=INTEGER}"
     })
     int deleteByPrimaryKey(Integer sjpinglunid);
 
@@ -48,40 +50,40 @@ public interface PingLunPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Insert({
-        "insert into t_sjpinglun (sjpinglunName, sjpinglunMark, ",
-        "sjpinglunDate, sjpinglunDate1, ",
-        "sjpinglunType, sjpinglunType1, ",
-        "sjpinglunImg, sjpinglunImgName, ",
-        "shujuId, shujuName, ",
-        "sjleixingId, sjleixingName, ",
-        "userId, userName, ",
-        "bumenId, bumenName, ",
-        "buyuanId, buyuanName, ",
-        "yonghuId, yonghuName, ",
-        "byumenId, byumenName, ",
-        "byuyuanId, byuyuanName, ",
-        "buzhiId, buzhiName, ",
-        "roleId, roleName, ",
-        "byuzhiId, byuzhiName, ",
-        "yhroleId, yhroleName)",
-        "values (#{sjpinglunname,jdbcType=VARCHAR}, #{sjpinglunmark,jdbcType=VARCHAR}, ",
-        "#{sjpinglundate,jdbcType=TIMESTAMP}, #{sjpinglundate1,jdbcType=TIMESTAMP}, ",
-        "#{sjpingluntype,jdbcType=INTEGER}, #{sjpingluntype1,jdbcType=INTEGER}, ",
-        "#{sjpinglunimg,jdbcType=VARCHAR}, #{sjpinglunimgname,jdbcType=VARCHAR}, ",
-        "#{shujuid,jdbcType=INTEGER}, #{shujuname,jdbcType=VARCHAR}, ",
-        "#{sjleixingid,jdbcType=INTEGER}, #{sjleixingname,jdbcType=VARCHAR}, ",
-        "#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, ",
-        "#{bumenid,jdbcType=INTEGER}, #{bumenname,jdbcType=VARCHAR}, ",
-        "#{buyuanid,jdbcType=INTEGER}, #{buyuanname,jdbcType=VARCHAR}, ",
-        "#{yonghuid,jdbcType=INTEGER}, #{yonghuname,jdbcType=VARCHAR}, ",
-        "#{byumenid,jdbcType=INTEGER}, #{byumenname,jdbcType=VARCHAR}, ",
-        "#{byuyuanid,jdbcType=INTEGER}, #{byuyuanname,jdbcType=VARCHAR}, ",
-        "#{buzhiid,jdbcType=INTEGER}, #{buzhiname,jdbcType=VARCHAR}, ",
-        "#{roleid,jdbcType=INTEGER}, #{rolename,jdbcType=VARCHAR}, ",
-        "#{byuzhiid,jdbcType=INTEGER}, #{byuzhiname,jdbcType=VARCHAR}, ",
-        "#{yhroleid,jdbcType=INTEGER}, #{yhrolename,jdbcType=VARCHAR})"
+            "insert into t_sjpinglun (sjpinglunName, sjpinglunMark, ",
+            "sjpinglunDate, sjpinglunDate1, ",
+            "sjpinglunType, sjpinglunType1, ",
+            "sjpinglunImg, sjpinglunImgName, ",
+            "shujuId, shujuName, ",
+            "sjleixingId, sjleixingName, ",
+            "userId, userName, ",
+            "bumenId, bumenName, ",
+            "buyuanId, buyuanName, ",
+            "yonghuId, yonghuName, ",
+            "byumenId, byumenName, ",
+            "byuyuanId, byuyuanName, ",
+            "buzhiId, buzhiName, ",
+            "roleId, roleName, ",
+            "byuzhiId, byuzhiName, ",
+            "yhroleId, yhroleName)",
+            "values (#{sjpinglunname,jdbcType=VARCHAR}, #{sjpinglunmark,jdbcType=VARCHAR}, ",
+            "#{sjpinglundate,jdbcType=TIMESTAMP}, #{sjpinglundate1,jdbcType=TIMESTAMP}, ",
+            "#{sjpingluntype,jdbcType=INTEGER}, #{sjpingluntype1,jdbcType=INTEGER}, ",
+            "#{sjpinglunimg,jdbcType=VARCHAR}, #{sjpinglunimgname,jdbcType=VARCHAR}, ",
+            "#{shujuid,jdbcType=INTEGER}, #{shujuname,jdbcType=VARCHAR}, ",
+            "#{sjleixingid,jdbcType=INTEGER}, #{sjleixingname,jdbcType=VARCHAR}, ",
+            "#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, ",
+            "#{bumenid,jdbcType=INTEGER}, #{bumenname,jdbcType=VARCHAR}, ",
+            "#{buyuanid,jdbcType=INTEGER}, #{buyuanname,jdbcType=VARCHAR}, ",
+            "#{yonghuid,jdbcType=INTEGER}, #{yonghuname,jdbcType=VARCHAR}, ",
+            "#{byumenid,jdbcType=INTEGER}, #{byumenname,jdbcType=VARCHAR}, ",
+            "#{byuyuanid,jdbcType=INTEGER}, #{byuyuanname,jdbcType=VARCHAR}, ",
+            "#{buzhiid,jdbcType=INTEGER}, #{buzhiname,jdbcType=VARCHAR}, ",
+            "#{roleid,jdbcType=INTEGER}, #{rolename,jdbcType=VARCHAR}, ",
+            "#{byuzhiid,jdbcType=INTEGER}, #{byuzhiname,jdbcType=VARCHAR}, ",
+            "#{yhroleid,jdbcType=INTEGER}, #{yhrolename,jdbcType=VARCHAR})"
     })
-    @SelectKey(statement="CALL IDENTITY()", keyProperty="sjpinglunid", before=false, resultType=Integer.class)
+    @SelectKey(statement = "CALL IDENTITY()", keyProperty = "sjpinglunid", before = false, resultType = Integer.class)
     int insert(PingLunPojo record);
 
     /**
@@ -115,14 +117,14 @@ public interface PingLunPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Select({
-        "select",
-        "sjpinglunId, sjpinglunName, sjpinglunMark, sjpinglunDate, sjpinglunDate1, sjpinglunType, ",
-        "sjpinglunType1, sjpinglunImg, sjpinglunImgName, shujuId, shujuName, sjleixingId, ",
-        "sjleixingName, userId, userName, bumenId, bumenName, buyuanId, buyuanName, yonghuId, ",
-        "yonghuName, byumenId, byumenName, byuyuanId, byuyuanName, buzhiId, buzhiName, ",
-        "roleId, roleName, byuzhiId, byuzhiName, yhroleId, yhroleName",
-        "from t_sjpinglun",
-        "where sjpinglunId = #{sjpinglunid,jdbcType=INTEGER}"
+            "select",
+            "sjpinglunId, sjpinglunName, sjpinglunMark, sjpinglunDate, sjpinglunDate1, sjpinglunType, ",
+            "sjpinglunType1, sjpinglunImg, sjpinglunImgName, shujuId, shujuName, sjleixingId, ",
+            "sjleixingName, userId, userName, bumenId, bumenName, buyuanId, buyuanName, yonghuId, ",
+            "yonghuName, byumenId, byumenName, byuyuanId, byuyuanName, buzhiId, buzhiName, ",
+            "roleId, roleName, byuzhiId, byuzhiName, yhroleId, yhroleName",
+            "from t_sjpinglun",
+            "where sjpinglunId = #{sjpinglunid,jdbcType=INTEGER}"
     })
     @ResultMap("edu.thn.ciom.dao.PingLunPojoMapper.BaseResultMap")
     PingLunPojo selectByPrimaryKey(Integer sjpinglunid);
@@ -158,40 +160,40 @@ public interface PingLunPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Update({
-        "update t_sjpinglun",
-        "set sjpinglunName = #{sjpinglunname,jdbcType=VARCHAR},",
-          "sjpinglunMark = #{sjpinglunmark,jdbcType=VARCHAR},",
-          "sjpinglunDate = #{sjpinglundate,jdbcType=TIMESTAMP},",
-          "sjpinglunDate1 = #{sjpinglundate1,jdbcType=TIMESTAMP},",
-          "sjpinglunType = #{sjpingluntype,jdbcType=INTEGER},",
-          "sjpinglunType1 = #{sjpingluntype1,jdbcType=INTEGER},",
-          "sjpinglunImg = #{sjpinglunimg,jdbcType=VARCHAR},",
-          "sjpinglunImgName = #{sjpinglunimgname,jdbcType=VARCHAR},",
-          "shujuId = #{shujuid,jdbcType=INTEGER},",
-          "shujuName = #{shujuname,jdbcType=VARCHAR},",
-          "sjleixingId = #{sjleixingid,jdbcType=INTEGER},",
-          "sjleixingName = #{sjleixingname,jdbcType=VARCHAR},",
-          "userId = #{userid,jdbcType=INTEGER},",
-          "userName = #{username,jdbcType=VARCHAR},",
-          "bumenId = #{bumenid,jdbcType=INTEGER},",
-          "bumenName = #{bumenname,jdbcType=VARCHAR},",
-          "buyuanId = #{buyuanid,jdbcType=INTEGER},",
-          "buyuanName = #{buyuanname,jdbcType=VARCHAR},",
-          "yonghuId = #{yonghuid,jdbcType=INTEGER},",
-          "yonghuName = #{yonghuname,jdbcType=VARCHAR},",
-          "byumenId = #{byumenid,jdbcType=INTEGER},",
-          "byumenName = #{byumenname,jdbcType=VARCHAR},",
-          "byuyuanId = #{byuyuanid,jdbcType=INTEGER},",
-          "byuyuanName = #{byuyuanname,jdbcType=VARCHAR},",
-          "buzhiId = #{buzhiid,jdbcType=INTEGER},",
-          "buzhiName = #{buzhiname,jdbcType=VARCHAR},",
-          "roleId = #{roleid,jdbcType=INTEGER},",
-          "roleName = #{rolename,jdbcType=VARCHAR},",
-          "byuzhiId = #{byuzhiid,jdbcType=INTEGER},",
-          "byuzhiName = #{byuzhiname,jdbcType=VARCHAR},",
-          "yhroleId = #{yhroleid,jdbcType=INTEGER},",
-          "yhroleName = #{yhrolename,jdbcType=VARCHAR}",
-        "where sjpinglunId = #{sjpinglunid,jdbcType=INTEGER}"
+            "update t_sjpinglun",
+            "set sjpinglunName = #{sjpinglunname,jdbcType=VARCHAR},",
+            "sjpinglunMark = #{sjpinglunmark,jdbcType=VARCHAR},",
+            "sjpinglunDate = #{sjpinglundate,jdbcType=TIMESTAMP},",
+            "sjpinglunDate1 = #{sjpinglundate1,jdbcType=TIMESTAMP},",
+            "sjpinglunType = #{sjpingluntype,jdbcType=INTEGER},",
+            "sjpinglunType1 = #{sjpingluntype1,jdbcType=INTEGER},",
+            "sjpinglunImg = #{sjpinglunimg,jdbcType=VARCHAR},",
+            "sjpinglunImgName = #{sjpinglunimgname,jdbcType=VARCHAR},",
+            "shujuId = #{shujuid,jdbcType=INTEGER},",
+            "shujuName = #{shujuname,jdbcType=VARCHAR},",
+            "sjleixingId = #{sjleixingid,jdbcType=INTEGER},",
+            "sjleixingName = #{sjleixingname,jdbcType=VARCHAR},",
+            "userId = #{userid,jdbcType=INTEGER},",
+            "userName = #{username,jdbcType=VARCHAR},",
+            "bumenId = #{bumenid,jdbcType=INTEGER},",
+            "bumenName = #{bumenname,jdbcType=VARCHAR},",
+            "buyuanId = #{buyuanid,jdbcType=INTEGER},",
+            "buyuanName = #{buyuanname,jdbcType=VARCHAR},",
+            "yonghuId = #{yonghuid,jdbcType=INTEGER},",
+            "yonghuName = #{yonghuname,jdbcType=VARCHAR},",
+            "byumenId = #{byumenid,jdbcType=INTEGER},",
+            "byumenName = #{byumenname,jdbcType=VARCHAR},",
+            "byuyuanId = #{byuyuanid,jdbcType=INTEGER},",
+            "byuyuanName = #{byuyuanname,jdbcType=VARCHAR},",
+            "buzhiId = #{buzhiid,jdbcType=INTEGER},",
+            "buzhiName = #{buzhiname,jdbcType=VARCHAR},",
+            "roleId = #{roleid,jdbcType=INTEGER},",
+            "roleName = #{rolename,jdbcType=VARCHAR},",
+            "byuzhiId = #{byuzhiid,jdbcType=INTEGER},",
+            "byuzhiName = #{byuzhiname,jdbcType=VARCHAR},",
+            "yhroleId = #{yhroleid,jdbcType=INTEGER},",
+            "yhroleName = #{yhrolename,jdbcType=VARCHAR}",
+            "where sjpinglunId = #{sjpinglunid,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(PingLunPojo record);
 }

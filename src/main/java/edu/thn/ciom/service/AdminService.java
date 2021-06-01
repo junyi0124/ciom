@@ -19,14 +19,14 @@ public class AdminService {
         AdminPojoExample example = new AdminPojoExample();
         AdminPojoExample.Criteria criteria = example.createCriteria();
 
-        if(record!=null) {
-            if(StringUtils.hasText(record.getAdminname()))
+        if (record != null) {
+            if (StringUtils.hasText(record.getAdminname()))
                 criteria.andAdminnameEqualTo(record.getAdminname());
-            if(StringUtils.hasText(record.getAdminpassword()))
+            if (StringUtils.hasText(record.getAdminpassword()))
                 criteria.andAdminpasswordEqualTo(record.getAdminpassword());
         }
 
-        if(rows==0) return adminPojoMapper.selectByExample(example);
+        if (rows == 0) return adminPojoMapper.selectByExample(example);
 
         RowBounds rb = new RowBounds(page * rows, rows);
         return adminPojoMapper.selectByExampleWithRowbounds(example, rb);

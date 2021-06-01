@@ -2,7 +2,9 @@ package edu.thn.ciom.dao;
 
 import edu.thn.ciom.pojo.BiaotiPojo;
 import edu.thn.ciom.pojo.BiaotiPojoExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
@@ -36,8 +38,8 @@ public interface BiaotiPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Delete({
-        "delete from t_jcbiaoti",
-        "where jcbiaotiId = #{jcbiaotiid,jdbcType=INTEGER}"
+            "delete from t_jcbiaoti",
+            "where jcbiaotiId = #{jcbiaotiid,jdbcType=INTEGER}"
     })
     int deleteByPrimaryKey(Integer jcbiaotiid);
 
@@ -48,18 +50,18 @@ public interface BiaotiPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Insert({
-        "insert into t_jcbiaoti (jcbiaotiName, jcbiaotiNeirong, ",
-        "jcbiaotiMark, jcbiaotiMark1, ",
-        "jcbiaotiMark2, jcbiaotiPaixu, ",
-        "jcbiaotiType, jcbiaotiType1, ",
-        "jcbiaotiType2)",
-        "values (#{jcbiaotiname,jdbcType=VARCHAR}, #{jcbiaotineirong,jdbcType=VARCHAR}, ",
-        "#{jcbiaotimark,jdbcType=VARCHAR}, #{jcbiaotimark1,jdbcType=VARCHAR}, ",
-        "#{jcbiaotimark2,jdbcType=VARCHAR}, #{jcbiaotipaixu,jdbcType=INTEGER}, ",
-        "#{jcbiaotitype,jdbcType=INTEGER}, #{jcbiaotitype1,jdbcType=INTEGER}, ",
-        "#{jcbiaotitype2,jdbcType=INTEGER})"
+            "insert into t_jcbiaoti (jcbiaotiName, jcbiaotiNeirong, ",
+            "jcbiaotiMark, jcbiaotiMark1, ",
+            "jcbiaotiMark2, jcbiaotiPaixu, ",
+            "jcbiaotiType, jcbiaotiType1, ",
+            "jcbiaotiType2)",
+            "values (#{jcbiaotiname,jdbcType=VARCHAR}, #{jcbiaotineirong,jdbcType=VARCHAR}, ",
+            "#{jcbiaotimark,jdbcType=VARCHAR}, #{jcbiaotimark1,jdbcType=VARCHAR}, ",
+            "#{jcbiaotimark2,jdbcType=VARCHAR}, #{jcbiaotipaixu,jdbcType=INTEGER}, ",
+            "#{jcbiaotitype,jdbcType=INTEGER}, #{jcbiaotitype1,jdbcType=INTEGER}, ",
+            "#{jcbiaotitype2,jdbcType=INTEGER})"
     })
-    @SelectKey(statement="CALL IDENTITY()", keyProperty="jcbiaotiid", before=false, resultType=Integer.class)
+    @SelectKey(statement = "CALL IDENTITY()", keyProperty = "jcbiaotiid", before = false, resultType = Integer.class)
     int insert(BiaotiPojo record);
 
     /**
@@ -93,11 +95,11 @@ public interface BiaotiPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Select({
-        "select",
-        "jcbiaotiId, jcbiaotiName, jcbiaotiNeirong, jcbiaotiMark, jcbiaotiMark1, jcbiaotiMark2, ",
-        "jcbiaotiPaixu, jcbiaotiType, jcbiaotiType1, jcbiaotiType2",
-        "from t_jcbiaoti",
-        "where jcbiaotiId = #{jcbiaotiid,jdbcType=INTEGER}"
+            "select",
+            "jcbiaotiId, jcbiaotiName, jcbiaotiNeirong, jcbiaotiMark, jcbiaotiMark1, jcbiaotiMark2, ",
+            "jcbiaotiPaixu, jcbiaotiType, jcbiaotiType1, jcbiaotiType2",
+            "from t_jcbiaoti",
+            "where jcbiaotiId = #{jcbiaotiid,jdbcType=INTEGER}"
     })
     @ResultMap("edu.thn.ciom.dao.BiaotiPojoMapper.BaseResultMap")
     BiaotiPojo selectByPrimaryKey(Integer jcbiaotiid);
@@ -133,17 +135,17 @@ public interface BiaotiPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Update({
-        "update t_jcbiaoti",
-        "set jcbiaotiName = #{jcbiaotiname,jdbcType=VARCHAR},",
-          "jcbiaotiNeirong = #{jcbiaotineirong,jdbcType=VARCHAR},",
-          "jcbiaotiMark = #{jcbiaotimark,jdbcType=VARCHAR},",
-          "jcbiaotiMark1 = #{jcbiaotimark1,jdbcType=VARCHAR},",
-          "jcbiaotiMark2 = #{jcbiaotimark2,jdbcType=VARCHAR},",
-          "jcbiaotiPaixu = #{jcbiaotipaixu,jdbcType=INTEGER},",
-          "jcbiaotiType = #{jcbiaotitype,jdbcType=INTEGER},",
-          "jcbiaotiType1 = #{jcbiaotitype1,jdbcType=INTEGER},",
-          "jcbiaotiType2 = #{jcbiaotitype2,jdbcType=INTEGER}",
-        "where jcbiaotiId = #{jcbiaotiid,jdbcType=INTEGER}"
+            "update t_jcbiaoti",
+            "set jcbiaotiName = #{jcbiaotiname,jdbcType=VARCHAR},",
+            "jcbiaotiNeirong = #{jcbiaotineirong,jdbcType=VARCHAR},",
+            "jcbiaotiMark = #{jcbiaotimark,jdbcType=VARCHAR},",
+            "jcbiaotiMark1 = #{jcbiaotimark1,jdbcType=VARCHAR},",
+            "jcbiaotiMark2 = #{jcbiaotimark2,jdbcType=VARCHAR},",
+            "jcbiaotiPaixu = #{jcbiaotipaixu,jdbcType=INTEGER},",
+            "jcbiaotiType = #{jcbiaotitype,jdbcType=INTEGER},",
+            "jcbiaotiType1 = #{jcbiaotitype1,jdbcType=INTEGER},",
+            "jcbiaotiType2 = #{jcbiaotitype2,jdbcType=INTEGER}",
+            "where jcbiaotiId = #{jcbiaotiid,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(BiaotiPojo record);
 }

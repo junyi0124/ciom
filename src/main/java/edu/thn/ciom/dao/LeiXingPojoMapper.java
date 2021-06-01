@@ -2,7 +2,9 @@ package edu.thn.ciom.dao;
 
 import edu.thn.ciom.pojo.LeiXingPojo;
 import edu.thn.ciom.pojo.LeiXingPojoExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
@@ -36,8 +38,8 @@ public interface LeiXingPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Delete({
-        "delete from t_sjleixing",
-        "where sjleixingId = #{sjleixingid,jdbcType=INTEGER}"
+            "delete from t_sjleixing",
+            "where sjleixingId = #{sjleixingid,jdbcType=INTEGER}"
     })
     int deleteByPrimaryKey(Integer sjleixingid);
 
@@ -48,20 +50,20 @@ public interface LeiXingPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Insert({
-        "insert into t_sjleixing (sjleixingName, sjleixingMark, ",
-        "sjleixingMark1, sjleixingMark2, ",
-        "sjleixingPhone, sjleixingDizhi, ",
-        "sjleixingDate, sjleixingDate1, ",
-        "sjleixingType, sjleixingType1, ",
-        "sjleixingDouble, sjleixingDouble1)",
-        "values (#{sjleixingname,jdbcType=VARCHAR}, #{sjleixingmark,jdbcType=VARCHAR}, ",
-        "#{sjleixingmark1,jdbcType=VARCHAR}, #{sjleixingmark2,jdbcType=VARCHAR}, ",
-        "#{sjleixingphone,jdbcType=VARCHAR}, #{sjleixingdizhi,jdbcType=VARCHAR}, ",
-        "#{sjleixingdate,jdbcType=TIMESTAMP}, #{sjleixingdate1,jdbcType=TIMESTAMP}, ",
-        "#{sjleixingtype,jdbcType=INTEGER}, #{sjleixingtype1,jdbcType=INTEGER}, ",
-        "#{sjleixingdouble,jdbcType=DOUBLE}, #{sjleixingdouble1,jdbcType=DOUBLE})"
+            "insert into t_sjleixing (sjleixingName, sjleixingMark, ",
+            "sjleixingMark1, sjleixingMark2, ",
+            "sjleixingPhone, sjleixingDizhi, ",
+            "sjleixingDate, sjleixingDate1, ",
+            "sjleixingType, sjleixingType1, ",
+            "sjleixingDouble, sjleixingDouble1)",
+            "values (#{sjleixingname,jdbcType=VARCHAR}, #{sjleixingmark,jdbcType=VARCHAR}, ",
+            "#{sjleixingmark1,jdbcType=VARCHAR}, #{sjleixingmark2,jdbcType=VARCHAR}, ",
+            "#{sjleixingphone,jdbcType=VARCHAR}, #{sjleixingdizhi,jdbcType=VARCHAR}, ",
+            "#{sjleixingdate,jdbcType=TIMESTAMP}, #{sjleixingdate1,jdbcType=TIMESTAMP}, ",
+            "#{sjleixingtype,jdbcType=INTEGER}, #{sjleixingtype1,jdbcType=INTEGER}, ",
+            "#{sjleixingdouble,jdbcType=DOUBLE}, #{sjleixingdouble1,jdbcType=DOUBLE})"
     })
-    @SelectKey(statement="CALL IDENTITY()", keyProperty="sjleixingid", before=false, resultType=Integer.class)
+    @SelectKey(statement = "CALL IDENTITY()", keyProperty = "sjleixingid", before = false, resultType = Integer.class)
     int insert(LeiXingPojo record);
 
     /**
@@ -95,12 +97,12 @@ public interface LeiXingPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Select({
-        "select",
-        "sjleixingId, sjleixingName, sjleixingMark, sjleixingMark1, sjleixingMark2, sjleixingPhone, ",
-        "sjleixingDizhi, sjleixingDate, sjleixingDate1, sjleixingType, sjleixingType1, ",
-        "sjleixingDouble, sjleixingDouble1",
-        "from t_sjleixing",
-        "where sjleixingId = #{sjleixingid,jdbcType=INTEGER}"
+            "select",
+            "sjleixingId, sjleixingName, sjleixingMark, sjleixingMark1, sjleixingMark2, sjleixingPhone, ",
+            "sjleixingDizhi, sjleixingDate, sjleixingDate1, sjleixingType, sjleixingType1, ",
+            "sjleixingDouble, sjleixingDouble1",
+            "from t_sjleixing",
+            "where sjleixingId = #{sjleixingid,jdbcType=INTEGER}"
     })
     @ResultMap("edu.thn.ciom.dao.LeiXingPojoMapper.BaseResultMap")
     LeiXingPojo selectByPrimaryKey(Integer sjleixingid);
@@ -136,20 +138,20 @@ public interface LeiXingPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Update({
-        "update t_sjleixing",
-        "set sjleixingName = #{sjleixingname,jdbcType=VARCHAR},",
-          "sjleixingMark = #{sjleixingmark,jdbcType=VARCHAR},",
-          "sjleixingMark1 = #{sjleixingmark1,jdbcType=VARCHAR},",
-          "sjleixingMark2 = #{sjleixingmark2,jdbcType=VARCHAR},",
-          "sjleixingPhone = #{sjleixingphone,jdbcType=VARCHAR},",
-          "sjleixingDizhi = #{sjleixingdizhi,jdbcType=VARCHAR},",
-          "sjleixingDate = #{sjleixingdate,jdbcType=TIMESTAMP},",
-          "sjleixingDate1 = #{sjleixingdate1,jdbcType=TIMESTAMP},",
-          "sjleixingType = #{sjleixingtype,jdbcType=INTEGER},",
-          "sjleixingType1 = #{sjleixingtype1,jdbcType=INTEGER},",
-          "sjleixingDouble = #{sjleixingdouble,jdbcType=DOUBLE},",
-          "sjleixingDouble1 = #{sjleixingdouble1,jdbcType=DOUBLE}",
-        "where sjleixingId = #{sjleixingid,jdbcType=INTEGER}"
+            "update t_sjleixing",
+            "set sjleixingName = #{sjleixingname,jdbcType=VARCHAR},",
+            "sjleixingMark = #{sjleixingmark,jdbcType=VARCHAR},",
+            "sjleixingMark1 = #{sjleixingmark1,jdbcType=VARCHAR},",
+            "sjleixingMark2 = #{sjleixingmark2,jdbcType=VARCHAR},",
+            "sjleixingPhone = #{sjleixingphone,jdbcType=VARCHAR},",
+            "sjleixingDizhi = #{sjleixingdizhi,jdbcType=VARCHAR},",
+            "sjleixingDate = #{sjleixingdate,jdbcType=TIMESTAMP},",
+            "sjleixingDate1 = #{sjleixingdate1,jdbcType=TIMESTAMP},",
+            "sjleixingType = #{sjleixingtype,jdbcType=INTEGER},",
+            "sjleixingType1 = #{sjleixingtype1,jdbcType=INTEGER},",
+            "sjleixingDouble = #{sjleixingdouble,jdbcType=DOUBLE},",
+            "sjleixingDouble1 = #{sjleixingdouble1,jdbcType=DOUBLE}",
+            "where sjleixingId = #{sjleixingid,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(LeiXingPojo record);
 }

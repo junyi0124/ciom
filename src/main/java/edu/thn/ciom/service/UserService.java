@@ -19,6 +19,7 @@ public class UserService {
     @Autowired
     private UserPojoMapper userPojoMapper;
     private final String dateFormat = "yyyy-MM-dd hh:mm:ss";
+
     public List queryUsers(UserPojo record, String userName, int page, int rows,
                            String sdate, String edate, String sdate1, String edate1) {
         // TODO Auto-generated method stub
@@ -36,9 +37,9 @@ public class UserService {
         if (StringUtils.hasText(edate)) {
             ed = DateUtil.tryParse(edate, dateFormat);
         }
-        if(sd.getValue0() && ed.getValue0()) criteria.andUserdateBetween(sd.getValue1(), ed.getValue1());
-        if(sd.getValue0() && !ed.getValue0()) criteria.andUserdateGreaterThanOrEqualTo(sd.getValue1());
-        if(!sd.getValue0() && ed.getValue0()) criteria.andUserdateLessThanOrEqualTo(ed.getValue1());
+        if (sd.getValue0() && ed.getValue0()) criteria.andUserdateBetween(sd.getValue1(), ed.getValue1());
+        if (sd.getValue0() && !ed.getValue0()) criteria.andUserdateGreaterThanOrEqualTo(sd.getValue1());
+        if (!sd.getValue0() && ed.getValue0()) criteria.andUserdateLessThanOrEqualTo(ed.getValue1());
 
         if (rows == 0) return userPojoMapper.selectByExample(example);
         RowBounds rb = new RowBounds(page * rows, rows);

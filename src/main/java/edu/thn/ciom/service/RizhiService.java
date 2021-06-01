@@ -25,7 +25,7 @@ public class RizhiService {
 
         }
         if (rows == 0) return rizhiPojoMapper.selectByExample(ex);
-        RowBounds rb = new RowBounds((page-1) * rows, rows);
+        RowBounds rb = new RowBounds((page - 1) * rows, rows);
         return rizhiPojoMapper.selectByExampleWithRowbounds(ex, rb);
     }
 

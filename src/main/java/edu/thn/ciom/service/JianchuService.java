@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class JianchuService {
     @Autowired
@@ -17,8 +18,8 @@ public class JianchuService {
         JianChuPojoExample example = new JianChuPojoExample();
         JianChuPojoExample.Criteria criteria = example.createCriteria();
         if (record != null) {
-            if(record.getShujuid()!=null) criteria.andShujuidEqualTo(record.getShujuid());
-            if(record.getShujuname()!=null) criteria.andShujunameLike(record.getShujuname());
+            if (record.getShujuid() != null) criteria.andShujuidEqualTo(record.getShujuid());
+            if (record.getShujuname() != null) criteria.andShujunameLike(record.getShujuname());
         }
 
         if (rows == 0) return jianChuPojoMapper.selectByExample(example);

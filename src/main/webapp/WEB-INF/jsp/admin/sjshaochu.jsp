@@ -336,15 +336,15 @@ function shenheSjshaochu(){
 			<table cellspacing="5px;">
 				<tr>
 					<td>名称：</td>
-					<td><input type="text" name="sjshaochuname" id="sjshaochuName" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="sjshaochuname" id="sjshaochuname" class="easyui-validatebox" required="true"/></td>
 					<td>备注：</td>
-					<td><input type="text" name="sjshaochumark" id="sjshaochuMark" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="sjshaochumark" id="sjshaochumark" class="easyui-validatebox" required="true"/></td>
 				</tr>
 				<tr>
 					<td>备注1：</td>
-					<td><input type="text" name="sjshaochunark1" id="sjshaochuMark1" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="sjshaochunark1" id="sjshaochumark1" class="easyui-validatebox" required="true"/></td>
 					<td>备注2：</td>
-					<td><input type="text" name="sjshaochunark2" id="sjshaochuMark2" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="sjshaochunark2" id="sjshaochumark2" class="easyui-validatebox" required="true"/></td>
 				</tr>
 			</table>
 		</form>

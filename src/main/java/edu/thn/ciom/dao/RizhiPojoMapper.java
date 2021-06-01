@@ -2,7 +2,9 @@ package edu.thn.ciom.dao;
 
 import edu.thn.ciom.pojo.RizhiPojo;
 import edu.thn.ciom.pojo.RizhiPojoExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
@@ -36,8 +38,8 @@ public interface RizhiPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Delete({
-        "delete from t_rizhi",
-        "where rizhiId = #{rizhiid,jdbcType=INTEGER}"
+            "delete from t_rizhi",
+            "where rizhiId = #{rizhiid,jdbcType=INTEGER}"
     })
     int deleteByPrimaryKey(Integer rizhiid);
 
@@ -48,9 +50,9 @@ public interface RizhiPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Insert({
-        "insert into t_rizhi (rizhiName, dengluIp, date)",
-        "values (#{rizhiname,jdbcType=VARCHAR}, #{dengluip,jdbcType=VARCHAR}, CURRENT_TIMESTAMP())"
-        //"#{date,jdbcType=TIMESTAMP})"
+            "insert into t_rizhi (rizhiName, dengluIp, date)",
+            "values (#{rizhiname,jdbcType=VARCHAR}, #{dengluip,jdbcType=VARCHAR}, CURRENT_TIMESTAMP())"
+            //"#{date,jdbcType=TIMESTAMP})"
     })
 //    @SelectKey(statement="CALL IDENTITY()", keyProperty="rizhiid", before=false, resultType=Integer.class)
     int insert(RizhiPojo record);
@@ -86,10 +88,10 @@ public interface RizhiPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Select({
-        "select",
-        "rizhiId, rizhiName, dengluIp, date",
-        "from t_rizhi",
-        "where rizhiId = #{rizhiid,jdbcType=INTEGER}"
+            "select",
+            "rizhiId, rizhiName, dengluIp, date",
+            "from t_rizhi",
+            "where rizhiId = #{rizhiid,jdbcType=INTEGER}"
     })
     @ResultMap("edu.thn.ciom.dao.RizhiPojoMapper.BaseResultMap")
     RizhiPojo selectByPrimaryKey(Integer rizhiid);
@@ -125,11 +127,11 @@ public interface RizhiPojoMapper {
      * @mbg.generated Thu May 20 10:15:44 CST 2021
      */
     @Update({
-        "update t_rizhi",
-        "set rizhiName = #{rizhiname,jdbcType=VARCHAR},",
-          "dengluIp = #{dengluip,jdbcType=VARCHAR},",
-          "date = #{date,jdbcType=TIMESTAMP}",
-        "where rizhiId = #{rizhiid,jdbcType=INTEGER}"
+            "update t_rizhi",
+            "set rizhiName = #{rizhiname,jdbcType=VARCHAR},",
+            "dengluIp = #{dengluip,jdbcType=VARCHAR},",
+            "date = #{date,jdbcType=TIMESTAMP}",
+            "where rizhiId = #{rizhiid,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(RizhiPojo record);
 }

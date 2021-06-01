@@ -709,8 +709,8 @@ public class YonghuController {
             jsonArray.add(jsonObject);
             jsonArray.addAll(JSONArray.fromObject(yonghuService.queryYonghus(yonghu,
                     null, 0, 0, null, null, null, null)
-                    .stream().map(d->new SelectListItem(d.getYonghuid().toString(), d.getYonghuname()))
-            .collect(Collectors.toList())));
+                    .stream().map(d -> new SelectListItem(d.getYonghuid().toString(), d.getYonghuname()))
+                    .collect(Collectors.toList())));
             ResponseUtil.write(response, jsonArray);
         } catch (Exception e) {
             e.printStackTrace();

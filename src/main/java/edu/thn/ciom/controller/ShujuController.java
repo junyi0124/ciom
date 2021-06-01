@@ -264,7 +264,7 @@ public class ShujuController {
             }
             if (StringUtils.hasText(userId)) {
                 shuju.setUserid(Integer.parseInt(userId));
-                UserPojo user =  userService.getUser(Integer.parseInt(userId));
+                UserPojo user = userService.getUser(Integer.parseInt(userId));
                 shuju.setUsername(user.getUsername());
 //                shuju.setBumenId(user.getBumenId());
 //                shuju.setBumenName(user.getBumenName());

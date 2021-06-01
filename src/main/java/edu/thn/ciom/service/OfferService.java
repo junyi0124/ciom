@@ -20,7 +20,7 @@ public class OfferService {
         DuochuPojoExample.Criteria criteria = example.createCriteria();
 
         if (record != null) {
-            if(record.getShujuid() != null)
+            if (record.getShujuid() != null)
                 criteria.andShujuidEqualTo(record.getShujuid());
         }
 

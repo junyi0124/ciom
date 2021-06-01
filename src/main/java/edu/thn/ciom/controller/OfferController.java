@@ -72,10 +72,10 @@ public class OfferController {
 
         DuochuPojo sjduochu = new DuochuPojo();
         PageBean pageBean = null;
-        if ((StringUtils.hasText(page))&&(!page.equals("null"))) {
+        if ((StringUtils.hasText(page)) && (!page.equals("null"))) {
             pageBean = new PageBean(Integer.parseInt(page), Integer.parseInt(rows));
-        }else{
-            pageBean = new PageBean(0,0);
+        } else {
+            pageBean = new PageBean(0, 0);
         }
         try {
             if (StringUtils.hasText(sjduochuId)) {
@@ -142,9 +142,9 @@ public class OfferController {
 //            }
             JSONArray jsonArray = JSONArray.fromObject(
                     offerService.querySjduochus(
-                    sjduochu, pageBean.getStart(), pageBean.getRows()));
+                            sjduochu, pageBean.getStart(), pageBean.getRows()));
             JSONObject result = new JSONObject();
-            int total = offerService.querySjduochus(sjduochu, 0,0).size();
+            int total = offerService.querySjduochus(sjduochu, 0, 0).size();
             result.put("rows", jsonArray);
             result.put("total", total);
             ResponseUtil.write(response, result);
@@ -303,8 +303,7 @@ public class OfferController {
             e.printStackTrace();
             result.put("success", "false");
             result.put("error", e.getMessage());
-        }
-        finally {
+        } finally {
             ResponseUtil.write(response, result);
         }
     }
@@ -411,8 +410,8 @@ public class OfferController {
             jsonObject.put("id", "");
             jsonObject.put("sjduochuname", "请选择...");
             jsonArray.add(jsonObject);
-            jsonArray.addAll( JSONArray.fromObject( offerService.querySjduochus(sjduochu,
-                    0,0).stream().map(dc -> new Pair<>(dc.getSjduochuid(), dc.getSjduochuname()))));
+            jsonArray.addAll(JSONArray.fromObject(offerService.querySjduochus(sjduochu,
+                    0, 0).stream().map(dc -> new Pair<>(dc.getSjduochuid(), dc.getSjduochuname()))));
             ResponseUtil.write(response, jsonArray);
         } catch (Exception e) {
             e.printStackTrace();
@@ -426,7 +425,7 @@ public class OfferController {
         response.setCharacterEncoding("UTF-8");
 //        String sdate=request.getParameter("sdate");
 //        String edate=request.getParameter("edate");
-        String userId=request.getParameter("userId");
+        String userId = request.getParameter("userId");
         String tijiaoUrl = "shujuTongji";
         List<Integer> shujuIds = new ArrayList<>();
         List<String> tongjiNames = new ArrayList<>();
@@ -441,16 +440,16 @@ public class OfferController {
             shuju.setUserid(Integer.parseInt(userId));
         }
         try {
-            shujus = shujuService.queryShujus(shuju, 0,0);
-            for(int i=0;i<shujus.size();i++){
+            shujus = shujuService.queryShujus(shuju, 0, 0);
+            for (int i = 0; i < shujus.size(); i++) {
                 shujuIds.add(shujus.get(i).getShujuid());
                 tongjiNames.add(shujus.get(i).getShujuname());
             }
-            for(int i=0;i<shujuIds.size();i++){
+            for (int i = 0; i < shujuIds.size(); i++) {
                 Double sjduochuZongshu = 0.0;
                 sjduochu.setShujuid(shujuIds.get(i));
-                sjduochus = offerService.querySjduochus(sjduochu, 0,0);
-                for(int j=0;j<sjduochus.size();j++){
+                sjduochus = offerService.querySjduochus(sjduochu, 0, 0);
+                for (int j = 0; j < sjduochus.size(); j++) {
                     sjduochuZongshu = sjduochuZongshu + sjduochus.get(j).getSjduochudouble2();
                 }
                 zongshu = zongshu + sjduochuZongshu;
