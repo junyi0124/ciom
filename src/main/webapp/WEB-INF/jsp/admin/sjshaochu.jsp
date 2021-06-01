@@ -297,8 +297,9 @@ function shenheSjshaochu(){
 </head>
 <body style="margin: 5px;">
 <!--start print-->
-	<table id="dg" title="<%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjshaochubieming()%>" class="easyui-datagrid" fitColumns="true"
-	 pagination="true" url="../getSjshaochus" fit="true" rownumbers="true" toolbar="#tb">
+	<table id="dg" title="<%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjshaochubieming()%>"
+	    class="easyui-datagrid" fitColumns="true"
+	    pagination="true" url="../getSjshaochus" fit="true" rownumbers="true" toolbar="#tb">
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true"></th>
@@ -324,7 +325,7 @@ function shenheSjshaochu(){
 		<div>
 		&nbsp;<%=newJcpeizhi.getShujubieming()%>：&nbsp;
 		<input class="easyui-combobox" id="s_shujuId" name="s_shujuId"
-		    data-options="panelHeight:'auto',editable:false,valueField:'shujuid',textField:'shujuname',url:'../shujuComboList'"/>
+		    data-options="panelHeight:'auto',editable:false,valueField:'value0',textField:'value1',url:'../shujuComboList'"/>
 		<a href="javascript:searchSjshaochu()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
 		</div>
 	</div>
@@ -335,15 +336,15 @@ function shenheSjshaochu(){
 			<table cellspacing="5px;">
 				<tr>
 					<td>名称：</td>
-					<td><input type="text" name="sjshaochuName" id="sjshaochuName" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="sjshaochuname" id="sjshaochuName" class="easyui-validatebox" required="true"/></td>
 					<td>备注：</td>
-					<td><input type="text" name="sjshaochuMark" id="sjshaochuMark" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="sjshaochumark" id="sjshaochuMark" class="easyui-validatebox" required="true"/></td>
 				</tr>
 				<tr>
 					<td>备注1：</td>
-					<td><input type="text" name="sjshaochuMark1" id="sjshaochuMark1" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="sjshaochunark1" id="sjshaochuMark1" class="easyui-validatebox" required="true"/></td>
 					<td>备注2：</td>
-					<td><input type="text" name="sjshaochuMark2" id="sjshaochuMark2" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="sjshaochunark2" id="sjshaochuMark2" class="easyui-validatebox" required="true"/></td>
 				</tr>
 			</table>
 		</form>

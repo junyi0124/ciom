@@ -12,6 +12,7 @@ import edu.thn.ciom.util.DateUtil;
 import edu.thn.ciom.util.ResponseUtil;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import org.javatuples.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
@@ -25,6 +26,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class ShujuController {
@@ -67,7 +69,7 @@ public class ShujuController {
 //        String sdate1 = request.getParameter("sdate1");
 //        String edate1 = request.getParameter("edate1");
         ShujuPojo shuju = new ShujuPojo();
-        PageBean pageBean = null;
+        PageBean pageBean;
         if ((StringUtils.hasText(page)) && (!page.equals("null"))) {
             pageBean = new PageBean(Integer.parseInt(page), Integer.parseInt(rows));
         } else {
@@ -129,7 +131,7 @@ public class ShujuController {
 //            }
             JSONArray jsonArray = JSONArray.fromObject(
                     shujuService.queryShujus(
-                    shuju, pageBean.getStart(), pageBean.getRows(), null, null, null, null));
+                            shuju, pageBean.getStart(), pageBean.getRows(), null, null, null, null));
             JSONObject result = new JSONObject();
             int total = shujuService.queryShujus(shuju, 0, 0, null, null, null, null).size();
             result.put("rows", jsonArray);
@@ -235,8 +237,7 @@ public class ShujuController {
             }
             if (StringUtils.hasText(sjleixingId)) {
                 shuju.setSjleixingid(Integer.parseInt(sjleixingId));
-                LeiXingPojo sjleixing = new LeiXingPojo();
-                sjleixing = typeService.getSjleixing(Integer.parseInt(sjleixingId));
+                LeiXingPojo sjleixing = typeService.getSjleixing(Integer.parseInt(sjleixingId));
                 shuju.setSjleixingname(sjleixing.getSjleixingname());
             }
 //            if (StringUtils.hasText(sjxingtaiId)) {
@@ -247,8 +248,7 @@ public class ShujuController {
 //            }
             if (StringUtils.hasText(yonghuId)) {
                 shuju.setYonghuid(Integer.parseInt(yonghuId));
-                YongHuPojo yonghu = new YongHuPojo();
-                yonghu = yonghuService.getYonghu(Integer.parseInt(yonghuId));
+                YongHuPojo yonghu = yonghuService.getYonghu(Integer.parseInt(yonghuId));
                 shuju.setYonghuname(yonghu.getYonghuname());
                 shuju.setByumenid(yonghu.getByumenid());
                 shuju.setByumenname(yonghu.getByumenname());
@@ -267,8 +267,7 @@ public class ShujuController {
             }
             if (StringUtils.hasText(userId)) {
                 shuju.setUserid(Integer.parseInt(userId));
-                UserPojo user = new UserPojo();
-                user = userService.getUser(Integer.parseInt(userId));
+                UserPojo user =  userService.getUser(Integer.parseInt(userId));
                 shuju.setUsername(user.getUsername());
 //                shuju.setBumenId(user.getBumenId());
 //                shuju.setBumenName(user.getBumenName());
@@ -393,11 +392,14 @@ public class ShujuController {
 //            }
             JSONArray jsonArray = new JSONArray();
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("id", "");
-            jsonObject.put("shujuname", "请选择...");
+            jsonObject.put("value0", "");
+            jsonObject.put("value1", "请选择...");
             jsonArray.add(jsonObject);
             jsonArray.addAll(JSONArray.fromObject(shujuService.queryShujus(shuju,
-                    0, 0, null, null, null, null)));
+                    0, 0, null, null, null, null)
+                    .stream()
+                    .map(dc -> new Pair<>(dc.getShujuid(), dc.getShujuname()))
+                    .collect(Collectors.toList())));
             ResponseUtil.write(response, jsonArray);
         } catch (Exception e) {
             e.printStackTrace();

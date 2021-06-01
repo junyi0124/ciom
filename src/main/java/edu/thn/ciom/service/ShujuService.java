@@ -6,6 +6,7 @@ import edu.thn.ciom.pojo.ShujuPojoExample;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import javax.swing.plaf.basic.BasicArrowButton;
 import java.util.List;
@@ -15,12 +16,17 @@ public class ShujuService {
     @Autowired
     private ShujuPojoMapper shujuPojoMapper;
 
-    public List queryShujus(ShujuPojo record, int page, int rows, String sdate, String edate, String sdate1, String edate1) {
-        ShujuPojoExample example =new ShujuPojoExample();
+    public List<ShujuPojo> queryShujus(ShujuPojo record, int page, int rows, String sdate, String edate, String sdate1, String edate1) {
+        ShujuPojoExample example = new ShujuPojoExample();
         ShujuPojoExample.Criteria criteria = example.createCriteria();
 
-        RowBounds rb = new RowBounds((page-1)*rows, rows);
-        return shujuPojoMapper.selectByExampleWithRowbounds(example, rb);
+        if (record != null) {
+            if (record.getShujuid() != null) criteria.andShujuidEqualTo(record.getShujuid());
+            if (record.getShujuname() != null && StringUtils.hasText(record.getShujuname()))
+                criteria.andShujunameLike(record.getShujuname());
+        }
+        if (rows == 0) return shujuPojoMapper.selectByExample(example);
+        return shujuPojoMapper.selectByExampleWithRowbounds(example, new RowBounds((page - 1) * rows, rows));
     }
 
     public ShujuPojo getShuju(int parseInt) {
