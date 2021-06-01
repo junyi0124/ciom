@@ -90,7 +90,7 @@ var url;
 		var row=selectedRows[0];
 		$("#dlg").dialog("open").dialog("setTitle","编辑<%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjjianchubieming()%>");
 		$("#fm").form("load",row);
-		url="../addSjjianchu?sjjianchuId="+row.sjjianchuId;
+		url="../addSjjianchu?sjjianchuId="+row.sjjianchuid;
 	}
 	
 	function formatSex(shujuSex, row) {  
@@ -154,7 +154,7 @@ var url;
 						$.messager.alert("系统提示","您已成功导出数据：D:！");
 						$("#dg").datagrid("reload");
 					}else{
-						$.messager.alert('系统提示','<font color=red>'+selectedRows[result.errorIndex].sjjianchuName+'</font>'+result.errorMsg);
+						$.messager.alert('系统提示','<font color=red>'+selectedRows[result.errorIndex].sjjianchuname+'</font>'+result.errorMsg);
 					}
 				},"json");
 			}
@@ -303,17 +303,17 @@ var url;
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true"></th>
-				<th field="sjjianchuId" width="10" hidden="true">编号</th>
-				<th field="userId" width="20" hidden="true"><%=newJcpeizhi.getUserBieming()%>ID</th>
-				<th field="userName" width="20"><%=newJcpeizhi.getUserBieming()%></th>
-				<th field="shujuId" width="20" hidden="true"><%=newJcpeizhi.getShujubieming()%>ID</th>
-				<th field="shujuName" width="20"><%=newJcpeizhi.getShujubieming()%></th>
-				<th field="sjjianchuName" width="40">问题</th>
-				<th field="sjjianchuMark" width="80">描述</th>
-				<th field="yonghuId" width="10" hidden="true"><%=newJcpeizhi.getYonghuBieming()%>ID</th>
-				<th field="yonghuName" width="20"><%=newJcpeizhi.getYonghuBieming()%></th>
-				<th field="sjjianchuMark1" width="80">回复</th>
-				<th field="sjjianchuDate" width="20" formatter="datetostr">时间</th>
+				<th field="sjjianchuid" width="10" hidden="true">编号</th>
+				<th field="userid" width="20" hidden="true"><%=newJcpeizhi.getUserBieming()%>ID</th>
+				<th field="username" width="20"><%=newJcpeizhi.getUserBieming()%></th>
+				<th field="shujuid" width="20" hidden="true"><%=newJcpeizhi.getShujubieming()%>ID</th>
+				<th field="shujuname" width="20"><%=newJcpeizhi.getShujubieming()%></th>
+				<th field="sjjianchuname" width="40">问题</th>
+				<th field="sjjianchumark" width="80">描述</th>
+				<th field="yonghuid" width="10" hidden="true"><%=newJcpeizhi.getYonghuBieming()%>ID</th>
+				<th field="yonghuname" width="20"><%=newJcpeizhi.getYonghuBieming()%></th>
+				<th field="sjjianchumark1" width="80">回复</th>
+				<th field="sjjianchudate" width="20" formatter="datetostr">时间</th>
 			</tr>
 		</thead>
 	</table>
