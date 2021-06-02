@@ -115,6 +115,8 @@ public class JspController {
     GET /yonghu/sjduochu   报价信息
     GET /yonghu/sjjianchu  交流信息
     GET /yonghu/sjshaochu  下单信息
+    GET /yonghu/sjshaochu  下单信息
+    GET /yonghu/zhuceyonghu
      */
     @RequestMapping(value = "/yonghu/yonghu", method = RequestMethod.GET)
     public String yonghu_yonghu() {
@@ -146,6 +148,11 @@ public class JspController {
         return "yonghu/sjshaochu";
     }
 
+    @RequestMapping(value = "/yonghu/zhuceyonghu", method = RequestMethod.GET)
+    public String yonghu_zhuceyonghu() {
+        return "yonghu/zhuceyonghu";
+    }
+
     @RequestMapping(value = "/houtai/userMain", method = RequestMethod.GET)
     public String backend_user() {
         return "houtai/userMain";
@@ -156,6 +163,7 @@ public class JspController {
     GET /user/sjduochu  报价信息
     GET /user/sjjianchu 交流信息
     GET /user/sjshaochu 下单信息
+    GET /user/zhuceuser
      */
     @RequestMapping(value = "/user/shuju", method = RequestMethod.GET)
     public String user_shuju() {
@@ -177,5 +185,9 @@ public class JspController {
         return "user/sjshaochu";
     }
 
+    @RequestMapping(value = "/user/zhuceuser", method = RequestMethod.GET)
+    public String user_zhuceuser() {
+        return "user/zhuceuser";
+    }
 }
 

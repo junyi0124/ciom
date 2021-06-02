@@ -350,19 +350,19 @@ var url;
 			<table cellspacing="5px;">
 				<tr>
 					<td>姓名：</td>
-					<td><input type="text" name="userXingming" id="userXingming" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="userXingming" id="userxingming" class="easyui-validatebox" required="true"/></td>
 					<td>年龄：</td>
-					<td><input type="text" name="userAge" id="userAge" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="userAge" id="userage" class="easyui-validatebox" required="true"/></td>
 				</tr>
 				<tr>
 					<td>性别：</td>
-					<td><select class="easyui-combobox" id="userSex" name="userSex" editable="false" panelHeight="auto" style="width: 155px">
+					<td><select class="easyui-combobox" id="userSex" name="usersex" editable="false" panelHeight="auto" style="width: 155px">
 					    <option value="">请选择...</option>
 						<option value="0">男</option>
 						<option value="1">女</option>
 					</select></td>
 					<td>电话：</td>
-					<td><input type="text" name="userPhone" id="userPhone" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="userPhone" id="userphone" class="easyui-validatebox" required="true"/></td>
 				</tr>
 			</table>
 		</form>

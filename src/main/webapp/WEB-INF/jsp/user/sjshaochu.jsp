@@ -305,7 +305,7 @@ var userId = <%=userId%>;
 			return;
 		}
 		var row=selectedRows[0];
-		url="../addSjshaochu?sjshaochuId="+row.sjshaochuId+"&userId="+userId;
+		url="../addSjshaochu?sjshaochuid="+row.sjshaochuid+"&userid="+userId;
 		$.messager.confirm("系统提示","您确认要执行吗？",function(r){
 			if(r){
 				$.post(url,{sjshaochuType:1},function(result){
@@ -325,7 +325,7 @@ var userId = <%=userId%>;
 <body style="margin: 5px;">
 <!--startprint-->
 	<table id="dg" title="<%=title%><%=shaochu%>" class="easyui-datagrid" fitColumns="true"
-	 pagination="true" url="../getSjshaochus?userId=<%=userId %>" fit="true" rownumbers="true" toolbar="#tb">
+	 pagination="true" url="../getSjshaochus?userid=<%=userId %>" fit="true" rownumbers="true" toolbar="#tb">
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true"></th>
@@ -352,7 +352,8 @@ var userId = <%=userId%>;
 			<a href="javascript:shipinSjshaochu()" class="easyui-linkbutton" iconCls="icon-add" plain="true">上传附件</a>
 		</div>
 		<div>
-		&nbsp;<%=title%>：&nbsp;<input class="easyui-combobox" id="s_shujuId" name="s_shujuId"  data-options="panelHeight:'auto',editable:false,valueField:'shujuId',textField:'shujuName',url:'../shujuComboList'"/>
+		&nbsp;<%=title%>：&nbsp;<input class="easyui-combobox" id="s_shujuid" name="s_shujuid"
+		data-options="panelHeight:'auto',editable:false,valueField:'id',textField:'value',url:'../shujuComboList'"/>
 		<a href="javascript:searchSjshaochu()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
 		</div>
 	</div>

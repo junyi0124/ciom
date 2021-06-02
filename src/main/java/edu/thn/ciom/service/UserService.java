@@ -20,14 +20,14 @@ public class UserService {
     private UserPojoMapper userPojoMapper;
     private final String dateFormat = "yyyy-MM-dd hh:mm:ss";
 
-    public List queryUsers(UserPojo record, String userName, int page, int rows,
+    public List<UserPojo> queryUsers(UserPojo record, String userName, int page, int rows,
                            String sdate, String edate, String sdate1, String edate1) {
         // TODO Auto-generated method stub
 
         UserPojoExample example = new UserPojoExample();
         UserPojoExample.Criteria criteria = example.createCriteria();
         if (StringUtils.hasText(userName))
-            criteria.andUsernameLike(userName);
+            criteria.andUsernameEqualTo(userName);
 
         Pair<Boolean, Date> sd = new Pair<>(false, null);
         Pair<Boolean, Date> ed = new Pair<>(false, null);

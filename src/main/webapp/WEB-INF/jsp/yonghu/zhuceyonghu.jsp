@@ -15,14 +15,13 @@
 <script type="text/javascript" src="/static/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="/static/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
 <style>
-body{background: #fff url(<%=basePath%>shouye/image/shouye.jpg) 50% 0 no-repeat;margin:0;padding:0;}
+body{background: #fff url(/static/images/shouye.jpg) 50% 0 no-repeat;margin:0;padding:0;}
 #login{width:420px;height:420px;position:absolute;left:50%;top:30%;font-size:12px;line-height:24px;margin:-222px auto auto -210px;background:#fbfbfb;}
 #login .logo{height:78px; text-align:center; font-size:30px; font-weight:bold; color:#4c91d1; margin-top:40px;}
 #login .main{height:550px;background:#fff;overflow:hidden; border:#CCC 1px solid;box-shadow: 0 0 3px #ccc;}
 #login .copyright{height:26px;line-height:20px;text-align:center;font-family:arial;color:#bbb;}
 #login .copyright a{color:#bbb;text-decoration:none;}
 #login .copyright a:hover{color:#f60;}
-
 #login .main form{margin:50px 62px 0 62px;}
 #login .main form ul{margin:0;padding:0;list-style:none;}
 #login .main form ul li{font-size:14px;color:#555;margin-bottom:18px;padding:0;position:relative;}
@@ -33,10 +32,7 @@ body{background: #fff url(<%=basePath%>shouye/image/shouye.jpg) 50% 0 no-repeat;
 #login .main form ul li .wb{width:70px;}
 #login .main form ul li .bnt{width:292px;border:0;background:#4C91D1;color:#fff;border-radius:4px;padding:12px 0;margin:0;font-size:16px;font-family:microsoft yahei;cursor:pointer;}
 #login .main form ul li .bnt:hover{background:#09A3DC;}
-
 #login .main form i{width:20px;height:24px;display:block;position:absolute;top:10px;left:74px;border-right:1px solid #e5e5e5;padding-right:8px;font-size:18px;color:#999;}
-
-
 #login .main .api{text-align:center;color:#999;margin-top:-5px;}
 #login .main .api:hover{color:#4C91D1;}
 #login .main .api a{color:#666;text-decoration:none;height:16px;line-height:16px;overflow:hidden;font-size:14px;}
@@ -47,9 +43,9 @@ body{background: #fff url(<%=basePath%>shouye/image/shouye.jpg) 50% 0 no-repeat;
 <div id="login">
         <div class="logo">业务员注册</div>
         <div class="main">
-            <form action="<%=basePath%>zhuceYonghu" name="form1" method="post" onSubmit="return check()">
+            <form action="/zhuceYonghu" name="form1" method="post" onSubmit="return check()">
             <ul>
-                <li>登录名：<input class="wa" type="text" name="yonghuName" id="yonghuName"/></li>
+                <li>登&nbsp;录&nbsp;名：<input class="wa" type="text" name="yonghuName" id="yonghuName"/></li>
                 <li>密&nbsp;&nbsp;&nbsp;&nbsp;码：<input class="wa" type="password" name="yonghuPassword" id="yonghuPassword"/></li>
                 <li>密&nbsp;&nbsp;&nbsp;&nbsp;码：<input class="wa" type="password" name="yonghuPassword1" id="yonghuPassword1"/></li>
                 <li>姓&nbsp;&nbsp;&nbsp;&nbsp;名：<input class="wa" type="text" name="yonghuXingming" id="yonghuXingming"/></li>
@@ -61,7 +57,8 @@ body{background: #fff url(<%=basePath%>shouye/image/shouye.jpg) 50% 0 no-repeat;
 				</li>
                 <li>电&nbsp;&nbsp;&nbsp;&nbsp;话：<input class="wa" type="text" name="yonghuPhone" id="yonghuPhone"/></li>
                 <li>公&nbsp;&nbsp;&nbsp;&nbsp;司：<input class="wa" type="text" name="yonghuMark1" id="yonghuMark1"/></li>
-                <li>区&nbsp;&nbsp;&nbsp;&nbsp;域：<input class="easyui-combobox" id="buzhiId" name="buzhiId" size="19px" data-options="panelHeight:'auto',editable:false,valueField:'buzhiId',textField:'buzhiName',url:'<%=basePath%>buzhiComboList'"/></li>
+                <li>区&nbsp;&nbsp;&nbsp;&nbsp;域：<input class="easyui-combobox" id="buzhiId" name="buzhiId" size="19px"
+                data-options="panelHeight:'auto',editable:false,valueField:'id',textField:'value',url:'/buzhiComboList'"/></li>
                 <li><input type="submit" value="注 册" class="bnt" style="width:48%" />&nbsp;<input type="reset" value="重 置" class="bnt" style="width:48%" /></li>
                 <li><font color="red">${error }</font></li>
             </ul>

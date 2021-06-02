@@ -1,11 +1,16 @@
 <%@ page language="java" import="edu.thn.ciom.pojo.*"  pageEncoding="utf-8"%>
-<% PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi"); %>
+<%
+PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi");
+
+String yonghu   = newJcpeizhi.getYonghuBieming();
+String areaname = newJcpeizhi.getBuzhiBieming();
+%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title><%=newJcpeizhi.getYonghuBieming()%>信息</title>
+<title><%=yonghu%>信息</title>
 <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/icon.css">
 <script type="text/javascript" src="/static/jquery-easyui-1.3.3/jquery.min.js"></script>
@@ -47,7 +52,7 @@ var url;
 	}
 	
 	function openYonghuAddDialog(){
-		$("#dlg").dialog("open").dialog("setTitle","添加<%=newJcpeizhi.getYonghuBieming()%>信息");
+		$("#dlg").dialog("open").dialog("setTitle","添加<%=yonghu%>信息");
 		url="../addYonghu";
 	}
 	
@@ -91,9 +96,9 @@ var url;
 			return;
 		}
 		var row=selectedRows[0];
-		$("#dlg").dialog("open").dialog("setTitle","编辑<%=newJcpeizhi.getYonghuBieming()%>信息");
+		$("#dlg").dialog("open").dialog("setTitle","编辑<%=yonghu%>信息");
 		$("#fm").form("load",row);
-		url="../addYonghu?yonghuId="+row.yonghuid;
+		url="../addYonghu?yonghuid="+row.yonghuid;
 	}
 	
 	function formatSex(shujuSex, row) {  
@@ -185,7 +190,7 @@ var url;
 	}
 	
 	function daoruYonghus(){
-		$("#daoru").dialog("open").dialog("setTitle","导入<%=newJcpeizhi.getYonghuBieming()%>信息");
+		$("#daoru").dialog("open").dialog("setTitle","导入<%=yonghu%>信息");
 		daoruurl="../daoruYonghu";
 	}
 	
@@ -222,9 +227,9 @@ var url;
 			return;
 		}
 		var row=selectedRows[0];
-		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=newJcpeizhi.getYonghuBieming()%>信息");
+		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=yonghu%>信息");
 		$("#shchfm").form("load",row);
-		shchurl="../shangchuanYonghu?yonghuId="+row.yonghuId;
+		shchurl="../shangchuanYonghu?yonghuid="+row.yonghuid;
 	}
 	
 	function closeShangchuanYonghu(){
@@ -282,7 +287,7 @@ var url;
 			return;
 		}
 		var row=selectedRows[0];
-		url="../addYonghu?yonghuId="+row.yonghuId;
+		url="../addYonghu?yonghuid="+row.yonghuid;
 		$.messager.confirm("系统提示","您确认要执行吗？",function(r){
 			if(r){
 				$.post(url,{yonghuType:1},function(result){
@@ -301,7 +306,7 @@ var url;
 </head>
 <body style="margin: 5px;">
 <!--startprint-->
-<table id="dg" title="<%=newJcpeizhi.getYonghuBieming()%>信息" class="easyui-datagrid" fitColumns="true"
+<table id="dg" title="<%=yonghu%>信息" class="easyui-datagrid" fitColumns="true"
     pagination="true" url="../getYonghus" fit="true" rownumbers="true" toolbar="#tb">
     <thead>
         <tr>
@@ -314,8 +319,8 @@ var url;
             <th field="yonghuage" width="10">年龄</th>
             <th field="yonghuphone" width="40">电话</th>
             <th field="yonghumark1" width="40">公司</th>
-            <th field="buzhiid" width="10" hidden="true"><%=newJcpeizhi.getBuzhiBieming()%>ID</th>
-            <th field="buzhiname" width="20"><%=newJcpeizhi.getBuzhiBieming()%></th>
+            <th field="buzhiid" width="10" hidden="true"><%=areaname%>ID</th>
+            <th field="buzhiname" width="20"><%=areaname%></th>
             <th field="yonghudate" width="20" formatter="datetostr">时间</th>
         </tr>
     </thead>
@@ -335,7 +340,7 @@ var url;
 			<option value="0">男</option>
 			<option value="1">女</option>
 		</select>
-		&nbsp;<%=newJcpeizhi.getBuzhiBieming()%>：&nbsp;<input class="easyui-combobox" id="s_buzhiId" name="s_buzhiId"
+		&nbsp;<%=areaname%>：&nbsp;<input class="easyui-combobox" id="s_buzhiId" name="s_buzhiId"
 		data-options="panelHeight:'auto',editable:false,valueField:'id',textField:'value',url:'../buzhiComboList'"/>
 		<a href="javascript:searchYonghu()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
 		</div>
@@ -370,9 +375,9 @@ var url;
 				<tr>
 					<td>公司：</td>
 					<td><input type="text" name="yonghumark1" id="yonghumark1" class="easyui-validatebox" required="true"/></td>
-					<td><%=newJcpeizhi.getBuzhiBieming()%>：</td>
+					<td><%=areaname%>：</td>
 					<td><input class="easyui-combobox" id="buzhiid" name="buzhiid"
-					data-options="panelHeight:'auto',editable:false,valueField:'buzhiid',textField:'buzhiname',url:'../buzhiComboList'"/></td>
+					data-options="panelHeight:'auto',editable:false,valueField:'id',textField:'value',url:'../buzhiComboList'"/></td>
 				</tr>
 			</table>
 		</form>

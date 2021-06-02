@@ -338,7 +338,8 @@ var userId = <%=userId%>;
 			<a href="javascript:deleteSjjianchu()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
 		</div>
 		<div>
-		&nbsp;<%=title%>：&nbsp;<input class="easyui-combobox" id="s_shujuId" name="s_shujuId"  data-options="panelHeight:'auto',editable:false,valueField:'shujuId',textField:'shujuName',url:'../shujuComboList'"/>
+		&nbsp;<%=title%>：&nbsp;<input class="easyui-combobox" id="s_shujuId" name="s_shujuId"
+		data-options="panelHeight:'auto',editable:false,valueField:'id',textField:'value',url:'../shujuComboList'"/>
 		<a href="javascript:searchSjjianchu()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
 		</div>
 	</div>

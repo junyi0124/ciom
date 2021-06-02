@@ -32,19 +32,19 @@ public class BuzhiController {
         try {
             JSONObject result = new JSONObject();
 
-            String buzhiName = request.getParameter("buzhiName");
-            String buzhiMark = request.getParameter("buzhiMark");
-            String buzhiMark1 = request.getParameter("buzhiMark1");
-            String buzhiMark2 = request.getParameter("buzhiMark2");
-            String buzhiType = request.getParameter("buzhiType");
-            String buzhiType1 = request.getParameter("buzhiType1");
-            String buzhiType2 = request.getParameter("buzhiType2");
-            String buzhiDouble = request.getParameter("buzhiDouble");
-            String buzhiDouble1 = request.getParameter("buzhiDouble1");
-            String buzhiDouble2 = request.getParameter("buzhiDouble2");
-            String buyuanId = request.getParameter("buyuanId");
-            String buyuanName = request.getParameter("buyuanName");
-            String bumenId = request.getParameter("bumenId");
+            String buzhiName = request.getParameter("buzhiname");
+            String buzhiMark = request.getParameter("buzhimark");
+//            String buzhiMark1 = request.getParameter("buzhiMark1");
+//            String buzhiMark2 = request.getParameter("buzhiMark2");
+//            String buzhiType = request.getParameter("buzhiType");
+//            String buzhiType1 = request.getParameter("buzhiType1");
+//            String buzhiType2 = request.getParameter("buzhiType2");
+//            String buzhiDouble = request.getParameter("buzhiDouble");
+//            String buzhiDouble1 = request.getParameter("buzhiDouble1");
+//            String buzhiDouble2 = request.getParameter("buzhiDouble2");
+//            String buyuanId = request.getParameter("buyuanId");
+//            String buyuanName = request.getParameter("buyuanName");
+//            String bumenId = request.getParameter("bumenId");
             String buzhiId = request.getParameter("buzhiid");
             BuzhiPojo buzhi = new BuzhiPojo();
 
@@ -57,43 +57,43 @@ public class BuzhiController {
             if (StringUtils.hasText(buzhiMark)) {
                 buzhi.setBuzhimark(buzhiMark);
             }
-            if (StringUtils.hasText(buzhiMark1)) {
-                buzhi.setBuzhimark1(buzhiMark1);
-            }
-            if (StringUtils.hasText(buzhiMark2)) {
-                buzhi.setBuzhimark2(buzhiMark2);
-            }
-            if (StringUtils.hasText(buzhiType)) {
-                buzhi.setBuzhitype(Integer.parseInt(buzhiType));
-            }
-            if (StringUtils.hasText(buzhiType1)) {
-                buzhi.setBuzhitype1(Integer.parseInt(buzhiType1));
-            }
-            if (StringUtils.hasText(buzhiType2)) {
-                buzhi.setBuzhitype2(Integer.parseInt(buzhiType2));
-            }
-            if (StringUtils.hasText(buzhiDouble)) {
-                buzhi.setBuzhidouble(Double.parseDouble(buzhiDouble));
-            }
-            if (StringUtils.hasText(buzhiDouble1)) {
-                buzhi.setBuzhidouble1(Double.parseDouble(buzhiDouble1));
-            }
-            if (StringUtils.hasText(buzhiDouble2)) {
-                buzhi.setBuzhidouble2(Double.parseDouble(buzhiDouble2));
-            }
-            if (StringUtils.hasText(bumenId)) {
-                buzhi.setBumenid(Integer.parseInt(bumenId));
-            }
-            if (StringUtils.hasText(buzhiName)) {
-                buzhi.setBumenname(buzhiName);
-            }
-            if (StringUtils.hasText(buyuanId)) {
-                buzhi.setBuyuanid(Integer.parseInt(buyuanId));
-            }
-
-            if (StringUtils.hasText(buyuanName)) {
-                buzhi.setBuyuanname(buyuanName);
-            }
+//            if (StringUtils.hasText(buzhiMark1)) {
+//                buzhi.setBuzhimark1(buzhiMark1);
+//            }
+//            if (StringUtils.hasText(buzhiMark2)) {
+//                buzhi.setBuzhimark2(buzhiMark2);
+//            }
+//            if (StringUtils.hasText(buzhiType)) {
+//                buzhi.setBuzhitype(Integer.parseInt(buzhiType));
+//            }
+//            if (StringUtils.hasText(buzhiType1)) {
+//                buzhi.setBuzhitype1(Integer.parseInt(buzhiType1));
+//            }
+//            if (StringUtils.hasText(buzhiType2)) {
+//                buzhi.setBuzhitype2(Integer.parseInt(buzhiType2));
+//            }
+//            if (StringUtils.hasText(buzhiDouble)) {
+//                buzhi.setBuzhidouble(Double.parseDouble(buzhiDouble));
+//            }
+//            if (StringUtils.hasText(buzhiDouble1)) {
+//                buzhi.setBuzhidouble1(Double.parseDouble(buzhiDouble1));
+//            }
+//            if (StringUtils.hasText(buzhiDouble2)) {
+//                buzhi.setBuzhidouble2(Double.parseDouble(buzhiDouble2));
+//            }
+//            if (StringUtils.hasText(bumenId)) {
+//                buzhi.setBumenid(Integer.parseInt(bumenId));
+//            }
+//            if (StringUtils.hasText(buzhiName)) {
+//                buzhi.setBumenname(buzhiName);
+//            }
+//            if (StringUtils.hasText(buyuanId)) {
+//                buzhi.setBuyuanid(Integer.parseInt(buyuanId));
+//            }
+//
+//            if (StringUtils.hasText(buyuanName)) {
+//                buzhi.setBuyuanname(buyuanName);
+//            }
             if (StringUtils.hasText(buzhiId)) {
                 buzhiService.modifyBuzhi(buzhi);
             } else {

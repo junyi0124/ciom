@@ -1,10 +1,13 @@
 <%@ page language="java" import="edu.thn.ciom.pojo.*"  pageEncoding="utf-8"%>
-<% PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi"); %>
+<%
+PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi");
+String areaname = newJcpeizhi.getBuzhiBieming();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title><%=newJcpeizhi.getBuzhiBieming()%>信息</title>
+<title><%=areaname%>信息</title>
 
 <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/icon.css">
@@ -40,7 +43,7 @@
 						$.messager.alert("系统提示","您已成功删除<font color=red>"+result.delNums+"</font>条数据！");
 						$("#dg").datagrid("reload");
 					}else{
-						$.messager.alert('系统提示','<font color=red>'+selectedRows[result.errorIndex].buzhiName+'</font>'+result.errorMsg);
+						$.messager.alert('系统提示','<font color=red>'+selectedRows[result.errorIndex].buzhiname+'</font>'+result.errorMsg);
 					}
 				},"json");
 			}
@@ -48,7 +51,7 @@
 	}
 	
 	function openBuzhiAddDialog(){
-		$("#dlg").dialog("open").dialog("setTitle","添加<%=newJcpeizhi.getBuzhiBieming()%>信息");
+		$("#dlg").dialog("open").dialog("setTitle","添加<%=areaname%>信息");
 		url="../addBuzhi";
 	}
 	
@@ -93,7 +96,7 @@
 			return;
 		}
 		var row=selectedRows[0];
-		$("#dlg").dialog("open").dialog("setTitle","编辑<%=newJcpeizhi.getBuzhiBieming()%>信息");
+		$("#dlg").dialog("open").dialog("setTitle","编辑<%=areaname%>信息");
 		$("#fm").form("load",row);
 		url="../addBuzhi?buzhiid="+row.buzhiid;
 	}
@@ -109,7 +112,7 @@
 </script>
 </head>
 <body style="margin: 5px;">
-	<table id="dg" title="<%=newJcpeizhi.getBuzhiBieming()%>信息" class="easyui-datagrid" fitColumns="true"
+	<table id="dg" title="<%=areaname%>信息" class="easyui-datagrid" fitColumns="true"
 	 pagination="true" url="../getBuzhis" fit="true" rownumbers="true" toolbar="#tb">
 		<thead>
 			<tr>
@@ -135,11 +138,11 @@
 			<table>
 				<tr>
 					<td>名称：</td>
-					<td><input type="text" name="buzhiname" id="buzhiName" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="buzhiname" id="buzhiname" class="easyui-validatebox" required="true"/></td>
 				</tr>
 				<tr>
 					<td>描述：</td>
-					<td><input type="text" name="buzhimark" id="buzhiMark" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="buzhimark" id="buzhimark" class="easyui-validatebox" required="true"/></td>
 				</tr>
 			</table>
 		</form>
