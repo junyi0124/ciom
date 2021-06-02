@@ -1,10 +1,17 @@
 <%@ page language="java" import="edu.thn.ciom.pojo.*"  pageEncoding="utf-8"%>
-   <% PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi"); %>
 <%
-	// 权限验证
-	User user = (User)session.getAttribute("user");
-	int userId = user.getUserId();
-	int buzhiId = user.getBuzhiId();
+PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi");
+UserPojo user = (UserPojo)session.getAttribute("user");
+int buzhiId = user.getBuzhiid();
+int userId = user.getUserid();
+
+String title    = newJcpeizhi.getShujubieming();
+String shaochu  = newJcpeizhi.getSjshaochubieming();
+String jianchu  = newJcpeizhi.getSjjianchubieming();
+String douchu   = newJcpeizhi.getSjduochubieming();
+String username = newJcpeizhi.getUserBieming();
+String yonghu   = newJcpeizhi.getYonghuBieming();
+String type     = newJcpeizhi.getSjleixingbieming();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

@@ -6,8 +6,8 @@
 %>
 <%
 	// 权限验证
-	User user = (User)session.getAttribute("user");
-	int userId = user.getUserId();
+	UserPojo user = (UserPojo)session.getAttribute("user");
+	int userId = user.getUserid();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

@@ -1,15 +1,24 @@
 <%@ page language="java" import="edu.thn.ciom.pojo.*"  pageEncoding="utf-8"%>
-   <% PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi"); %>
 <%
-	User user = (User)session.getAttribute("user");
-	int userId = user.getUserId();
+PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi");
+UserPojo user = (UserPojo)session.getAttribute("user");
+int buzhiId = user.getBuzhiid();
+int userId = user.getUserid();
+
+String title    = newJcpeizhi.getShujubieming();
+String shaochu  = newJcpeizhi.getSjshaochubieming();
+String jianchu  = newJcpeizhi.getSjjianchubieming();
+String douchu   = newJcpeizhi.getSjduochubieming();
+String username = newJcpeizhi.getUserBieming();
+String yonghu   = newJcpeizhi.getYonghuBieming();
+String type     = newJcpeizhi.getSjleixingbieming();
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title><%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjshaochuBieming()%></title>
+<title><%=title%><%=shaochu%></title>
 <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/icon.css">
 <script type="text/javascript" src="/static/jquery-easyui-1.3.3/jquery.min.js"></script>
@@ -49,7 +58,7 @@ var userId = <%=userId%>;
 	}
 	
 	function openSjshaochuAddDialog(){
-		$("#dlg").dialog("open").dialog("setTitle","添加<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjshaochuBieming()%>");
+		$("#dlg").dialog("open").dialog("setTitle","添加<%=title%><%=shaochu%>");
 		url="../addSjshaochu?userId=<%=userId %>";
 	}
 	
@@ -93,7 +102,7 @@ var userId = <%=userId%>;
 			return;
 		}
 		var row=selectedRows[0];
-		$("#dlg").dialog("open").dialog("setTitle","编辑<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjshaochuBieming()%>");
+		$("#dlg").dialog("open").dialog("setTitle","编辑<%=title%><%=shaochu%>");
 		$("#fm").form("load",row);
 		url="../addSjshaochu?sjshaochuId="+row.sjshaochuId;
 	}
@@ -187,7 +196,7 @@ var userId = <%=userId%>;
 	}
 	
 	function daoruSjshaochus(){
-		$("#daoru").dialog("open").dialog("setTitle","导入<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjshaochuBieming()%>");
+		$("#daoru").dialog("open").dialog("setTitle","导入<%=title%><%=shaochu%>");
 		daoruurl="../daoruSjshaochu";
 	}
 	
@@ -224,7 +233,7 @@ var userId = <%=userId%>;
 			return;
 		}
 		var row=selectedRows[0];
-		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjshaochuBieming()%>");
+		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=title%><%=shaochu%>");
 		$("#shchfm").form("load",row);
 		shchurl="../shangchuanSjshaochu?sjshaochuId="+row.sjshaochuId;
 	}
@@ -236,7 +245,7 @@ var userId = <%=userId%>;
 			return;
 		}
 		var row=selectedRows[0];
-		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjshaochuBieming()%>");
+		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=title%><%=shaochu%>");
 		$("#shchfm").form("load",row);
 		shchurl="../shipinSjshaochu?sjshaochuId="+row.sjshaochuId;
 	}
@@ -315,25 +324,25 @@ var userId = <%=userId%>;
 </head>
 <body style="margin: 5px;">
 <!--startprint-->
-	<table id="dg" title="<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjshaochuBieming()%>" class="easyui-datagrid" fitColumns="true"
+	<table id="dg" title="<%=title%><%=shaochu%>" class="easyui-datagrid" fitColumns="true"
 	 pagination="true" url="../getSjshaochus?userId=<%=userId %>" fit="true" rownumbers="true" toolbar="#tb">
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true"></th>
-				<th field="sjshaochuId" width="10" hidden="true">编号</th>
-				<th field="userId" width="20" hidden="true"><%=newJcpeizhi.getUserBieming()%>ID</th>
-				<th field="userName" width="20"><%=newJcpeizhi.getUserBieming()%></th>
-				<th field="shujuId" width="20" hidden="true"><%=newJcpeizhi.getShujuBieming()%>ID</th>
-				<th field="shujuName" width="20"><%=newJcpeizhi.getShujuBieming()%></th>
-				<th field="yhroleName" width="20" formatter="formatXiazai">附件</th>
-				<th field="sjshaochuDouble" width="10">价格</th>
-				<th field="sjshaochuName" width="40">单号</th>
-				<th field="sjshaochuMark" width="40">名称</th>
-				<th field="sjshaochuMark1" width="80">详情</th>
-				<th field="sjshaochuImgName" width="20" formatter="formatXiazai">保单</th>
-				<th field="yonghuId" width="10" hidden="true"><%=newJcpeizhi.getYonghuBieming()%>ID</th>
-				<th field="yonghuName" width="20"><%=newJcpeizhi.getYonghuBieming()%></th>
-				<th field="sjshaochuDate" width="20" formatter="datetostr">时间</th>
+				<th field="sjshaochuid" width="10" hidden="true">编号</th>
+				<th field="userid" width="20" hidden="true"><%=username%>ID</th>
+				<th field="username" width="20"><%=username%></th>
+				<th field="shujuid" width="20" hidden="true"><%=title%>ID</th>
+				<th field="shujuname" width="20"><%=title%></th>
+				<th field="yhrolename" width="20" formatter="formatXiazai">附件</th>
+				<th field="sjshaochudouble" width="10">价格</th>
+				<th field="sjshaochuname" width="40">单号</th>
+				<th field="sjshaochumark" width="40">名称</th>
+				<th field="sjshaochumark1" width="80">详情</th>
+				<th field="sjshaochuimgname" width="20" formatter="formatXiazai">保单</th>
+				<th field="yonghuid" width="10" hidden="true"><%=yonghu%>ID</th>
+				<th field="yonghuname" width="20"><%=yonghu%></th>
+				<th field="sjshaochudate" width="20" formatter="datetostr">时间</th>
 			</tr>
 		</thead>
 	</table>
@@ -343,7 +352,7 @@ var userId = <%=userId%>;
 			<a href="javascript:shipinSjshaochu()" class="easyui-linkbutton" iconCls="icon-add" plain="true">上传附件</a>
 		</div>
 		<div>
-		&nbsp;<%=newJcpeizhi.getShujuBieming()%>：&nbsp;<input class="easyui-combobox" id="s_shujuId" name="s_shujuId"  data-options="panelHeight:'auto',editable:false,valueField:'shujuId',textField:'shujuName',url:'../shujuComboList'"/>
+		&nbsp;<%=title%>：&nbsp;<input class="easyui-combobox" id="s_shujuId" name="s_shujuId"  data-options="panelHeight:'auto',editable:false,valueField:'shujuId',textField:'shujuName',url:'../shujuComboList'"/>
 		<a href="javascript:searchSjshaochu()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
 		</div>
 	</div>

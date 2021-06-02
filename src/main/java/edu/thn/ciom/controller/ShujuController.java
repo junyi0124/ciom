@@ -46,9 +46,9 @@ public class ShujuController {
         response.setCharacterEncoding("UTF-8");
         String page = request.getParameter("page");
         String rows = request.getParameter("rows");
-        String shujuId = request.getParameter("shujuId");
-        String shujuName = request.getParameter("shujuName");
-        String sjleixingId = request.getParameter("sjleixingId");
+        String shujuId = request.getParameter("shujuid");
+        String shujuName = request.getParameter("shujuname");
+        String sjleixingId = request.getParameter("sjleixingid");
 //        String shujuType = request.getParameter("shujuType");
 //        String shujuType1 = request.getParameter("shujuType1");
 //        String sjxingtaiId = request.getParameter("sjxingtaiId");
@@ -147,30 +147,30 @@ public class ShujuController {
         try {
             JSONObject result = new JSONObject();
 
-            String shujuName = request.getParameter("shujuName");
-            String shujuMark = request.getParameter("shujuMark");
-            String shujuMark1 = request.getParameter("shujuMark1");
-            String shujuMark2 = request.getParameter("shujuMark2");
-            String shujuMark3 = request.getParameter("shujuMark3");
-            String shujuDate = request.getParameter("shujuDate");
-            String shujuDate1 = request.getParameter("shujuDate1");
-            String shujuZong = request.getParameter("shujuZong");
-            String shujuZong1 = request.getParameter("shujuZong1");
-            String shujuZong2 = request.getParameter("shujuZong2");
-            String shujuType = request.getParameter("shujuType");
-            String shujuType1 = request.getParameter("shujuType1");
-            String shujuType2 = request.getParameter("shujuType2");
-            String sjleixingId = request.getParameter("sjleixingId");
-            String sjxingtaiId = request.getParameter("sjxingtaiId");
-            String shujuDouble = request.getParameter("shujuDouble");
-            String shujuDouble1 = request.getParameter("shujuDouble1");
-            String shujuDouble2 = request.getParameter("shujuDouble2");
-            String shujuDouble3 = request.getParameter("shujuDouble3");
-            String shujuDouble4 = request.getParameter("shujuDouble4");
-            String yonghuId = request.getParameter("yonghuId");
-            String userId = request.getParameter("userId");
-            String buzhiId = request.getParameter("buzhiId");
-            String shujuId = request.getParameter("shujuId");
+            String shujuName = request.getParameter("shujuname");
+            String shujuMark = request.getParameter("shujumark");
+            String shujuMark1 = request.getParameter("shujumark1");
+            String shujuMark2 = request.getParameter("shujumark2");
+            String shujuMark3 = request.getParameter("shujumark3");
+            String shujuZong = request.getParameter("shujuzong");
+            String shujuZong1 = request.getParameter("shujuzong1");
+            String shujuZong2 = request.getParameter("shujuzong2");
+            String shujuType = request.getParameter("shujutype");
+            String shujuType1 = request.getParameter("shujutype1");
+            String shujuType2 = request.getParameter("shujutype2");
+            String sjleixingId = request.getParameter("sjleixingid");
+            String shujuDouble = request.getParameter("shujudouble");
+//            String shujuDate = request.getParameter("shujudate");
+//            String shujuDate1 = request.getParameter("shujudate1");
+//            String sjxingtaiId = request.getParameter("sjxingtaiid");
+//            String shujuDouble1 = request.getParameter("shujudouble1");
+//            String shujuDouble2 = request.getParameter("shujudouble2");
+//            String shujuDouble3 = request.getParameter("shujudouble3");
+//            String shujuDouble4 = request.getParameter("shujudouble4");
+            String yonghuId = request.getParameter("yonghuid");
+            String userId = request.getParameter("userid");
+            String buzhiId = request.getParameter("buzhiid");
+            String shujuId = request.getParameter("shujuid");
             ShujuPojo shuju = new ShujuPojo();
 
             if (StringUtils.hasText(shujuId)) {
@@ -191,14 +191,14 @@ public class ShujuController {
             if (StringUtils.hasText(shujuMark3)) {
                 shuju.setShujumark3(shujuMark3);
             }
-            if (StringUtils.hasText(shujuDate)) {
-                shuju.setShujudate(DateUtil.formatString(shujuDate,
-                        "yyyy-MM-dd hh:mm:ss"));
-            }
-            if (StringUtils.hasText(shujuDate1)) {
-                shuju.setShujudate1(DateUtil.formatString(shujuDate1,
-                        "yyyy-MM-dd hh:mm:ss"));
-            }
+//            if (StringUtils.hasText(shujuDate)) {
+//                shuju.setShujudate(DateUtil.formatString(shujuDate,
+//                        "yyyy-MM-dd hh:mm:ss"));
+//            }
+//            if (StringUtils.hasText(shujuDate1)) {
+//                shuju.setShujudate1(DateUtil.formatString(shujuDate1,
+//                        "yyyy-MM-dd hh:mm:ss"));
+//            }
             if (StringUtils.hasText(shujuZong)) {
                 shuju.setShujuzong(Integer.parseInt(shujuZong));
             }
@@ -220,47 +220,42 @@ public class ShujuController {
             if (StringUtils.hasText(shujuDouble)) {
                 shuju.setShujudouble(Double.parseDouble(shujuDouble));
             }
-            if (StringUtils.hasText(shujuDouble1)) {
-                shuju.setShujudouble1(Double.parseDouble(shujuDouble1));
-            }
-            if (StringUtils.hasText(shujuDouble2)) {
-                shuju.setShujudouble2(Double.parseDouble(shujuDouble2));
-            }
-            if (StringUtils.hasText(shujuDouble3)) {
-                shuju.setShujudouble3(Double.parseDouble(shujuDouble3));
-            }
-            if (StringUtils.hasText(shujuDouble4)) {
-                shuju.setShujudouble4(Double.parseDouble(shujuDouble4));
-            }
+//            if (StringUtils.hasText(shujuDouble1)) {
+//                shuju.setShujudouble1(Double.parseDouble(shujuDouble1));
+//            }
+//            if (StringUtils.hasText(shujuDouble2)) {
+//                shuju.setShujudouble2(Double.parseDouble(shujuDouble2));
+//            }
+//            if (StringUtils.hasText(shujuDouble3)) {
+//                shuju.setShujudouble3(Double.parseDouble(shujuDouble3));
+//            }
+//            if (StringUtils.hasText(shujuDouble4)) {
+//                shuju.setShujudouble4(Double.parseDouble(shujuDouble4));
+//            }
             if (StringUtils.hasText(sjleixingId)) {
                 shuju.setSjleixingid(Integer.parseInt(sjleixingId));
                 LeiXingPojo sjleixing = typeService.getSjleixing(Integer.parseInt(sjleixingId));
                 shuju.setSjleixingname(sjleixing.getSjleixingname());
             }
-//            if (StringUtils.hasText(sjxingtaiId)) {
-//                shuju.setSjxingtaiId(Integer.parseInt(sjxingtaiId));
-//                Sjxingtai sjxingtai = new Sjxingtai();
-//                sjxingtai = sjxingtaiService.getSjxingtai(Integer.parseInt(sjxingtaiId));
-//                shuju.setSjxingtaiName(sjxingtai.getSjxingtaiName());
-//            }
+
             if (StringUtils.hasText(yonghuId)) {
                 shuju.setYonghuid(Integer.parseInt(yonghuId));
                 YongHuPojo yonghu = yonghuService.getYonghu(Integer.parseInt(yonghuId));
                 shuju.setYonghuname(yonghu.getYonghuname());
-                shuju.setByumenid(yonghu.getByumenid());
-                shuju.setByumenname(yonghu.getByumenname());
-                shuju.setByuyuanid(yonghu.getByuyuanid());
-                shuju.setByuyuanname(yonghu.getByuyuanname());
-                shuju.setByuzhiid(yonghu.getByuzhiid());
-                shuju.setByuzhiname(yonghu.getByuzhiname());
-                shuju.setUserid(yonghu.getUserid());
-                shuju.setUsername(yonghu.getUsername());
-                shuju.setBumenid(yonghu.getBumenid());
-                shuju.setBumenname(yonghu.getBumenname());
-                shuju.setBuyuanid(yonghu.getBuyuanid());
-                shuju.setBuyuanname(yonghu.getBuyuanname());
-                shuju.setBuzhiid(yonghu.getBuzhiid());
-                shuju.setBuzhiname(yonghu.getBuzhiname());
+//                shuju.setByumenid(yonghu.getByumenid());
+//                shuju.setByumenname(yonghu.getByumenname());
+//                shuju.setByuyuanid(yonghu.getByuyuanid());
+//                shuju.setByuyuanname(yonghu.getByuyuanname());
+//                shuju.setByuzhiid(yonghu.getByuzhiid());
+//                shuju.setByuzhiname(yonghu.getByuzhiname());
+//                shuju.setUserid(yonghu.getUserid());
+//                shuju.setUsername(yonghu.getUsername());
+//                shuju.setBumenid(yonghu.getBumenid());
+//                shuju.setBumenname(yonghu.getBumenname());
+//                shuju.setBuyuanid(yonghu.getBuyuanid());
+//                shuju.setBuyuanname(yonghu.getBuyuanname());
+//                shuju.setBuzhiid(yonghu.getBuzhiid());
+//                shuju.setBuzhiname(yonghu.getBuzhiname());
             }
             if (StringUtils.hasText(userId)) {
                 shuju.setUserid(Integer.parseInt(userId));
@@ -283,9 +278,16 @@ public class ShujuController {
 //                shuju.setBuyuanId(buzhi.getBuyuanId());
 //                shuju.setBuyuanName(buzhi.getBuyuanName());
 //            }
+//            if (StringUtils.hasText(sjxingtaiId)) {
+//                shuju.setSjxingtaiId(Integer.parseInt(sjxingtaiId));
+//                Sjxingtai sjxingtai = new Sjxingtai();
+//                sjxingtai = sjxingtaiService.getSjxingtai(Integer.parseInt(sjxingtaiId));
+//                shuju.setSjxingtaiName(sjxingtai.getSjxingtaiName());
+//            }
             if (StringUtils.hasText(shujuId)) {
                 shujuService.modifyShuju(shuju);
                 result.put("success", "true");
+                result.put("method", "update");
                 ResponseUtil.write(response, result);
             } else {
                 Date date = new Date();
@@ -295,6 +297,7 @@ public class ShujuController {
                 shuju.setShujudouble2(0.0);
                 shujuService.save(shuju);
                 result.put("success", "true");
+                result.put("method", "insert");
                 ResponseUtil.write(response, result);
             }
         } catch (Exception e) {
@@ -326,7 +329,7 @@ public class ShujuController {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         String shujuName = request.getParameter("shujuName");
-        String shujuId = request.getParameter("shujuId");
+        String shujuId = request.getParameter("shujuid");
 //        String shujuType = request.getParameter("shujuType");
 //        String shujuType1 = request.getParameter("shujuType1");
 //        String sjleixingId = request.getParameter("sjleixingId");
@@ -454,9 +457,10 @@ public class ShujuController {
     public void shangchuanShuju(HttpServletRequest request, HttpServletResponse response, MultipartFile uploadFile)
             throws Exception {
         try {
-            String shujuId = request.getParameter("shujuId");
-            String directory = "/file";
+
+            String directory = "../resources/static/file";
             String targetDirectory = request.getSession().getServletContext().getRealPath(directory);
+            System.out.println(targetDirectory);
             String fileName = uploadFile.getOriginalFilename();
             File dir = new File(targetDirectory, fileName);
             if (!dir.exists()) {
@@ -465,8 +469,11 @@ public class ShujuController {
             //MultipartFile自带的解析方法
             uploadFile.transferTo(dir);
 
+
             String shangchuandizhi = "/file" + "/" + fileName;
             String shangchuanname = fileName;
+
+            String shujuId = request.getParameter("shujuid");
             ShujuPojo shuju = shujuService.getShuju(Integer.parseInt(shujuId));
             shuju.setShujuimg(shangchuandizhi);
             shuju.setShujuimgname(shangchuanname);

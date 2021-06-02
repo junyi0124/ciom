@@ -10,7 +10,7 @@
 	YongHuPojo yonghu = (YongHuPojo)session.getAttribute("yonghu");
 	if(yonghu == null){
 		System.out.println("没有得到yonghuId");
-		response.sendRedirect("shouye/index");
+		response.sendRedirect("../shouye/index");
 		return;
 	}
 	PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi");

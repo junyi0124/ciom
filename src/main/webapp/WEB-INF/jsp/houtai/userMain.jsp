@@ -10,7 +10,7 @@
 	UserPojo user = (UserPojo)session.getAttribute("user");
 	if(user==null){
 		System.out.println("没有得到userId");
-		response.sendRedirect("shouye/index");
+		response.sendRedirect("../shouye/index");
 		return;
 	}
 	PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi");

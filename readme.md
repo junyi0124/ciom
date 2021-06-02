@@ -27,5 +27,21 @@ t_yonghu
     </thead>
 </table>
 
+
+```
+PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi");
+UserPojo user = (UserPojo)session.getAttribute("user");
+int buzhiId = user.getBuzhiid();
+int userId = user.getUserid();
+
+String title = newJcpeizhi.getShujubieming();
+String shaochu = newJcpeizhi.getSjshaochubieming();
+String jianchu = newJcpeizhi.getSjjianchubieming();
+String douchu  = newJcpeizhi.getSjduochubieming();
+String username = newJcpeizhi.getUserBieming();
+String yonghu = newJcpeizhi.getYonghuBieming();
+```
+
+
 ### reference
 https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#mvc-view-jsp

@@ -1,15 +1,23 @@
 <%@ page language="java" import="edu.thn.ciom.pojo.*"  pageEncoding="utf-8"%>
-   <% PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi"); %>
 <%
-	User user = (User)session.getAttribute("user");
-	int userId = user.getUserId();
-%>
+PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi");
+UserPojo user = (UserPojo)session.getAttribute("user");
+int buzhiId = user.getBuzhiid();
+int userId = user.getUserid();
 
+String title    = newJcpeizhi.getShujubieming();
+String shaochu  = newJcpeizhi.getSjshaochubieming();
+String jianchu  = newJcpeizhi.getSjjianchubieming();
+String douchu   = newJcpeizhi.getSjduochubieming();
+String username = newJcpeizhi.getUserBieming();
+String yonghu   = newJcpeizhi.getYonghuBieming();
+String type     = newJcpeizhi.getSjleixingbieming();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title><%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjduochuBieming()%></title>
+<title><%=title%><%=douchu%></title>
 <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/icon.css">
 <script type="text/javascript" src="/static/jquery-easyui-1.3.3/jquery.min.js"></script>
@@ -49,8 +57,8 @@ var userId = <%=userId%>;
 	}
 	
 	function openSjduochuAddDialog(){
-		$("#dlg").dialog("open").dialog("setTitle","添加<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjduochuBieming()%>");
-		url="../addSjduochu?userId=<%=userId %>";
+		$("#dlg").dialog("open").dialog("setTitle","添加<%=title%><%=douchu%>");
+		url="../addSjduochu?userid=<%=userId %>";
 	}
 	
 	function resetValue(){
@@ -64,7 +72,7 @@ var userId = <%=userId%>;
 		}
 		var strIds=[];
 		for(var i=0;i<selectedRows.length;i++){
-			strIds.push(selectedRows[i].sjduochuId);
+			strIds.push(selectedRows[i].sjduochuid);
 		}
 		var ids=strIds.join(",");
 		$.messager.confirm("系统提示","您确认要删掉这<font color=red>"+selectedRows.length+"</font>条数据吗？",function(r){
@@ -74,7 +82,7 @@ var userId = <%=userId%>;
 						$.messager.alert("系统提示","您已成功删除<font color=red>"+result.delNums+"</font>条数据！");
 						$("#dg").datagrid("reload");
 					}else{
-						$.messager.alert('系统提示','<font color=red>'+selectedRows[result.errorIndex].sjduochuName+'</font>'+result.errorMsg);
+						$.messager.alert('系统提示','<font color=red>'+selectedRows[result.errorIndex].sjduochuname+'</font>'+result.errorMsg);
 					}
 				},"json");
 			}
@@ -88,14 +96,14 @@ var userId = <%=userId%>;
 	
 	function openSjduochuModifyDialog(){
 		var selectedRows=$("#dg").datagrid('getSelections');
-		if(selectedRows.length!=1){
+		if(selectedRows.length != 1){
 			$.messager.alert("系统提示","请选择一条要编辑的数据！");
 			return;
 		}
 		var row=selectedRows[0];
-		$("#dlg").dialog("open").dialog("setTitle","编辑<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjduochuBieming()%>");
+		$("#dlg").dialog("open").dialog("setTitle","编辑<%=title%><%=douchu%>");
 		$("#fm").form("load",row);
-		url="../addSjjianchu?shujuId="+row.shujuId+"&yonghuId="+row.yonghuId;
+		url="../addSjjianchu?shujuid="+row.shujuid+"&yonghuid="+row.yonghuid;
 	}
 	
 	function formatSex(shujuSex, row) {  
@@ -149,17 +157,17 @@ var userId = <%=userId%>;
 		}
 		var sjduochuIds=[];
 		for(var i=0;i<selectedRows.length;i++){
-			sjduochuIds.push(selectedRows[i].sjduochuId);
+			sjduochuIds.push(selectedRows[i].sjduochuid);
 		}
 		var ids=sjduochuIds.join(",");
 		$.messager.confirm("系统提示","您确认要导出数据吗？",function(r){
 			if(r){
-				$.post("../daochuSjduochu",{delIds:ids},function(result){
+				$.post("../daochuSjduochu",{delids:ids},function(result){
 					if(result.success){
 						$.messager.alert("系统提示","您已成功导出数据：D:！");
 						$("#dg").datagrid("reload");
 					}else{
-						$.messager.alert('系统提示','<font color=red>'+selectedRows[result.errorIndex].sjduochuName+'</font>'+result.errorMsg);
+						$.messager.alert('系统提示','<font color=red>'+selectedRows[result.errorIndex].sjduochuname+'</font>'+result.errorMsg);
 					}
 				},"json");
 			}
@@ -187,7 +195,7 @@ var userId = <%=userId%>;
 	}
 	
 	function daoruSjduochus(){
-		$("#daoru").dialog("open").dialog("setTitle","导入<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjduochuBieming()%>");
+		$("#daoru").dialog("open").dialog("setTitle","导入<%=title%><%=douchu%>");
 		daoruurl="../daoruSjduochu";
 	}
 	
@@ -224,9 +232,9 @@ var userId = <%=userId%>;
 			return;
 		}
 		var row=selectedRows[0];
-		$("#shangchuan").dialog("open").dialog("setTitle","下单<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjduochuBieming()%>");
+		$("#shangchuan").dialog("open").dialog("setTitle","下单<%=title%><%=douchu%>");
 		$("#shchfm").form("load",row);
-		shchurl="../addSjshaochu?shujuId="+row.shujuId+"&yonghuId="+row.yonghuId;
+		shchurl="../addSjshaochu?shujuid="+row.shujuid+"&yonghuid="+row.yonghuid;
 	}
 	
 	function closeShangchuanSjduochu(){
@@ -284,7 +292,7 @@ var userId = <%=userId%>;
 			return;
 		}
 		var row=selectedRows[0];
-		url="../addSjshaochu?shujuId="+row.shujuId+"&yonghuId="+row.yonghuId+"&sjshaochuDouble="+row.sjduochuDouble;
+		url="../addSjshaochu?shujuid="+row.shujuid+"&yonghuid="+row.yonghuid+"&sjshaochudouble="+row.sjduochudouble;
 		$.messager.confirm("系统提示","您确认要执行吗？",function(r){
 			if(r){
 				$.post(url,{sjduochuType:1},function(result){
@@ -303,23 +311,23 @@ var userId = <%=userId%>;
 </head>
 <body style="margin: 5px;">
 <!--startprint-->
-	<table id="dg" title="<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjduochuBieming()%>" class="easyui-datagrid" fitColumns="true"
+	<table id="dg" title="<%=title%><%=douchu%>" class="easyui-datagrid" fitColumns="true"
 	 pagination="true" url="../getSjduochus?userId=<%=userId %>" fit="true" rownumbers="true" toolbar="#tb">
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true"></th>
-				<th field="sjduochuId" width="10" hidden="true">编号</th>
-				<th field="userId" width="20" hidden="true"><%=newJcpeizhi.getUserBieming()%>ID</th>
-				<th field="userName" width="20"><%=newJcpeizhi.getUserBieming()%></th>
-				<th field="shujuId" width="20" hidden="true"><%=newJcpeizhi.getShujuBieming()%>ID</th>
-				<th field="shujuName" width="20"><%=newJcpeizhi.getShujuBieming()%></th>
-				<th field="sjduochuName" width="40">保险</th>
-				<th field="sjduochuDouble" width="10">报价</th>
-				<th field="sjduochuMark" width="120">详情</th>
-				<th field="sjduochuImgName" width="20" formatter="formatXiazai">详情</th>
-				<th field="yonghuId" width="10" hidden="true"><%=newJcpeizhi.getYonghuBieming()%>ID</th>
-				<th field="yonghuName" width="20"><%=newJcpeizhi.getYonghuBieming()%></th>
-				<th field="sjduochuDate" width="20" formatter="datetostr">时间</th>
+				<th field="sjduochuid" width="10" hidden="true">编号</th>
+				<th field="userid" width="20" hidden="true"><%=username%>ID</th>
+				<th field="username" width="20"><%=username%></th>
+				<th field="shujuid" width="20" hidden="true"><%=title%>ID</th>
+				<th field="shujuname" width="20"><%=title%></th>
+				<th field="sjduochuname" width="40">保险</th>
+				<th field="sjduochudouble" width="10">报价</th>
+				<th field="sjduochumark" width="120">详情</th>
+				<th field="sjduochuimgname" width="20" formatter="formatXiazai">详情</th>
+				<th field="yonghuid" width="10" hidden="true"><%=newJcpeizhi.getYonghuBieming()%>ID</th>
+				<th field="yonghuname" width="20"><%=newJcpeizhi.getYonghuBieming()%></th>
+				<th field="sjduochudate" width="20" formatter="datetostr">时间</th>
 			</tr>
 		</thead>
 	</table>
@@ -330,7 +338,8 @@ var userId = <%=userId%>;
 			<a href="javascript:shenheSjduochu()" class="easyui-linkbutton" iconCls="icon-add" plain="true">下单</a>
 		</div>
 		<div>
-		&nbsp;<%=newJcpeizhi.getShujuBieming()%>：&nbsp;<input class="easyui-combobox" id="s_shujuId" name="s_shujuId"  data-options="panelHeight:'auto',editable:false,valueField:'shujuId',textField:'shujuName',url:'../shujuComboList'"/>
+		&nbsp;<%=title%>：&nbsp;<input class="easyui-combobox" id="s_shujuId" name="s_shujuId"
+		data-options="panelHeight:'auto',editable:false,valueField:'id',textField:'value',url:'../shujuComboList'"/>
 		<a href="javascript:searchSjduochu()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
 		</div>
 	</div>
