@@ -598,8 +598,8 @@ public class UserController {
             jsonObject.put("id", "");
             jsonObject.put("value", "请选择...");
             jsonArray.add(jsonObject);
-            jsonArray.addAll(JSONArray.fromObject(userService.queryUsers(user,
-                    userName, 0, 0, null, null, null, null)
+            jsonArray.addAll(JSONArray.fromObject(userService.queryUsers(
+                    user, userName, 0, 0, null, null, null, null)
             .stream().map(d->new SelectListItem(d.getUserid(), d.getUsername()))
                     .collect(Collectors.toList())));
             ResponseUtil.write(response, jsonArray);
