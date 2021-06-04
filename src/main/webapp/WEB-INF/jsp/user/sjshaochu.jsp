@@ -104,7 +104,7 @@ var userId = <%=userId%>;
 		var row=selectedRows[0];
 		$("#dlg").dialog("open").dialog("setTitle","编辑<%=title%><%=shaochu%>");
 		$("#fm").form("load",row);
-		url="../addSjshaochu?sjshaochuId="+row.sjshaochuId;
+		url="../addSjshaochu?sjshaochuId="+row.sjshaochuid;
 	}
 	
 	function formatSex(shujuSex, row) {  
@@ -235,7 +235,7 @@ var userId = <%=userId%>;
 		var row=selectedRows[0];
 		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=title%><%=shaochu%>");
 		$("#shchfm").form("load",row);
-		shchurl="../shangchuanSjshaochu?sjshaochuId="+row.sjshaochuId;
+		shchurl="../shangchuanSjshaochu?sjshaochuId="+row.sjshaochuid;
 	}
 	
 	function shipinSjshaochu(){
@@ -247,7 +247,7 @@ var userId = <%=userId%>;
 		var row=selectedRows[0];
 		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=title%><%=shaochu%>");
 		$("#shchfm").form("load",row);
-		shchurl="../shipinSjshaochu?sjshaochuId="+row.sjshaochuId;
+		shchurl="../shipinSjshaochu?sjshaochuId="+row.sjshaochuid;
 	}
 	
 	function closeShangchuanSjshaochu(){

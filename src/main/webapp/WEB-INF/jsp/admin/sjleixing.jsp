@@ -71,7 +71,7 @@ var url;
 						$.messager.alert("系统提示","您已成功删除<font color=red>"+result.delNums+"</font>条数据！");
 						$("#dg").datagrid("reload");
 					}else{
-						$.messager.alert('系统提示','<font color=red>'+selectedRows[result.errorIndex].sjleixingName+'</font>'+result.errorMsg);
+						$.messager.alert('系统提示','<font color=red>'+selectedRows[result.errorIndex].sjleixingname+'</font>'+result.errorMsg);
 					}
 				},"json");
 			}
@@ -92,7 +92,7 @@ var url;
 		var row=selectedRows[0];
 		$("#dlg").dialog("open").dialog("setTitle","编辑<%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjleixingbieming()%>");
 		$("#fm").form("load",row);
-		url="../addSjleixing?sjleixingId="+row.sjleixingId;
+		url="../addSjleixing?sjleixingid="+row.sjleixingid;
 	}
 	
 	function formatSex(shujuSex, row) {  
@@ -232,7 +232,7 @@ var url;
 		var row=selectedRows[0];
 		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjleixingbieming()%>");
 		$("#shchfm").form("load",row);
-		shchurl="../shangchuanSjleixing?sjleixingId="+row.sjleixingid;
+		shchurl="../shangchuanSjleixing?sjleixingid="+row.sjleixingid;
 	}
 	
 	function closeShangchuanSjleixing(){
@@ -297,9 +297,9 @@ var url;
 			<table cellspacing="5px;">
 				<tr>
 					<td>名称：</td>
-					<td><input type="text" name="sjleixingName" id="sjleixingName" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="sjleixingname" id="sjleixingname" class="easyui-validatebox" required="true"/></td>
 					<td>备注：</td>
-					<td><input type="text" name="sjleixingMark" id="sjleixingMark" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="sjleixingmark" id="sjleixingmark" class="easyui-validatebox" required="true"/></td>
 				</tr>
 			</table>
 		</form>

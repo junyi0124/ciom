@@ -28,11 +28,11 @@ public class TypeController {
         response.setCharacterEncoding("UTF-8");
         String page = request.getParameter("page");
         String rows = request.getParameter("rows");
-        String sjleixingId = request.getParameter("sjleixingId");
-        String sjleixingName = request.getParameter("sjleixingName");
-        String sjleixingType = request.getParameter("sjleixingType");
-        String sjleixingType1 = request.getParameter("sjleixingType1");
-        String sjleixingPhone = request.getParameter("sjleixingPhone");
+        String sjleixingId = request.getParameter("sjleixingid");
+        String sjleixingName = request.getParameter("sjleixingname");
+//        String sjleixingType = request.getParameter("sjleixingType");
+//        String sjleixingType1 = request.getParameter("sjleixingType1");
+//        String sjleixingPhone = request.getParameter("sjleixingPhone");
         LeiXingPojo sjleixing = new LeiXingPojo();
         PageBean pageBean = null;
         if ((StringUtils.hasText(page)) && (!page.equals("null"))) {
@@ -44,18 +44,18 @@ public class TypeController {
             if (StringUtils.hasText(sjleixingName)) {
                 sjleixing.setSjleixingname(sjleixingName);
             }
-            if (StringUtils.hasText(sjleixingPhone)) {
-                sjleixing.setSjleixingphone(sjleixingPhone);
-            }
+//            if (StringUtils.hasText(sjleixingPhone)) {
+//                sjleixing.setSjleixingphone(sjleixingPhone);
+//            }
             if (StringUtils.hasText(sjleixingId)) {
                 sjleixing.setSjleixingid(Integer.parseInt(sjleixingId));
             }
-            if (StringUtils.hasText(sjleixingType)) {
-                sjleixing.setSjleixingtype(Integer.parseInt(sjleixingType));
-            }
-            if (StringUtils.hasText(sjleixingType1)) {
-                sjleixing.setSjleixingtype1(Integer.parseInt(sjleixingType1));
-            }
+//            if (StringUtils.hasText(sjleixingType)) {
+//                sjleixing.setSjleixingtype(Integer.parseInt(sjleixingType));
+//            }
+//            if (StringUtils.hasText(sjleixingType1)) {
+//                sjleixing.setSjleixingtype1(Integer.parseInt(sjleixingType1));
+//            }
             JSONArray jsonArray = JSONArray.fromObject(typeService.querySjleixings(
                     sjleixing, pageBean.getStart(), pageBean.getRows()));
             JSONObject result = new JSONObject();
@@ -77,9 +77,9 @@ public class TypeController {
         try {
             JSONObject result = new JSONObject();
 
-            String sjleixingId = (String) request.getParameter("sjleixingId");
-            String sjleixingName = (String) request.getParameter("sjleixingName");
-            String sjleixingMark = (String) request.getParameter("sjleixingMark");
+            String sjleixingId = (String) request.getParameter("sjleixingid");
+            String sjleixingName = (String) request.getParameter("sjleixingname");
+            String sjleixingMark = (String) request.getParameter("sjleixingmark");
 //            String sjleixingPhone = (String) request.getParameter("sjleixingPhone");
 //            String sjleixingMark1 = (String) request.getParameter("sjleixingMark1");
 //            String sjleixingMark2 = (String) request.getParameter("sjleixingMark2");

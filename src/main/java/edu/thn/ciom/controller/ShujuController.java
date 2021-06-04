@@ -55,7 +55,7 @@ public class ShujuController {
 //        String byumenId = request.getParameter("byumenId");
 //        String byuyuanId = request.getParameter("byuyuanId");
 //        String byuzhiId = request.getParameter("byuzhiId");
-//        String userId = request.getParameter("userId");
+        String userId = request.getParameter("userid");
 //        String bumenId = request.getParameter("bumenId");
 //        String buyuanId = request.getParameter("buyuanId");
 //        String buzhiId = request.getParameter("buzhiId");
@@ -92,9 +92,9 @@ public class ShujuController {
 //            if (StringUtils.hasText(shujuZong2)) {
 //                shuju.setShujuZong2(Integer.parseInt(shujuZong2));
 //            }
-//            if (StringUtils.hasText(userId)) {
-//                shuju.setUserId(Integer.parseInt(userId));
-//            }
+            if (StringUtils.hasText(userId)) {
+                shuju.setUserid(Integer.parseInt(userId));
+            }
 //            if (StringUtils.hasText(bumenId)) {
 //                shuju.setBumenId(Integer.parseInt(bumenId));
 //            }
@@ -263,8 +263,8 @@ public class ShujuController {
 //                shuju.setBumenName(user.getBumenName());
 //                shuju.setBuyuanId(user.getBuyuanId());
 //                shuju.setBuyuanName(user.getBuyuanName());
-//                shuju.setBuzhiId(user.getBuzhiId());
-//                shuju.setBuzhiName(user.getBuzhiName());
+                shuju.setBuzhiid(user.getBuzhiid());
+                shuju.setBuzhiname(user.getBuzhiname());
             }
 //            if (StringUtils.hasText(buzhiId)) {
 //                shuju.setBuzhiId(Integer.parseInt(buzhiId));

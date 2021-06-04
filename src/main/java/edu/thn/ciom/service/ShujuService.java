@@ -22,6 +22,8 @@ public class ShujuService {
 
         if (record != null) {
             if (record.getShujuid() != null) criteria.andShujuidEqualTo(record.getShujuid());
+            if (record.getSjleixingid() != null) criteria.andSjleixingidEqualTo(record.getSjleixingid());
+            if (record.getUserid() != null) criteria.andUseridEqualTo(record.getUserid());
             if (record.getShujuname() != null && StringUtils.hasText(record.getShujuname()))
                 criteria.andShujunameLike(record.getShujuname());
         }

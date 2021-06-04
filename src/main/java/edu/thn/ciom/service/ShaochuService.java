@@ -22,6 +22,7 @@ public class ShaochuService {
 
         if (record != null) {
             if (record.getShujuid() != null) criteria.andShujuidEqualTo(record.getShujuid());
+            if (record.getUserid() != null) criteria.andUseridEqualTo(record.getUserid());
             if (record.getSjshaochuid() != null) criteria.andSjshaochuidEqualTo(record.getSjshaochuid());
         }
 

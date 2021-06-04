@@ -163,7 +163,9 @@ public class JspController {
     GET /user/sjduochu  报价信息
     GET /user/sjjianchu 交流信息
     GET /user/sjshaochu 下单信息
-    GET /user/zhuceuser
+    GET /user/zhuceuser 注册用户
+    GET /user/user      个人信息
+    GET /user/usermima  修改密码
      */
     @RequestMapping(value = "/user/shuju", method = RequestMethod.GET)
     public String user_shuju() {
@@ -188,6 +190,16 @@ public class JspController {
     @RequestMapping(value = "/user/zhuceuser", method = RequestMethod.GET)
     public String user_zhuceuser() {
         return "user/zhuceuser";
+    }
+
+    @RequestMapping(value = "/user/user", method = RequestMethod.GET)
+    public String user_user() {
+        return "user/user";
+    }
+
+    @RequestMapping(value = "/user/usermima", method = RequestMethod.GET)
+    public String user_usermima() {
+        return "user/usermima";
     }
 }
 

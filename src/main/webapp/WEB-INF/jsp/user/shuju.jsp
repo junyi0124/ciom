@@ -30,8 +30,8 @@ var url;
 var userId = <%=userId%>;
 	function searchShuju(){
 		$('#dg').datagrid('load',{
-			shujuName:$('#s_shujuName').val(),
-			sjleixingId:$('#s_sjleixingId').combobox("getValue")
+			shujuname:$('#s_shujuname').val(),
+			sjleixingid:$('#s_sjleixingid').combobox("getValue")
 		});
 	}
 	
