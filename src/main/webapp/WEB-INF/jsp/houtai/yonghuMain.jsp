@@ -27,7 +27,7 @@
     <title><%=newJcpeizhi.getJcpeizhiname()%></title>
     <link rel="stylesheet" href="/static/muban10/assets/css/layui.css">
     <link rel="stylesheet" href="/static//muban10/assets/css/admin.css">
-    <link rel="icon" href="/static/muban10/favicon.ico">
+    <link rel="icon" href="/static/muban10/assets/favicon.ico">
 </head>
 <body class="layui-layout-body">
     <div class="layui-layout layui-layout-admin">

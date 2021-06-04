@@ -79,7 +79,7 @@ var url;
 		}
 		var strIds=[];
 		for(var i=0;i<selectedRows.length;i++){
-			strIds.push(selectedRows[i].userId);
+			strIds.push(selectedRows[i].userid);
 		}
 		var ids=strIds.join(",");
 		$.messager.confirm("系统提示","您确认要删掉这<font color=red>"+selectedRows.length+"</font>条数据吗？",function(r){
@@ -164,7 +164,7 @@ var url;
 		}
 		var userIds=[];
 		for(var i=0;i<selectedRows.length;i++){
-			userIds.push(selectedRows[i].userId);
+			userIds.push(selectedRows[i].userid);
 		}
 		var ids=userIds.join(",");
 		$.messager.confirm("系统提示","您确认要导出数据吗？",function(r){

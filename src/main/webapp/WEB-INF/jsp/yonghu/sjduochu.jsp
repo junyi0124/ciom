@@ -66,7 +66,7 @@ var url;
 		}
 		var strIds=[];
 		for(var i=0;i<selectedRows.length;i++){
-			strIds.push(selectedRows[i].sjduochuId);
+			strIds.push(selectedRows[i].sjduochuid);
 		}
 		var ids=strIds.join(",");
 		$.messager.confirm("系统提示","您确认要删掉这<font color=red>"+selectedRows.length+"</font>条数据吗？",function(r){
@@ -151,7 +151,7 @@ var url;
 		}
 		var sjduochuIds=[];
 		for(var i=0;i<selectedRows.length;i++){
-			sjduochuIds.push(selectedRows[i].sjduochuId);
+			sjduochuIds.push(selectedRows[i].sjduochuid);
 		}
 		var ids=sjduochuIds.join(",");
 		$.messager.confirm("系统提示","您确认要导出数据吗？",function(r){

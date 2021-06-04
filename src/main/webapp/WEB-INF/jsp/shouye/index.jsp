@@ -5,9 +5,9 @@
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <%@ include file="../jiazai/jcpeizhibaohan.jsp"%>
+<%@ include file="../jiazai/err_handle.jsp"%>
 <%
 	PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi");
-	Session.
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -147,11 +147,15 @@ function checklogin()
       </table></td>
     </tr>
     <tr>
-      <td valign="middle"><input type="image" src="/static/images/login_14.jpg" width="274" height="40" border="0"  style="padding-left:0px;width:224px;"/></td>
+      <td valign="middle"><input type="image" src="/static/images/login_14.jpg" width="274" height="40" border="0"
+        style="padding-left:0px;width:224px;"/></td>
     </tr>
   </table> </form>
-  <a href="../user/zhuceuser"><%=newJcpeizhi.getUserBieming()%>注册</a>&nbsp;&nbsp;
-  <a href="../yonghu/zhuceyonghu"><%=newJcpeizhi.getYonghuBieming()%>注册</a><br>
-  <font color="red">${error }</font>
+    <a href="../user/zhuceuser"><%=newJcpeizhi.getUserBieming()%>注册</a>&nbsp;&nbsp;
+    <a href="../yonghu/zhuceyonghu"><%=newJcpeizhi.getYonghuBieming()%>注册</a>
+  <br>
+  <font color="red">
+    ${error}
+  </font>
 </div>
 </body></html>

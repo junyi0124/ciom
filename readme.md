@@ -6,6 +6,26 @@
 | t_yonghu | 业务员 | yewuyuan1 / yewuyuan1 | houtai/ |
 | t_user | 客户 | yonghu1 / yonghu1 | houtai/userMain | 
 
+修复任务
+==admin管理员==
+- [x] 用户信息
+    -  [x] 区域信息
+    -  [x] 用户信息
+- [ ] 业务员信息
+    - [ ] 业务员信息
+- [ ] 车辆信息
+    - [ ] 车辆类型
+    - [ ] 车辆信息
+- [ ] 报价信息
+    -  [ ] 报价信息
+- [ ] 交流下单
+    -  [ ] 交流信息
+    -  [ ] 下单信息
+
+==yonghu业务员==
+
+==user客户==
+
 t_yonghu
 <table id="dg" title="<%=newJcpeizhi.getYonghuBieming()%>信息" class="easyui-datagrid" fitColumns="true"
     pagination="true" url="../getYonghus" fit="true" rownumbers="true" toolbar="#tb">
@@ -27,7 +47,6 @@ t_yonghu
     </thead>
 </table>
 
-
 ```
 PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi");
 UserPojo user = (UserPojo)session.getAttribute("user");
@@ -42,6 +61,6 @@ String username = newJcpeizhi.getUserBieming();
 String yonghu = newJcpeizhi.getYonghuBieming();
 ```
 
-
 ### reference
+
 https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#mvc-view-jsp

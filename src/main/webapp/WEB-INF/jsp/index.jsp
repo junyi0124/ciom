@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>hello</title>
+        <meta />
         <link href="/static/bootstrap5/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     </head>
     <body>

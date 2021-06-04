@@ -58,14 +58,16 @@ public class LoginController {
 
         if (!StringUtils.hasText(userName) || !StringUtils.hasText(password)) {
             request.setAttribute("error", "用户名或密码为空！");
-            request.getRequestDispatcher("shouye/index").forward(request,
-                    response);
+//            request.getRequestDispatcher("shouye/index").forward(request, response);
+            response.sendRedirect("shouye/index");
         } else {
             PeizhiPojo config = jiazaiPeizhi();
             if (config == null) {
                 request.setAttribute("error", "系统还未配置参数，联系管理员！");
                 // 服务器跳转
-                request.getRequestDispatcher("shouye/index").forward(request, response);
+                //request.getRequestDispatcher("shouye/index").forward(request, response);
+                response.sendRedirect("shouye/index");
+
             } else {
                 // 获取Session
                 HttpSession session = request.getSession();
@@ -81,7 +83,8 @@ public class LoginController {
                             if (jcbiaotis.size() == 0) {
                                 request.setAttribute("error", "系统还未配置标题，联系管理员！");
                                 // 服务器跳转
-                                request.getRequestDispatcher("shouye/index").forward(request, response);
+//                                request.getRequestDispatcher("shouye/index").forward(request, response);
+                                response.sendRedirect("shouye/index");
                             } else {
                                 List<List<DaohangPojo>> jcdaohangslist = jiazaiDaohang(jcbiaotis);
                                 session.setAttribute("jcdaohangslist", jcdaohangslist);
@@ -93,13 +96,15 @@ public class LoginController {
                         } else {
                             request.setAttribute("error", "用户名或密码错误！");
                             // 服务器跳转
-                            request.getRequestDispatcher("shouye/index").forward(request, response);
+                            //request.getRequestDispatcher("shouye/index").forward(request, response);
+                            response.sendRedirect("shouye/index");
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
                         request.setAttribute("error", "服务器错误！");
                         // 服务器跳转
-                        request.getRequestDispatcher("shouye/index").forward(request, response);
+                       // request.getRequestDispatcher("shouye/index").forward(request, response);
+                        response.sendRedirect("shouye/index");
                     }
                 } else if (loginType.equals("yonghu")) {
                     YongHuPojo yonghu = new YongHuPojo();
@@ -112,7 +117,8 @@ public class LoginController {
                             if (jcbiaotis.size() == 0) {
                                 request.setAttribute("error", "系统还未配置标题，联系管理员！");
                                 // 服务器跳转
-                                request.getRequestDispatcher("shouye/index.jsp").forward(request, response);
+//                                request.getRequestDispatcher("shouye/index.jsp").forward(request, response);
+                                response.sendRedirect("houtai/index");
                             } else {
                                 List<List<DaohangPojo>> jcdaohangslist = jiazaiDaohang(jcbiaotis);
                                 session.setAttribute("jcdaohangslist", jcdaohangslist);
@@ -124,13 +130,15 @@ public class LoginController {
                         } else {
                             request.setAttribute("error", "用户名或密码错误！");
                             // 服务器跳转
-                            request.getRequestDispatcher("shouye/index").forward(request, response);
+                            //request.getRequestDispatcher("shouye/index").forward(request, response);
+                            response.sendRedirect("shouye/index");
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
                         request.setAttribute("error", "服务器错误！");
                         // 服务器跳转
-                        request.getRequestDispatcher("shouye/index").forward(request, response);
+                        //request.getRequestDispatcher("shouye/index").forward(request, response);
+                        response.sendRedirect("shouye/index");
                     }
                 } else if (loginType.equals("user")) {
                     UserPojo user = new UserPojo();
@@ -155,18 +163,22 @@ public class LoginController {
                         } else {
                             request.setAttribute("error", "用户名或密码错误！");
                             // 服务器跳转
-                            request.getRequestDispatcher("shouye/index").forward(request, response);
+                            //request.getRequestDispatcher("shouye/index").forward(request, response);
+                            response.sendRedirect("houtai/userMain");
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
                         request.setAttribute("error", "服务器错误！");
                         // 服务器跳转
-                        request.getRequestDispatcher("shouye/index").forward(request, response);
+//                       request.getRequestDispatcher("shouye/index").forward(request, response);
+                        response.sendRedirect("shouye/index");
                     }
+
                 } else {
                     request.setAttribute("error", "登录权限错误！");
                     // 服务器跳转
-                    request.getRequestDispatcher("shouye/index").forward(request, response);
+//                    request.getRequestDispatcher("shouye/index").forward(request, response);
+                    response.sendRedirect("shouye/index");
                 }
             }
         }

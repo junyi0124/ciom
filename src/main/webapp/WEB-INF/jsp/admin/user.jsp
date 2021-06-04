@@ -71,7 +71,7 @@ var url;
 		}
 		var strIds=[];
 		for(var i=0;i<selectedRows.length;i++){
-			strIds.push(selectedRows[i].userId);
+			strIds.push(selectedRows[i].userid);
 		}
 		var ids=strIds.join(",");
 		$.messager.confirm("系统提示","您确认要删掉这<font color=red>"+selectedRows.length+"</font>条数据吗？",function(r){
@@ -102,7 +102,7 @@ var url;
 		var row=selectedRows[0];
 		$("#dlg").dialog("open").dialog("setTitle","编辑<%= newJcpeizhi==null ? "--" : newJcpeizhi.getUserBieming()%>信息");
 		$("#fm").form("load",row);
-		url="../addUser?userId="+row.userId;
+		url="../addUser?userId="+row.userid;
 	}
 	
 	function formatSex(shujuSex, row) {  
@@ -156,7 +156,7 @@ var url;
 		}
 		var userIds=[];
 		for(var i=0;i<selectedRows.length;i++){
-			userIds.push(selectedRows[i].userId);
+			userIds.push(selectedRows[i].userid);
 		}
 		var ids=userIds.join(",");
 		$.messager.confirm("系统提示","您确认要导出数据吗？",function(r){
@@ -166,7 +166,7 @@ var url;
 						$.messager.alert("系统提示","您已成功导出数据：D:！");
 						$("#dg").datagrid("reload");
 					}else{
-						$.messager.alert('系统提示','<font color=red>'+selectedRows[result.errorIndex].userName+'</font>'+result.errorMsg);
+						$.messager.alert('系统提示','<font color=red>'+selectedRows[result.errorIndex].username+'</font>'+result.errorMsg);
 					}
 				},"json");
 			}
@@ -356,31 +356,32 @@ var url;
 			<table cellspacing="5px;">
 				<tr>
 					<td>登录名：</td>
-					<td><input type="text" name="userName" id="userName" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="username" id="username" class="easyui-validatebox" required="true"/></td>
 					<td>密码：</td>
-					<td><input type="password" name="userPassword" id="userPassword" class="easyui-validatebox" required="true"/></td>
+					<td><input type="password" name="userpassword" id="userpassword" class="easyui-validatebox" required="true"/></td>
 				</tr>
 				<tr>
 					<td>姓名：</td>
-					<td><input type="text" name="userXingming" id="userXingming" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="userxingming" id="userxingming" class="easyui-validatebox" required="true"/></td>
 					<td>年龄：</td>
 					<td><input type="text" name="userAge" id="userAge" class="easyui-validatebox" required="true"/></td>
 				</tr>
 				<tr>
 					<td>性别：</td>
-					<td><select class="easyui-combobox" id="userSex" name="userSex" editable="false" panelHeight="auto" style="width: 155px">
+					<td><select class="easyui-combobox" id="usersex" name="usersex" editable="false" panelHeight="auto" style="width: 155px">
 					    <option value="">请选择...</option>
 						<option value="0">男</option>
 						<option value="1">女</option>
 					</select></td>
 					<td>电话：</td>
-					<td><input type="text" name="userPhone" id="userPhone" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="userphone" id="userphone" class="easyui-validatebox" required="true"/></td>
 				</tr>
 				<tr>
 					<td>驾照：</td>
-					<td><input type="text" name="userMark1" id="userMark1" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="usermark1" id="usermark1" class="easyui-validatebox" required="true"/></td>
 					<td><%= newJcpeizhi==null ? "--" : newJcpeizhi.getBuzhiBieming()%>：</td>
-					<td><input class="easyui-combobox" id="buzhiId" name="buzhiId"  data-options="panelHeight:'auto',editable:false,valueField:'buzhiId',textField:'buzhiName',url:'../buzhiComboList'"/></td>
+					<td><input class="easyui-combobox" id="buzhiid" name="buzhiid"
+					data-options="panelHeight:'auto',editable:false,valueField:'id',textField:'value',url:'../buzhiComboList'"/></td>
 				</tr>
 			</table>
 		</form>

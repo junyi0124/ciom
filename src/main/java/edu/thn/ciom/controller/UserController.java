@@ -123,14 +123,27 @@ public class UserController {
             JSONObject result = new JSONObject();
 
             String userName = request.getParameter("userName");
+            if(!StringUtils.hasText(userName)) userName = request.getParameter("username");
             String userPassword = request.getParameter("userPassword");
+            if(!StringUtils.hasText(userPassword)) userPassword = request.getParameter("userpassword");
             String userAge = request.getParameter("userAge");
+            if(!StringUtils.hasText(userAge)) userAge = request.getParameter("userage");
             String userXingming = request.getParameter("userXingming");
+            if(!StringUtils.hasText(userXingming)) userXingming = request.getParameter("userxingming");
             String userSex = request.getParameter("userSex");
+            if(!StringUtils.hasText(userSex)) userSex = request.getParameter("usersex");
             String userMinzu = request.getParameter("userMinzu");
+            if(!StringUtils.hasText(userMinzu)) userMinzu = request.getParameter("userminzu");
             String userPhone = request.getParameter("userPhone");
-//            String userMark = request.getParameter("userMark");
+            if(!StringUtils.hasText(userPhone)) userPhone = request.getParameter("userphone");
             String userMark1 = request.getParameter("userMark1");
+            if(!StringUtils.hasText(userMark1)) userMark1 = request.getParameter("usermark1");
+            String buzhiId = request.getParameter("buzhiId");
+            if(!StringUtils.hasText(buzhiId)) buzhiId = request.getParameter("buzhiid");
+
+            String userId = request.getParameter("userId");
+            if(!StringUtils.hasText(userId)) userId = request.getParameter("userid");
+//            String userMark = request.getParameter("userMark");
 //            String userMark2 = request.getParameter("userMark2");
 //            String userMark3 = request.getParameter("userMark3");
 //            String userMark4 = request.getParameter("userMark4");
@@ -149,8 +162,7 @@ public class UserController {
 //            String roleId = request.getParameter("roleId");
 //            String bumenId = request.getParameter("bumenId");
 //            String buyuanId = request.getParameter("buyuanId");
-            String buzhiId = request.getParameter("buzhiId");
-            String userId = request.getParameter("userId");
+
             UserPojo user = new UserPojo();
 
             if (StringUtils.hasText(userId)) {
@@ -159,30 +171,30 @@ public class UserController {
             if (StringUtils.hasText(userName)) {
                 user.setUsername(userName);
             }
-//            if (StringUtils.hasText(userPassword)) {
-//                user.setUserPassword(userPassword);
-//            }
-//            if (StringUtils.hasText(userAge)) {
-//                user.setUserAge(Integer.parseInt(userAge));
-//            }
-//            if (StringUtils.hasText(userXingming)) {
-//                user.setUserXingming(userXingming);
-//            }
-//            if (StringUtils.hasText(userSex)) {
-//                user.setUserSex(Integer.parseInt(userSex));
-//            }
-//            if (StringUtils.hasText(userMinzu)) {
-//                user.setUserMinzu(userMinzu);
-//            }
-//            if (StringUtils.hasText(userPhone)) {
-//                user.setUserPhone(userPhone);
-//            }
+            if (StringUtils.hasText(userPassword)) {
+                user.setUserpassword(userPassword);
+            }
+            if (StringUtils.hasText(userAge)) {
+                user.setUserage(Integer.parseInt(userAge));
+            }
+            if (StringUtils.hasText(userXingming)) {
+                user.setUserxingming(userXingming);
+            }
+            if (StringUtils.hasText(userSex)) {
+                user.setUsersex(Integer.parseInt(userSex));
+            }
+            if (StringUtils.hasText(userMinzu)) {
+                user.setUserminzu(userMinzu);
+            }
+            if (StringUtils.hasText(userPhone)) {
+                user.setUserphone(userPhone);
+            }
 //            if (StringUtils.hasText(userMark)) {
 //                user.setUserMark(userMark);
 //            }
-//            if (StringUtils.hasText(userMark1)) {
-//                user.setUserMark1(userMark1);
-//            }
+            if (StringUtils.hasText(userMark1)) {
+                user.setUsermark1(userMark1);
+            }
 //            if (StringUtils.hasText(userMark2)) {
 //                user.setUserMark2(userMark2);
 //            }
@@ -238,9 +250,8 @@ public class UserController {
 //                user.setRoleName(role.getRoleName());
 //            }
             if (StringUtils.hasText(buzhiId)) {
-                BuzhiPojo buzhi = new BuzhiPojo();
-                buzhi = buzhiService.getBuzhi(Integer.parseInt(buzhiId));
-                user.setBuzhiid(Integer.parseInt(buzhiId));
+                BuzhiPojo buzhi = buzhiService.getBuzhi(Integer.parseInt(buzhiId));
+                user.setBuzhiid(buzhi.getBuzhiid());
                 user.setBuzhiname(buzhi.getBuzhiname());
 //                user.setBumenId(buzhi.getBumenId());
 //                user.setBumenName(buzhi.getBumenName());

@@ -16,7 +16,6 @@ body{background: #fff 50% 0 no-repeat;margin:0;padding:0;}
 #login .copyright{height:26px;line-height:20px;text-align:center;font-family:arial;color:#bbb;}
 #login .copyright a{color:#bbb;text-decoration:none;}
 #login .copyright a:hover{color:#f60;}
-
 #login .main form{margin:50px 62px 0 62px;}
 #login .main form ul{margin:0;padding:0;list-style:none;}
 #login .main form ul li{font-size:14px;color:#555;margin-bottom:18px;padding:0;position:relative;}
@@ -27,10 +26,7 @@ body{background: #fff 50% 0 no-repeat;margin:0;padding:0;}
 #login .main form ul li .wb{width:70px;}
 #login .main form ul li .bnt{width:292px;border:0;background:#4C91D1;color:#fff;border-radius:4px;padding:12px 0;margin:0;font-size:16px;font-family:microsoft yahei;cursor:pointer;}
 #login .main form ul li .bnt:hover{background:#09A3DC;}
-
 #login .main form i{width:20px;height:24px;display:block;position:absolute;top:10px;left:74px;border-right:1px solid #e5e5e5;padding-right:8px;font-size:18px;color:#999;}
-
-
 #login .main .api{text-align:center;color:#999;margin-top:-5px;}
 #login .main .api:hover{color:#4C91D1;}
 #login .main .api a{color:#666;text-decoration:none;height:16px;line-height:16px;overflow:hidden;font-size:14px;}

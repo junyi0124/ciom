@@ -67,7 +67,7 @@ var url;
 		}
 		var strIds=[];
 		for(var i=0;i<selectedRows.length;i++){
-			strIds.push(selectedRows[i].yonghuId);
+			strIds.push(selectedRows[i].yonghuid);
 		}
 		var ids=strIds.join(",");
 		$.messager.confirm("系统提示","您确认要删掉这<font color=red>"+selectedRows.length+"</font>条数据吗？",function(r){
@@ -77,7 +77,7 @@ var url;
 						$.messager.alert("系统提示","您已成功删除<font color=red>"+result.delNums+"</font>条数据！");
 						$("#dg").datagrid("reload");
 					}else{
-						$.messager.alert('系统提示','<font color=red>'+selectedRows[result.errorIndex].yonghuName+'</font>'+result.errorMsg);
+						$.messager.alert('系统提示','<font color=red>'+selectedRows[result.errorIndex].yonghuname+'</font>'+result.errorMsg);
 					}
 				},"json");
 			}

@@ -32,7 +32,7 @@ pageEncoding="utf-8"%>
 <head id="Head1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
-	<link rel="icon" href="/static/muban10/favicon.ico">
+	<link rel="icon" href="/static/muban10/assets/favicon.ico">
     <title><%=newJcpeizhi.getJcpeizhiname()%></title>
     <link rel="stylesheet" href="/static/muban10/assets/css/layui.css">
     <link rel="stylesheet" href="/static/muban10/assets/css/admin.css">
