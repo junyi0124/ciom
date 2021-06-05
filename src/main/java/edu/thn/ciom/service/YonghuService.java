@@ -23,11 +23,13 @@ public class YonghuService {
     private final String dateFormat = "yyyy-MM-dd hh:mm:ss";
 
     public List<YongHuPojo> queryYonghus(YongHuPojo record, String yonghuName, int page, int rows,
-                                         String sdate, String edate,
-                                         String sdate1, String edate1) {
+                                         String sdate, String edate/*,
+                                         String sdate1, String edate1*/) {
 
         YongHuPojoExample example = new YongHuPojoExample();
         YongHuPojoExample.Criteria criteria = example.createCriteria();
+        if (record.getYonghuid()!=null)
+            criteria.andYonghuidEqualTo(record.getYonghuid());
         if (StringUtils.hasText(yonghuName))
             criteria.andYonghunameEqualTo(yonghuName);
 

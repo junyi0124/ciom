@@ -45,22 +45,22 @@ public class YonghuController {
         response.setCharacterEncoding("UTF-8");
         String page = request.getParameter("page");
         String rows = request.getParameter("rows");
-        String yonghuName = request.getParameter("yonghuName");
-        String yonghuXingming = request.getParameter("yonghuXingming");
         String yonghuId = request.getParameter("yonghuId");
-        String yonghuType = request.getParameter("yonghuType");
-        String yonghuType1 = request.getParameter("yonghuType1");
-        String yonghuType2 = request.getParameter("yonghuType2");
-        String yhroleId = request.getParameter("yhroleId");
-        String byumenId = request.getParameter("byumenId");
-        String byuzhiId = request.getParameter("byuzhiId");
-        String byuyuanId = request.getParameter("byuyuanId");
-        String yonghuMinzu = request.getParameter("yonghuMinzu");
-        String yonghuSex = request.getParameter("yonghuSex");
-        String userId = request.getParameter("userId");
-        String bumenId = request.getParameter("bumenId");
-        String buyuanId = request.getParameter("buyuanId");
-        String buzhiId = request.getParameter("buzhiId");
+        String yonghuName = request.getParameter("yonghuname");
+//        String yonghuXingming = request.getParameter("yonghuXingming");
+//        String yonghuType = request.getParameter("yonghuType");
+//        String yonghuType1 = request.getParameter("yonghuType1");
+//        String yonghuType2 = request.getParameter("yonghuType2");
+//        String yhroleId = request.getParameter("yhroleId");
+//        String byumenId = request.getParameter("byumenId");
+//        String byuzhiId = request.getParameter("byuzhiId");
+//        String byuyuanId = request.getParameter("byuyuanId");
+//        String yonghuMinzu = request.getParameter("yonghuMinzu");
+//        String yonghuSex = request.getParameter("yonghuSex");
+//        String userId = request.getParameter("userId");
+//        String bumenId = request.getParameter("bumenId");
+//        String buyuanId = request.getParameter("buyuanId");
+//        String buzhiId = request.getParameter("buzhiId");
         String sdate = request.getParameter("sdate");
         String edate = request.getParameter("edate");
         String sdate1 = request.getParameter("sdate1");
@@ -74,66 +74,66 @@ public class YonghuController {
         }
         try {
 
-            if (StringUtils.hasText(yonghuXingming)) {
-                yonghu.setYonghuxingming(yonghuXingming);
+            if (StringUtils.hasText(yonghuId)) {
+                yonghu.setYonghuid(Integer.parseInt(yonghuId));
             }
             if (StringUtils.hasText(yonghuName)) {
                 yonghu.setYonghuname(yonghuName);
             }
-            if (StringUtils.hasText(yonghuMinzu)) {
-                yonghu.setYonghuminzu(yonghuMinzu);
-            }
-            if (StringUtils.hasText(yonghuId)) {
-                yonghu.setYonghuid(Integer.parseInt(yonghuId));
-            }
-            if (StringUtils.hasText(byuzhiId)) {
-                yonghu.setByuzhiid(Integer.parseInt(byuzhiId));
-            }
-            if (StringUtils.hasText(byuyuanId)) {
-                yonghu.setByuyuanid(Integer.parseInt(byuyuanId));
-            }
-            if (StringUtils.hasText(yonghuType)) {
-                yonghu.setYonghutype(Integer.parseInt(yonghuType));
-            }
-            if (StringUtils.hasText(yonghuType1)) {
-                yonghu.setYonghutype1(Integer.parseInt(yonghuType1));
-            }
-            if (StringUtils.hasText(yonghuType2)) {
-                yonghu.setYonghutype2(Integer.parseInt(yonghuType2));
-            }
-            if (StringUtils.hasText(yhroleId)) {
-                yonghu.setYhroleid(Integer.parseInt(yhroleId));
-            }
-            if (StringUtils.hasText(byumenId)) {
-                yonghu.setByumenid(Integer.parseInt(byumenId));
-            }
-            if (StringUtils.hasText(yonghuSex)) {
-                yonghu.setYonghusex(Integer.parseInt(yonghuSex));
-            }
-            if (StringUtils.hasText(userId)) {
-                yonghu.setUserid(Integer.parseInt(userId));
-            }
-            if (StringUtils.hasText(buyuanId)) {
-                yonghu.setBuyuanid(Integer.parseInt(buyuanId));
-            }
-            if (StringUtils.hasText(buzhiId)) {
-                yonghu.setBuzhiid(Integer.parseInt(buzhiId));
-            }
-            if (StringUtils.hasText(bumenId)) {
-                yonghu.setBumenid(Integer.parseInt(bumenId));
-            }
-            if (StringUtils.hasText(sdate1)) {
-                Date date = new Date();
-                sdate1 = DateUtil.formatDate(date, "yyyy-MM-dd HH:mm:ss");
-            }
-            if (StringUtils.hasText(edate1)) {
-                Date date = new Date();
-                edate1 = DateUtil.formatDate(date, "yyyy-MM-dd HH:mm:ss");
-            }
+//            if (StringUtils.hasText(yonghuXingming)) {
+//                yonghu.setYonghuxingming(yonghuXingming);
+//            }
+//            if (StringUtils.hasText(yonghuMinzu)) {
+//                yonghu.setYonghuminzu(yonghuMinzu);
+//            }
+//            if (StringUtils.hasText(byuzhiId)) {
+//                yonghu.setByuzhiid(Integer.parseInt(byuzhiId));
+//            }
+//            if (StringUtils.hasText(byuyuanId)) {
+//                yonghu.setByuyuanid(Integer.parseInt(byuyuanId));
+//            }
+//            if (StringUtils.hasText(yonghuType)) {
+//                yonghu.setYonghutype(Integer.parseInt(yonghuType));
+//            }
+//            if (StringUtils.hasText(yonghuType1)) {
+//                yonghu.setYonghutype1(Integer.parseInt(yonghuType1));
+//            }
+//            if (StringUtils.hasText(yonghuType2)) {
+//                yonghu.setYonghutype2(Integer.parseInt(yonghuType2));
+//            }
+//            if (StringUtils.hasText(yhroleId)) {
+//                yonghu.setYhroleid(Integer.parseInt(yhroleId));
+//            }
+//            if (StringUtils.hasText(byumenId)) {
+//                yonghu.setByumenid(Integer.parseInt(byumenId));
+//            }
+//            if (StringUtils.hasText(yonghuSex)) {
+//                yonghu.setYonghusex(Integer.parseInt(yonghuSex));
+//            }
+//            if (StringUtils.hasText(userId)) {
+//                yonghu.setUserid(Integer.parseInt(userId));
+//            }
+//            if (StringUtils.hasText(buyuanId)) {
+//                yonghu.setBuyuanid(Integer.parseInt(buyuanId));
+//            }
+//            if (StringUtils.hasText(buzhiId)) {
+//                yonghu.setBuzhiid(Integer.parseInt(buzhiId));
+//            }
+//            if (StringUtils.hasText(bumenId)) {
+//                yonghu.setBumenid(Integer.parseInt(bumenId));
+//            }
+//            if (StringUtils.hasText(sdate1)) {
+//                Date date = new Date();
+//                sdate1 = DateUtil.formatDate(date, "yyyy-MM-dd HH:mm:ss");
+//            }
+//            if (StringUtils.hasText(edate1)) {
+//                Date date = new Date();
+//                edate1 = DateUtil.formatDate(date, "yyyy-MM-dd HH:mm:ss");
+//            }
             JSONArray jsonArray = JSONArray.fromObject(yonghuService.queryYonghus(
-                    yonghu, null, pageBean.getStart(), pageBean.getRows(), sdate, edate, sdate1, edate1));
+                    yonghu, null, pageBean.getStart(), pageBean.getRows(), sdate, edate/*, sdate1, edate1*/));
             JSONObject result = new JSONObject();
-            int total = yonghuService.queryYonghus(yonghu, null, 0, 0, sdate, edate, sdate1, edate1).size();
+            int total = yonghuService.queryYonghus(yonghu, null, 0, 0, sdate, edate/*, sdate1, edate1*/).size();
             result.put("rows", jsonArray);
             result.put("total", total);
             ResponseUtil.write(response, result);
@@ -159,6 +159,7 @@ yonghuphone: 13012345678
 yonghumark1: yewuyuan4
 buzhiid: 1
  */
+            String yonghuId = request.getParameter("yonghuid");
             String yonghuName = request.getParameter("yonghuname");
             String yonghuPassword = request.getParameter("yonghupassword");
             String yonghuAge = request.getParameter("yonghuage");
@@ -190,7 +191,6 @@ buzhiid: 1
 //            String userId = request.getParameter("userId");
 //            String bumenId = request.getParameter("bumenId");
 //            String buyuanId = request.getParameter("buyuanId");
-            String yonghuId = request.getParameter("yonghuid");
 
             YongHuPojo yonghu;
             if (StringUtils.hasText(yonghuId)) {
@@ -342,7 +342,7 @@ buzhiid: 1
                 result.put("success", "true");
                 ResponseUtil.write(response, result);
             } else {
-                int total = yonghuService.queryYonghus(null, yonghuName, 0, 0, null, null, null, null).size();
+                int total = yonghuService.queryYonghus(null, yonghuName, 0, 0, null, null/*, null, null*/).size();
                 if (total == 0) {
                     Date date = new Date();
                     yonghu.setYonghudate(date);
@@ -366,6 +366,7 @@ buzhiid: 1
             throws Exception {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+        HttpSession session = request.getSession();
         String yonghuId = request.getParameter("yonghuId");
         String yonghuPassword = request.getParameter("yonghuPassword");
         String yonghuPassword1 = request.getParameter("yonghuPassword1");
@@ -373,16 +374,15 @@ buzhiid: 1
         try {
             yonghu = yonghuService.getYonghu(Integer.parseInt(yonghuId));
             if (!yonghu.getYonghupassword().equals(yonghuPassword)) {
-                request.setAttribute("error", "原密码错误，请重新输入！");
-                request.getRequestDispatcher("yonghu/yonghumima.jsp").forward(request,
-                        response);
+                session.setAttribute("error", "原密码错误，请重新输入！");
+//                request.getRequestDispatcher("yonghu/yonghumima.jsp").forward(request, response);
             } else {
                 yonghu.setYonghupassword(yonghuPassword1);
                 yonghuService.modifyYonghu(yonghu);
-                request.setAttribute("error", "密码修改成功！");
-                request.getRequestDispatcher("yonghu/yonghumima.jsp").forward(request,
-                        response);
+                session.setAttribute("error", "密码修改成功！");
+//                request.getRequestDispatcher("yonghu/yonghumima.jsp").forward(request, response);
             }
+            response.sendRedirect("yonghu/yonghumima");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -401,7 +401,7 @@ buzhiid: 1
             if (StringUtils.hasText(yonghuName)) {
                 yonghu.setYonghuname(yonghuName);
             }
-            List<YongHuPojo> yonghus = yonghuService.queryYonghus(yonghu, null, 0, 0, null, null, null, null);
+            List<YongHuPojo> yonghus = yonghuService.queryYonghus(yonghu, null, 0, 0, null, null/*, null, null*/);
             if (yonghus.size() == 0) {
                 request.setAttribute("error", "无此用户名请重新找回！");
                 request.getRequestDispatcher("yonghu/zhaohuiyonghu.jsp").forward(request, response);
@@ -604,7 +604,7 @@ buzhiid: 1
 //                buyuan = buyuanService.getBuyuan(Integer.parseInt(buyuanId));
 //                yonghu.setBuyuanName(buyuan.getBuyuanName());
             }
-            int total = yonghuService.queryYonghus(null, yonghuName, 0, 0, null, null, null, null).size();
+            int total = yonghuService.queryYonghus(null, yonghuName, 0, 0, null, null/*, null, null*/).size();
             if (total == 0) {
                 Date date = new Date();
                 yonghu.setYonghudate(date);
@@ -720,7 +720,7 @@ buzhiid: 1
             jsonObject.put("value", "请选择...");
             jsonArray.add(jsonObject);
             jsonArray.addAll(JSONArray.fromObject(yonghuService.queryYonghus(yonghu,
-                    null, 0, 0, null, null, null, null)
+                    null, 0, 0, null, null/*, null, null*/)
                     .stream().map(d -> new SelectListItem(d.getYonghuid().toString(), d.getYonghuname()))
                     .collect(Collectors.toList())));
             ResponseUtil.write(response, jsonArray);
@@ -753,7 +753,7 @@ buzhiid: 1
                 Double yonghuZongshu = 0.0;
                 YongHuPojo yonghu = new YongHuPojo();
                 yonghu.setBumenid(bumenIds.get(i));
-                yonghus = yonghuService.queryYonghus(yonghu, null, 0, 0, sdate, edate, null, null);
+                yonghus = yonghuService.queryYonghus(yonghu, null, 0, 0, sdate, edate);
                 for (int j = 0; j < yonghus.size(); j++) {
                     yonghuZongshu = yonghuZongshu + yonghus.size();
                 }

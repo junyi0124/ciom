@@ -1,10 +1,10 @@
 <%@ page language="java" import="edu.thn.ciom.pojo.*"  pageEncoding="utf-8"%>
-<% PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi"); %>
 <%
-	// 权限验证
-	YongHuPojo yonghu = (YongHuPojo)session.getAttribute("yonghu");
-	int yonghuId = yonghu.getYonghuid();
-	int buzhiId = yonghu.getBuzhiid();
+PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi");
+// 权限验证
+YongHuPojo yonghu = (YongHuPojo)session.getAttribute("yonghu");
+int yonghuId = yh.getYonghuid();
+int buzhiId = yh.getBuzhiid();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -103,7 +103,7 @@ var url;
 		var row=selectedRows[0];
 		$("#dlg").dialog("open").dialog("setTitle","编辑个人信息");
 		$("#fm").form("load",row);
-		url="../addYonghu?yonghuId="+row.yonghuid;
+		url="../addYonghu?yonghuid="+row.yonghuid;
 	}
 	
 	function formatSex(shujuSex, row) {  
@@ -289,7 +289,7 @@ var url;
 <body style="margin: 5px;">
 <!--startprint-->
 	<table id="dg" title="个人信息" class="easyui-datagrid" fitColumns="true"
-	 pagination="true" url="../getYonghus?yonghuId=<%=yonghuId %>" fit="true" rownumbers="true" toolbar="#tb">
+	 pagination="true" url="../getYonghus?yonghuid=<%=yonghuId %>" fit="true" rownumbers="true" toolbar="#tb">
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true"></th>

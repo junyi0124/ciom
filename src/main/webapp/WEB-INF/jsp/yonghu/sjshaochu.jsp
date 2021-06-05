@@ -1,18 +1,26 @@
 <%@ page language="java" import="edu.thn.ciom.pojo.*"  pageEncoding="utf-8"%>
-<% Jcpeizhi newJcpeizhi = (Jcpeizhi)session.getAttribute("jcpeizhi"); %>
-   <% PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi"); %>
 <%
-	// 权限验证
-	Yonghu yonghu = (Yonghu)session.getAttribute("yonghu");
-	int yonghuId = yonghu.getYonghuId();
-	int buzhiId = yonghu.getBuzhiId();
+PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi");
+// 权限验证
+YongHuPojo yh = (YongHuPojo)session.getAttribute("yonghu");
+int yonghuId = yh.getYonghuid();
+int buzhiId = yh.getBuzhiid();
+
+String title    = newJcpeizhi.getShujubieming();
+String shaochu  = newJcpeizhi.getSjshaochubieming();
+String jianchu  = newJcpeizhi.getSjjianchubieming();
+String douchu   = newJcpeizhi.getSjduochubieming();
+String username = newJcpeizhi.getUserBieming();
+String yonghu   = newJcpeizhi.getYonghuBieming();
+String typename = newJcpeizhi.getSjleixingbieming();
+String areaname = newJcpeizhi.getBuzhiBieming();
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title><%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjshaochuBieming()%></title>
+<title><%=title%><%=shaochu%></title>
 <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.3.3/themes/icon.css">
 <script type="text/javascript" src="/static/jquery-easyui-1.3.3/jquery.min.js"></script>
@@ -51,8 +59,8 @@ var url;
 	}
 	
 	function openSjshaochuAddDialog(){
-		$("#dlg").dialog("open").dialog("setTitle","添加<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjshaochuBieming()%>");
-		url="../addSjshaochu?yonghuId=<%=yonghuId %>";
+		$("#dlg").dialog("open").dialog("setTitle","添加<%=title%><%=shaochu%>");
+		url="../addSjshaochu?yonghuid=<%=yonghuId %>";
 	}
 	
 	function resetValue(){
@@ -99,7 +107,7 @@ var url;
 			$.messager.alert("系统提示","用户还未上传资料！");
 			return;
 		}
-		$("#dlg").dialog("open").dialog("setTitle","编辑<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjshaochuBieming()%>");
+		$("#dlg").dialog("open").dialog("setTitle","编辑<%=title%><%=shaochu%>");
 		$("#fm").form("load",row);
 		url="../addSjshaochu?sjshaochuId="+row.sjshaochuId;
 	}
@@ -193,7 +201,7 @@ var url;
 	}
 	
 	function daoruSjshaochus(){
-		$("#daoru").dialog("open").dialog("setTitle","导入<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjshaochuBieming()%>");
+		$("#daoru").dialog("open").dialog("setTitle","导入<%=title%><%=shaochu%>");
 		daoruurl="../daoruSjshaochu";
 	}
 	
@@ -230,7 +238,7 @@ var url;
 			return;
 		}
 		var row=selectedRows[0];
-		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjshaochuBieming()%>");
+		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=title%><%=shaochu%>");
 		$("#shchfm").form("load",row);
 		shchurl="../shangchuanSjshaochu?sjshaochuId="+row.sjshaochuId;
 	}
@@ -309,26 +317,26 @@ var url;
 </head>
 <body style="margin: 5px;">
 <!--startprint-->
-	<table id="dg" title="<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjshaochuBieming()%>" class="easyui-datagrid" fitColumns="true"
-	 pagination="true" url="../getSjshaochus?yonghuId=<%=yonghuId %>" fit="true" rownumbers="true" toolbar="#tb">
+	<table id="dg" title="<%=title%><%=shaochu%>" class="easyui-datagrid" fitColumns="true"
+	 pagination="true" url="../getSjshaochus?yonghuid=<%=yonghuId %>" fit="true" rownumbers="true" toolbar="#tb">
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true"></th>
-				<th field="sjshaochuId" width="10" hidden="true">编号</th>
-				<th field="sjshaochuType" width="20" hidden="true">状态</th>
-				<th field="userId" width="20" hidden="true"><%=newJcpeizhi.getUserBieming()%>ID</th>
-				<th field="userName" width="20"><%=newJcpeizhi.getUserBieming()%></th>
-				<th field="shujuId" width="20" hidden="true"><%=newJcpeizhi.getShujuBieming()%>ID</th>
-				<th field="shujuName" width="20"><%=newJcpeizhi.getShujuBieming()%></th>
-				<th field="yhroleName" width="20" formatter="formatXiazai">附件</th>
-				<th field="sjshaochuDouble" width="10">价格</th>
-				<th field="sjshaochuName" width="40">单号</th>
-				<th field="sjshaochuMark" width="40">名称</th>
-				<th field="sjshaochuMark1" width="80">详情</th>
-				<th field="sjshaochuImgName" width="20" formatter="formatXiazai">保单</th>
-				<th field="yonghuId" width="10" hidden="true"><%=newJcpeizhi.getYonghuBieming()%>ID</th>
-				<th field="yonghuName" width="20"><%=newJcpeizhi.getYonghuBieming()%></th>
-				<th field="sjshaochuDate" width="20" formatter="datetostr">时间</th>
+				<th field="sjshaochuid" width="10" hidden="true">编号</th>
+				<th field="sjshaochutype" width="20" hidden="true">状态</th>
+				<th field="userid" width="20" hidden="true"><%=username%>ID</th>
+				<th field="username" width="20"><%=username%></th>
+				<th field="shujuid" width="20" hidden="true"><%=title%>ID</th>
+				<th field="shujuname" width="20"><%=title%></th>
+				<th field="yhrolename" width="20" formatter="formatXiazai">附件</th>
+				<th field="sjshaochudouble" width="10">价格</th>
+				<th field="sjshaochuname" width="40">单号</th>
+				<th field="sjshaochumark" width="40">名称</th>
+				<th field="sjshaochumark1" width="80">详情</th>
+				<th field="sjshaochuimgname" width="20" formatter="formatXiazai">保单</th>
+				<th field="yonghuid" width="10" hidden="true"><%=yonghu%>ID</th>
+				<th field="yonghuname" width="20"><%=yonghu%></th>
+				<th field="sjshaochudate" width="20" formatter="datetostr">时间</th>
 			</tr>
 		</thead>
 	</table>
@@ -339,7 +347,8 @@ var url;
 			<a href="javascript:shangchuanSjshaochu()" class="easyui-linkbutton" iconCls="icon-add" plain="true">上传保单</a>
 		</div>
 		<div>
-		&nbsp;<%=newJcpeizhi.getShujuBieming()%>：&nbsp;<input class="easyui-combobox" id="s_shujuId" name="s_shujuId"  data-options="panelHeight:'auto',editable:false,valueField:'shujuId',textField:'shujuName',url:'../shujuComboList'"/>
+		&nbsp;<%=title%>：&nbsp;<input class="easyui-combobox" id="s_shujuid" name="s_shujuid"
+		data-options="panelHeight:'auto',editable:false,valueField:'id',textField:'value',url:'../shujuComboList'"/>
 		<a href="javascript:searchSjshaochu()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
 		</div>
 	</div>
@@ -350,13 +359,13 @@ var url;
 			<table cellspacing="5px;">
 				<tr>
 					<td>单号：</td>
-					<td><input type="text" name="sjshaochuName" id="sjshaochuName" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="sjshaochuname" id="sjshaochuname" class="easyui-validatebox" required="true"/></td>
 					<td>名称：</td>
-					<td><input type="text" name="sjshaochuMark" id="sjshaochuMark" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="sjshaochumark" id="sjshaochumark" class="easyui-validatebox" required="true"/></td>
 				</tr>
 				<tr>
 					<td valign="top">详情：</td>
-					<td colspan="4"><textarea rows="7" cols="55" name="sjshaochuMark1" id="sjshaochuMark1"></textarea></td>
+					<td colspan="4"><textarea rows="7" cols="55" name="sjshaochumark1" id="sjshaochumark1"></textarea></td>
 				</tr>
 			</table>
 		</form>

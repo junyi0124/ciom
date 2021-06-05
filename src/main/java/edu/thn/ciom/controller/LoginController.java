@@ -111,8 +111,8 @@ public class LoginController {
                     yonghu.setYonghuname(userName);
                     yonghu.setYonghupassword(password);
                     try {
-                        if (yonghuService.queryYonghus(yonghu, userName, 0, 0, null, null, null, null).size() == 1) {
-                            YongHuPojo yonghuLogin = (YongHuPojo) (yonghuService.queryYonghus(yonghu, userName, 0, 0, null, null, null, null)).get(0);
+                        if (yonghuService.queryYonghus(yonghu, userName, 0, 0, null, null).size() == 1) {
+                            YongHuPojo yonghuLogin = (YongHuPojo) (yonghuService.queryYonghus(yonghu, userName, 0, 0, null, null)).get(0);
                             List<BiaotiPojo> jcbiaotis = jiazaiBiaoti(3);
                             if (jcbiaotis.size() == 0) {
                                 request.setAttribute("error", "系统还未配置标题，联系管理员！");

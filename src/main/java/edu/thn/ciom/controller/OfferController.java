@@ -176,7 +176,7 @@ public class OfferController {
             String sjduochuType = request.getParameter("sjduochuType");
             String sjduochuType1 = request.getParameter("sjduochuType1");
             String sjduochuType2 = request.getParameter("sjduochuType2");
-            String shujuId = request.getParameter("shujuId");
+            String shujuId = request.getParameter("shujuid");
             String sjqitaId = request.getParameter("sjqitaId");
             String sjlaiyuanId = request.getParameter("sjlaiyuanId");
             String yonghuId = request.getParameter("yonghuId");

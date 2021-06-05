@@ -5,9 +5,10 @@
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <%
-	// 权限验证
-	Yonghu yonghu = (Yonghu)session.getAttribute("yonghu");
-	int yonghuId = yonghu.getYonghuId();
+// 权限验证
+YongHuPojo yonghu = (YongHuPojo)session.getAttribute("yonghu");
+int yonghuId = yonghu.getYonghuid();
+String error = (String) session.getAttribute("error");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -64,19 +65,18 @@ body{background: #fff 50% 0 no-repeat;margin:0;padding:0;}
 	</script>
 <body>
 <div id="login">
-        <div class="logo">修改密码</div>
-        <div class="main">
-            <form class="formname" action="<%=basePath%>mimaYonghu" name="form1" method="post" onSubmit="return check()">
+    <div class="logo">修改密码</div>
+    <div class="main">
+        <form class="formname" action="../mimaYonghu" name="form1" method="post" onSubmit="return check()">
             <ul>
                 <input id="yonghuId" name="yonghuId" type="hidden" value="<%=yonghuId%>"/>
                 <li>原密码： <input class="wa" type="password" name="yonghuPassword" id="yonghuPassword"/></li>
                 <li>新密码： <input class="wa" type="password" name="yonghuPassword1" id="yonghuPassword1"/></li>
                 <li>再输入： <input class="wa" type="password" name="yonghuPassword2" id="yonghuPassword2"/></li>
                 <li><input type="submit" value="修 改" class="bnt" style="width:48%" />&nbsp;<input type="reset" value="重 置" class="bnt" style="width:48%" /></li>
-                <li><font color="red">${error }</font></li>
+                <li><font color="red">${ error }</font></li>
             </ul>
-            </form>
-            
+        </form>
     </div>
 </div>
 <script>
