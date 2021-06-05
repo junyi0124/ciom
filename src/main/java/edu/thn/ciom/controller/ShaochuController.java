@@ -159,98 +159,102 @@ public class ShaochuController {
         JSONObject result = new JSONObject();
         try {
 
-            String sjshaochuId = request.getParameter("sjshaochuId");
-            String sjshaochuName = request.getParameter("sjshaochuName");
-            String sjshaochuMark = request.getParameter("sjshaochuMark");
-            String sjshaochuMark1 = request.getParameter("sjshaochuMark1");
-            String sjshaochuMark2 = request.getParameter("sjshaochuMark2");
-            String sjshaochuMark3 = request.getParameter("sjshaochuMark3");
-            String sjshaochuDate = request.getParameter("sjshaochuDate");
-            String sjshaochuDate1 = request.getParameter("sjshaochuDate1");
-            String sjshaochuZong = request.getParameter("sjshaochuZong");
-            String sjshaochuZong1 = request.getParameter("sjshaochuZong1");
-            String sjshaochuZong2 = request.getParameter("sjshaochuZong2");
-            String sjshaochuDouble = request.getParameter("sjshaochuDouble");
-            String sjshaochuDouble1 = request.getParameter("sjshaochuDouble1");
-            String sjshaochuDouble2 = request.getParameter("sjshaochuDouble2");
-            String sjshaochuType = request.getParameter("sjshaochuType");
-            String sjshaochuType1 = request.getParameter("sjshaochuType1");
-            String sjshaochuType2 = request.getParameter("sjshaochuType2");
-            String shujuId = request.getParameter("shujuId");
-            String sjqitaId = request.getParameter("sjqitaId");
-            String sjlaiyuanId = request.getParameter("sjlaiyuanId");
-            String yonghuId = request.getParameter("yonghuId");
-            String userId = request.getParameter("userId");
-            ShaoChuPojo sjshaochu = new ShaoChuPojo();
+            String shujuId = request.getParameter("shujuid");
+            String yonghuId = request.getParameter("yonghuid");
+            String sjshaochuDouble = request.getParameter("sjshaochudouble");
+
+            String sjshaochuId = request.getParameter("sjshaochuid");
+//            String sjshaochuName = request.getParameter("sjshaochuName");
+//            String sjshaochuMark = request.getParameter("sjshaochuMark");
+//            String sjshaochuMark1 = request.getParameter("sjshaochuMark1");
+//            String sjshaochuMark2 = request.getParameter("sjshaochuMark2");
+//            String sjshaochuMark3 = request.getParameter("sjshaochuMark3");
+//            String sjshaochuDate = request.getParameter("sjshaochuDate");
+//            String sjshaochuDate1 = request.getParameter("sjshaochuDate1");
+//            String sjshaochuZong = request.getParameter("sjshaochuZong");
+//            String sjshaochuZong1 = request.getParameter("sjshaochuZong1");
+//            String sjshaochuZong2 = request.getParameter("sjshaochuZong2");
+//            String sjshaochuDouble1 = request.getParameter("sjshaochuDouble1");
+//            String sjshaochuDouble2 = request.getParameter("sjshaochuDouble2");
+//            String sjshaochuType = request.getParameter("sjshaochuType");
+//            String sjshaochuType1 = request.getParameter("sjshaochuType1");
+//            String sjshaochuType2 = request.getParameter("sjshaochuType2");
+//            String sjqitaId = request.getParameter("sjqitaId");
+//            String sjlaiyuanId = request.getParameter("sjlaiyuanId");
+//            String userId = request.getParameter("userId");
+            ShaoChuPojo sjshaochu;
 
             if (StringUtils.hasText(sjshaochuId)) {
                 sjshaochu = shaochuService.getSjshaochu(Integer.parseInt(sjshaochuId));
+            }else{
+                sjshaochu = new ShaoChuPojo();
             }
-            if (StringUtils.hasText(sjshaochuName)) {
-                sjshaochu.setSjshaochuname(sjshaochuName);
-            }
-            if (StringUtils.hasText(sjshaochuMark)) {
-                sjshaochu.setSjshaochumark(sjshaochuMark);
-            }
-            if (StringUtils.hasText(sjshaochuMark1)) {
-                sjshaochu.setSjshaochumark1(sjshaochuMark1);
-            }
-            if (StringUtils.hasText(sjshaochuMark2)) {
-                sjshaochu.setSjshaochumark2(sjshaochuMark2);
-            }
-            if (StringUtils.hasText(sjshaochuMark3)) {
-                sjshaochu.setSjshaochumark3(sjshaochuMark3);
-            }
-            if (StringUtils.hasText(sjshaochuDate)) {
-                sjshaochu.setSjshaochudate(DateUtil.formatString(sjshaochuDate,
-                        "yyyy-MM-dd hh:mm:ss"));
-            }
-            if (StringUtils.hasText(sjshaochuDate1)) {
-                sjshaochu.setSjshaochudate1(DateUtil.formatString(sjshaochuDate1,
-                        "yyyy-MM-dd hh:mm:ss"));
-            }
-            if (StringUtils.hasText(sjshaochuZong)) {
-                sjshaochu.setSjshaochuzong(Integer.parseInt(sjshaochuZong));
-            }
-            if (StringUtils.hasText(sjshaochuZong1)) {
-                sjshaochu.setSjshaochuzong1(Integer.parseInt(sjshaochuZong1));
-            }
-            if (StringUtils.hasText(sjshaochuZong2)) {
-                sjshaochu.setSjshaochuzong2(Integer.parseInt(sjshaochuZong2));
-            }
+
+//            if (StringUtils.hasText(sjshaochuName)) {
+//                sjshaochu.setSjshaochuname(sjshaochuName);
+//            }
+//            if (StringUtils.hasText(sjshaochuMark)) {
+//                sjshaochu.setSjshaochumark(sjshaochuMark);
+//            }
+//            if (StringUtils.hasText(sjshaochuMark1)) {
+//                sjshaochu.setSjshaochumark1(sjshaochuMark1);
+//            }
+//            if (StringUtils.hasText(sjshaochuMark2)) {
+//                sjshaochu.setSjshaochumark2(sjshaochuMark2);
+//            }
+//            if (StringUtils.hasText(sjshaochuMark3)) {
+//                sjshaochu.setSjshaochumark3(sjshaochuMark3);
+//            }
+//            if (StringUtils.hasText(sjshaochuDate)) {
+//                sjshaochu.setSjshaochudate(DateUtil.formatString(sjshaochuDate,
+//                        "yyyy-MM-dd hh:mm:ss"));
+//            }
+//            if (StringUtils.hasText(sjshaochuDate1)) {
+//                sjshaochu.setSjshaochudate1(DateUtil.formatString(sjshaochuDate1,
+//                        "yyyy-MM-dd hh:mm:ss"));
+//            }
+//            if (StringUtils.hasText(sjshaochuZong)) {
+//                sjshaochu.setSjshaochuzong(Integer.parseInt(sjshaochuZong));
+//            }
+//            if (StringUtils.hasText(sjshaochuZong1)) {
+//                sjshaochu.setSjshaochuzong1(Integer.parseInt(sjshaochuZong1));
+//            }
+//            if (StringUtils.hasText(sjshaochuZong2)) {
+//                sjshaochu.setSjshaochuzong2(Integer.parseInt(sjshaochuZong2));
+//            }
             if (StringUtils.hasText(sjshaochuDouble)) {
                 sjshaochu.setSjshaochudouble(Double.parseDouble(sjshaochuDouble));
             }
-            if (StringUtils.hasText(sjshaochuDouble1)) {
-                sjshaochu.setSjshaochudouble1(Double.parseDouble(sjshaochuDouble1));
-            }
-            if (StringUtils.hasText(sjshaochuDouble2)) {
-                sjshaochu.setSjshaochudouble2(Double.parseDouble(sjshaochuDouble2));
-            }
-            if (StringUtils.hasText(sjshaochuType)) {
-                sjshaochu.setSjshaochutype(Integer.parseInt(sjshaochuType));
-            }
-            if (StringUtils.hasText(sjshaochuType1)) {
-                sjshaochu.setSjshaochutype1(Integer.parseInt(sjshaochuType1));
-            }
-            if (StringUtils.hasText(sjshaochuType2)) {
-                sjshaochu.setSjshaochutype2(Integer.parseInt(sjshaochuType2));
-            }
+//            if (StringUtils.hasText(sjshaochuDouble1)) {
+//                sjshaochu.setSjshaochudouble1(Double.parseDouble(sjshaochuDouble1));
+//            }
+//            if (StringUtils.hasText(sjshaochuDouble2)) {
+//                sjshaochu.setSjshaochudouble2(Double.parseDouble(sjshaochuDouble2));
+//            }
+//            if (StringUtils.hasText(sjshaochuType)) {
+//                sjshaochu.setSjshaochutype(Integer.parseInt(sjshaochuType));
+//            }
+//            if (StringUtils.hasText(sjshaochuType1)) {
+//                sjshaochu.setSjshaochutype1(Integer.parseInt(sjshaochuType1));
+//            }
+//            if (StringUtils.hasText(sjshaochuType2)) {
+//                sjshaochu.setSjshaochutype2(Integer.parseInt(sjshaochuType2));
+//            }
             if (StringUtils.hasText(shujuId)) {
                 sjshaochu.setShujuid(Integer.parseInt(shujuId));
                 ShujuPojo shuju = new ShujuPojo();
                 shuju = shujuService.getShuju(Integer.parseInt(shujuId));
                 sjshaochu.setShujuname(shuju.getShujuname());
-//                sjshaochu.setSjleixingId(shuju.getSjleixingId());
-//                sjshaochu.setSjleixingName(shuju.getSjleixingName());
-//                sjshaochu.setUserId(shuju.getUserId());
-//                sjshaochu.setUserName(shuju.getUserName());
+                sjshaochu.setSjleixingid(shuju.getSjleixingid());
+                sjshaochu.setSjleixingname(shuju.getSjleixingname());
+                sjshaochu.setUserid(shuju.getUserid());
+                sjshaochu.setUsername(shuju.getUsername());
 //                sjshaochu.setBumenId(shuju.getBumenId());
 //                sjshaochu.setBumenName(shuju.getBumenName());
 //                sjshaochu.setBuyuanId(shuju.getBuyuanId());
 //                sjshaochu.setBuyuanName(shuju.getBuyuanName());
-//                sjshaochu.setBuzhiId(shuju.getBuzhiId());
-//                sjshaochu.setBuzhiName(shuju.getBuzhiName());
+                sjshaochu.setBuzhiid(shuju.getBuzhiid());
+                sjshaochu.setBuzhiname(shuju.getBuzhiname());
             }
 
             if (StringUtils.hasText(yonghuId)) {
@@ -261,18 +265,18 @@ public class ShaochuController {
 //                sjshaochu.setBuzhiId(yonghu.getBuzhiId());
 //                sjshaochu.setBuzhiName(yonghu.getBuzhiName());
             }
-            if (StringUtils.hasText(userId)) {
-                sjshaochu.setUserid(Integer.parseInt(userId));
-                UserPojo user = new UserPojo();
-                user = userService.getUser(Integer.parseInt(userId));
-                sjshaochu.setUsername(user.getUsername());
+//            if (StringUtils.hasText(userId)) {
+//                sjshaochu.setUserid(Integer.parseInt(userId));
+//                UserPojo user = new UserPojo();
+//                user = userService.getUser(Integer.parseInt(userId));
+//                sjshaochu.setUsername(user.getUsername());
 //                sjshaochu.setBumenId(user.getBumenId());
 //                sjshaochu.setBumenName(user.getBumenName());
 //                sjshaochu.setBuyuanId(user.getBuyuanId());
 //                sjshaochu.setBuyuanName(user.getBuyuanName());
 //                sjshaochu.setBuzhiId(user.getBuzhiId());
 //                sjshaochu.setBuzhiName(user.getBuzhiName());
-            }
+//            }
 //            if (StringUtils.hasText(sjqitaId)) {
 //                sjshaochu.setSjqitaId(Integer.parseInt(sjqitaId));
 //                Sjqita sjqita = new Sjqita();

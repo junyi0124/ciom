@@ -293,9 +293,9 @@ var userId = <%=userId%>;
 		}
 		var row=selectedRows[0];
 		url="../addSjshaochu?shujuid="+row.shujuid+"&yonghuid="+row.yonghuid+"&sjshaochudouble="+row.sjduochudouble;
-		$.messager.confirm("系统提示","您确认要执行吗？",function(r){
+		$.messager.confirm("系统提示","您确认要执行吗？",function(r) {
 			if(r){
-				$.post(url,{sjduochuType:1},function(result){
+				$.post(url,{sjduochuType:1},function(result) {
 					if(result.errorMsg){
 						$.messager.alert("系统提示",result.errorMsg);
 						$("#dg").datagrid("reload");

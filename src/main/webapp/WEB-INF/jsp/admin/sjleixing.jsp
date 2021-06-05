@@ -51,6 +51,7 @@ var url;
 	}
 	
 	function resetValue(){
+
 	}
 	
 	function deleteSjleixing(){
@@ -90,7 +91,9 @@ var url;
 			return;
 		}
 		var row=selectedRows[0];
-		$("#dlg").dialog("open").dialog("setTitle","编辑<%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjleixingbieming()%>");
+		$("#dlg")
+            .dialog("open")
+            .dialog("setTitle","编辑<%=newJcpeizhi.getShujubieming()%><%=newJcpeizhi.getSjleixingbieming()%>");
 		$("#fm").form("load",row);
 		url="../addSjleixing?sjleixingid="+row.sjleixingid;
 	}

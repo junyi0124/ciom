@@ -146,97 +146,104 @@ public class JianchuController {
         try {
             JSONObject result = new JSONObject();
 
+            String shujuId = request.getParameter("shujuid");
+            String yonghuId = request.getParameter("yonghuid");
             String sjjianchuName = request.getParameter("sjjianchuName");
             String sjjianchuMark = request.getParameter("sjjianchuMark");
-            String sjjianchuMark1 = request.getParameter("sjjianchuMark1");
-            String sjjianchuMark2 = request.getParameter("sjjianchuMark2");
-            String sjjianchuMark3 = request.getParameter("sjjianchuMark3");
-            String sjjianchuDate = request.getParameter("sjjianchuDate");
-            String sjjianchuDate1 = request.getParameter("sjjianchuDate1");
-            String sjjianchuZong = request.getParameter("sjjianchuZong");
-            String sjjianchuZong1 = request.getParameter("sjjianchuZong1");
-            String sjjianchuZong2 = request.getParameter("sjjianchuZong2");
-            String sjjianchuDouble = request.getParameter("sjjianchuDouble");
-            String sjjianchuDouble1 = request.getParameter("sjjianchuDouble1");
-            String sjjianchuDouble2 = request.getParameter("sjjianchuDouble2");
-            String sjjianchuType = request.getParameter("sjjianchuType");
-            String sjjianchuType1 = request.getParameter("sjjianchuType1");
-            String sjjianchuType2 = request.getParameter("sjjianchuType2");
-            String shujuId = request.getParameter("shujuId");
-            String sjqitaId = request.getParameter("sjqitaId");
-            String sjlaiyuanId = request.getParameter("sjlaiyuanId");
-            String yonghuId = request.getParameter("yonghuId");
-            String userId = request.getParameter("userId");
-            String sjjianchuId = request.getParameter("sjjianchuId");
-            JianChuPojo sjjianchu = new JianChuPojo();
+            String sjjianchuId = request.getParameter("sjjianchuid");
 
+//            String sjjianchuMark1 = request.getParameter("sjjianchuMark1");
+//            String sjjianchuMark2 = request.getParameter("sjjianchuMark2");
+//            String sjjianchuMark3 = request.getParameter("sjjianchuMark3");
+//            String sjjianchuDate = request.getParameter("sjjianchuDate");
+//            String sjjianchuDate1 = request.getParameter("sjjianchuDate1");
+//            String sjjianchuZong = request.getParameter("sjjianchuZong");
+//            String sjjianchuZong1 = request.getParameter("sjjianchuZong1");
+//            String sjjianchuZong2 = request.getParameter("sjjianchuZong2");
+//            String sjjianchuDouble = request.getParameter("sjjianchuDouble");
+//            String sjjianchuDouble1 = request.getParameter("sjjianchuDouble1");
+//            String sjjianchuDouble2 = request.getParameter("sjjianchuDouble2");
+//            String sjjianchuType = request.getParameter("sjjianchuType");
+//            String sjjianchuType1 = request.getParameter("sjjianchuType1");
+//            String sjjianchuType2 = request.getParameter("sjjianchuType2");
+//            String sjqitaId = request.getParameter("sjqitaId");
+//            String sjlaiyuanId = request.getParameter("sjlaiyuanId");
+//            String userId = request.getParameter("userId");
+
+            JianChuPojo sjjianchu;
             if (StringUtils.hasText(sjjianchuId)) {
                 sjjianchu = jianchuService.getSjjianchu(Integer.parseInt(sjjianchuId));
+            } else {
+                sjjianchu = new JianChuPojo();
             }
+
             if (StringUtils.hasText(sjjianchuName)) {
                 sjjianchu.setSjjianchuname(sjjianchuName);
             }
             if (StringUtils.hasText(sjjianchuMark)) {
                 sjjianchu.setSjjianchumark(sjjianchuMark);
             }
-            if (StringUtils.hasText(sjjianchuMark1)) {
-                sjjianchu.setSjjianchumark1(sjjianchuMark1);
-            }
-            if (StringUtils.hasText(sjjianchuMark2)) {
-                sjjianchu.setSjjianchumark2(sjjianchuMark2);
-            }
-            if (StringUtils.hasText(sjjianchuMark3)) {
-                sjjianchu.setSjjianchumark3(sjjianchuMark3);
-            }
-            if (StringUtils.hasText(sjjianchuDate)) {
-                sjjianchu.setSjjianchudate(DateUtil.formatString(sjjianchuDate,
-                        "yyyy-MM-dd hh:mm:ss"));
-            }
-            if (StringUtils.hasText(sjjianchuDate1)) {
-                sjjianchu.setSjjianchudate1(DateUtil.formatString(sjjianchuDate1,
-                        "yyyy-MM-dd hh:mm:ss"));
-            }
-            if (StringUtils.hasText(sjjianchuZong)) {
-                sjjianchu.setSjjianchuzong(Integer.parseInt(sjjianchuZong));
-            }
-            if (StringUtils.hasText(sjjianchuZong1)) {
-                sjjianchu.setSjjianchuzong1(Integer.parseInt(sjjianchuZong1));
-            }
-            if (StringUtils.hasText(sjjianchuZong2)) {
-                sjjianchu.setSjjianchuzong2(Integer.parseInt(sjjianchuZong2));
-            }
-            if (StringUtils.hasText(sjjianchuDouble)) {
-                sjjianchu.setSjjianchudouble(Double.parseDouble(sjjianchuDouble));
-            }
-            if (StringUtils.hasText(sjjianchuDouble1)) {
-                sjjianchu.setSjjianchudouble1(Double.parseDouble(sjjianchuDouble1));
-            }
-            if (StringUtils.hasText(sjjianchuDouble2)) {
-                sjjianchu.setSjjianchudouble2(Double.parseDouble(sjjianchuDouble2));
-            }
-            if (StringUtils.hasText(sjjianchuType)) {
-                sjjianchu.setSjjianchutype(Integer.parseInt(sjjianchuType));
-            }
-            if (StringUtils.hasText(sjjianchuType1)) {
-                sjjianchu.setSjjianchutype1(Integer.parseInt(sjjianchuType1));
-            }
-            if (StringUtils.hasText(sjjianchuType2)) {
-                sjjianchu.setSjjianchutype2(Integer.parseInt(sjjianchuType2));
-            }
+//            if (StringUtils.hasText(sjjianchuMark1)) {
+//                sjjianchu.setSjjianchumark1(sjjianchuMark1);
+//            }
+//            if (StringUtils.hasText(sjjianchuMark2)) {
+//                sjjianchu.setSjjianchumark2(sjjianchuMark2);
+//            }
+//            if (StringUtils.hasText(sjjianchuMark3)) {
+//                sjjianchu.setSjjianchumark3(sjjianchuMark3);
+//            }
+//            if (StringUtils.hasText(sjjianchuDate)) {
+//                sjjianchu.setSjjianchudate(DateUtil.formatString(sjjianchuDate,
+//                        "yyyy-MM-dd hh:mm:ss"));
+//            }
+//            if (StringUtils.hasText(sjjianchuDate1)) {
+//                sjjianchu.setSjjianchudate1(DateUtil.formatString(sjjianchuDate1,
+//                        "yyyy-MM-dd hh:mm:ss"));
+//            }
+//            if (StringUtils.hasText(sjjianchuZong)) {
+//                sjjianchu.setSjjianchuzong(Integer.parseInt(sjjianchuZong));
+//            }
+//            if (StringUtils.hasText(sjjianchuZong1)) {
+//                sjjianchu.setSjjianchuzong1(Integer.parseInt(sjjianchuZong1));
+//            }
+//            if (StringUtils.hasText(sjjianchuZong2)) {
+//                sjjianchu.setSjjianchuzong2(Integer.parseInt(sjjianchuZong2));
+//            }
+//            if (StringUtils.hasText(sjjianchuDouble)) {
+//                sjjianchu.setSjjianchudouble(Double.parseDouble(sjjianchuDouble));
+//            }
+//            if (StringUtils.hasText(sjjianchuDouble1)) {
+//                sjjianchu.setSjjianchudouble1(Double.parseDouble(sjjianchuDouble1));
+//            }
+//            if (StringUtils.hasText(sjjianchuDouble2)) {
+//                sjjianchu.setSjjianchudouble2(Double.parseDouble(sjjianchuDouble2));
+//            }
+//            if (StringUtils.hasText(sjjianchuType)) {
+//                sjjianchu.setSjjianchutype(Integer.parseInt(sjjianchuType));
+//            }
+//            if (StringUtils.hasText(sjjianchuType1)) {
+//                sjjianchu.setSjjianchutype1(Integer.parseInt(sjjianchuType1));
+//            }
+//            if (StringUtils.hasText(sjjianchuType2)) {
+//                sjjianchu.setSjjianchutype2(Integer.parseInt(sjjianchuType2));
+//            }
             if (StringUtils.hasText(shujuId)) {
                 sjjianchu.setShujuid(Integer.parseInt(shujuId));
                 ShujuPojo shuju = shujuService.getShuju(Integer.parseInt(shujuId));
-                if (shuju != null) sjjianchu.setShujuname(shuju.getShujuname());
-//                sjjianchu.setSjleixingId(shuju.getSjleixingId());
-//                sjjianchu.setSjleixingName(shuju.getSjleixingName());
-//                sjjianchu.setUserId(shuju.getUserId());
-//                sjjianchu.setUserName(shuju.getUserName());
+                if (shuju != null) {
+                    sjjianchu.setShujuname(shuju.getShujuname());
+                    sjjianchu.setSjleixingid(shuju.getSjleixingid());
+                    sjjianchu.setSjleixingname(shuju.getSjleixingname());
+                    sjjianchu.setUserid(shuju.getUserid());
+                    sjjianchu.setUsername(shuju.getUsername());
+                    sjjianchu.setBuzhiid(shuju.getBuzhiid());
+                    sjjianchu.setBuzhiname(shuju.getBuzhiname());
+                }
+//                sjjianchu.setBuzhiName(shuju.getBuzhiName());
 //                sjjianchu.setBumenId(shuju.getBumenId());
 //                sjjianchu.setBumenName(shuju.getBumenName());
 //                sjjianchu.setBuyuanId(shuju.getBuyuanId());
 //                sjjianchu.setBuyuanName(shuju.getBuyuanName());
-//                sjjianchu.setBuzhiId(shuju.getBuzhiId());
-//                sjjianchu.setBuzhiName(shuju.getBuzhiName());
             }
 
             if (StringUtils.hasText(yonghuId)) {
@@ -246,17 +253,17 @@ public class JianchuController {
 //                sjjianchu.setBuzhiId(yonghu.getBuzhiId());
 //                sjjianchu.setBuzhiName(yonghu.getBuzhiName());
             }
-            if (StringUtils.hasText(userId)) {
-                sjjianchu.setUserid(Integer.parseInt(userId));
-                UserPojo user = userService.getUser(Integer.parseInt(userId));
-                if (user != null) sjjianchu.setUsername(user.getUsername());
+//            if (StringUtils.hasText(userId)) {
+//                sjjianchu.setUserid(Integer.parseInt(userId));
+//                UserPojo user = userService.getUser(Integer.parseInt(userId));
+//                if (user != null) sjjianchu.setUsername(user.getUsername());
 //                sjjianchu.setBumenId(user.getBumenId());
 //                sjjianchu.setBumenName(user.getBumenName());
 //                sjjianchu.setBuyuanId(user.getBuyuanId());
 //                sjjianchu.setBuyuanName(user.getBuyuanName());
 //                sjjianchu.setBuzhiId(user.getBuzhiId());
 //                sjjianchu.setBuzhiName(user.getBuzhiName());
-            }
+//            }
 
 //            if (StringUtils.hasText(sjqitaId)) {
 //                sjjianchu.setSjqitaId(Integer.parseInt(sjqitaId));
