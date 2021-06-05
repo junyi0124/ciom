@@ -148,8 +148,8 @@ public class JianchuController {
 
             String shujuId = request.getParameter("shujuid");
             String yonghuId = request.getParameter("yonghuid");
-            String sjjianchuName = request.getParameter("sjjianchuName");
-            String sjjianchuMark = request.getParameter("sjjianchuMark");
+            String sjjianchuName = request.getParameter("sjjianchuname");
+            String sjjianchuMark = request.getParameter("sjjianchumark");
             String sjjianchuId = request.getParameter("sjjianchuid");
 
 //            String sjjianchuMark1 = request.getParameter("sjjianchuMark1");

@@ -59,7 +59,7 @@ var userId = <%=userId%>;
 	
 	function openSjjianchuAddDialog(){
 		$("#dlg").dialog("open").dialog("setTitle","添加<%=title%><%=jianchu%>");
-		url="../addSjjianchu?userId=<%=userId %>";
+		url="../addSjjianchu?userid=<%=userId %>";
 	}
 	
 	function resetValue(){
@@ -104,7 +104,7 @@ var userId = <%=userId%>;
 		var row=selectedRows[0];
 		$("#dlg").dialog("open").dialog("setTitle","编辑<%=title%><%=jianchu%>");
 		$("#fm").form("load",row);
-		url="../addSjjianchu?sjjianchuId="+row.sjjianchuId;
+		url="../addSjjianchu?sjjianchuid="+row.sjjianchuid;
 	}
 	
 	function formatSex(shujuSex, row) {  
@@ -235,7 +235,7 @@ var userId = <%=userId%>;
 		var row=selectedRows[0];
 		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=title%><%=jianchu%>");
 		$("#shchfm").form("load",row);
-		shchurl="../shangchuanSjjianchu?sjjianchuId="+row.sjjianchuId;
+		shchurl="../shangchuanSjjianchu?sjjianchuid="+row.sjjianchuid;
 	}
 	
 	function closeShangchuanSjjianchu(){
@@ -276,9 +276,9 @@ var userId = <%=userId%>;
         	var h=date.getHours();
         	var m1=date.getMinutes();
         	var s=date.getSeconds();
-        	m = m<10?("0"+m):m;
-        	d = d<10?("0"+d):d;
-        	return y+"-"+m+"-"+d;
+        	m = m<10 ? ("0"+m) : m;
+        	d = d<10 ? ("0"+d) : d;
+        	return y + "-" + m + "-" + d;
 			var text = JsonDateValue.toLocaleString();
 			return text;
 		}else{
@@ -293,7 +293,7 @@ var userId = <%=userId%>;
 			return;
 		}
 		var row=selectedRows[0];
-		url="../addSjjianchu?sjjianchuId="+row.sjjianchuId+"&userId="+userId;
+		url="../addSjjianchu?sjjianchuid="+row.sjjianchuid+"&userid="+userid;
 		$.messager.confirm("系统提示","您确认要执行吗？",function(r){
 			if(r){
 				$.post(url,{sjjianchuType:1},function(result){
@@ -313,7 +313,7 @@ var userId = <%=userId%>;
 <body style="margin: 5px;">
 <!--startprint-->
 	<table id="dg" title="<%=title%><%=jianchu%>" class="easyui-datagrid" fitColumns="true"
-	 pagination="true" url="../getSjjianchus?userId=<%=userId %>" fit="true" rownumbers="true" toolbar="#tb">
+	 pagination="true" url="../getSjjianchus?userid=<%=userId %>" fit="true" rownumbers="true" toolbar="#tb">
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true"></th>
@@ -351,11 +351,11 @@ var userId = <%=userId%>;
 			<table>
 				<tr>
 					<td>问题：</td>
-					<td><input type="text" name="sjjianchuName" id="sjjianchuName" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="sjjianchuname" id="sjjianchuname" class="easyui-validatebox" required="true"/></td>
 				</tr>
 				<tr>
 					<td valign="top">描述：</td>
-					<td><textarea rows="7" cols="30" name="sjjianchuMark" id="sjjianchuMark"></textarea></td>
+					<td><textarea rows="7" cols="30" name="sjjianchumark" id="sjjianchumark"></textarea></td>
 				</tr>
 			</table>
 		</form>

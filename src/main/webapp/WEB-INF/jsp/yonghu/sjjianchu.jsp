@@ -97,7 +97,7 @@ var url;
 		var row=selectedRows[0];
 		$("#dlg").dialog("open").dialog("setTitle","编辑<%=newJcpeizhi.getShujuBieming()%><%=newJcpeizhi.getSjjianchuBieming()%>");
 		$("#fm").form("load",row);
-		url="../addSjjianchu?sjjianchuId="+row.sjjianchuId;
+		url="../addSjjianchu?sjjianchuid="+row.sjjianchuid;
 	}
 	
 	function formatSex(shujuSex, row) {  
@@ -342,7 +342,7 @@ var url;
 			<table>
 				<tr>
 					<td valign="top">回复：</td>
-					<td><textarea rows="7" cols="30" name="sjjianchuMark1" id="sjjianchuMark1"></textarea></td>
+					<td><textarea rows="7" cols="30" name="sjjianchumark1" id="sjjianchumark1"></textarea></td>
 				</tr>
 			</table>
 		</form>

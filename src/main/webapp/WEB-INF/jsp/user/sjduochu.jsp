@@ -351,11 +351,11 @@ var userId = <%=userId%>;
 			<table>
 				<tr>
 					<td>问题：</td>
-					<td><input type="text" name="sjjianchuName" id="sjjianchuName" class="easyui-validatebox" required="true"/></td>
+					<td><input type="text" name="sjjianchuname" id="sjjianchuname" class="easyui-validatebox" required="true"/></td>
 				</tr>
 				<tr>
 					<td valign="top">描述：</td>
-					<td><textarea rows="7" cols="30" name="sjjianchuMark" id="sjjianchuMark"></textarea></td>
+					<td><textarea rows="7" cols="30" name="sjjianchumark" id="sjjianchumark"></textarea></td>
 				</tr>
 			</table>
 		</form>

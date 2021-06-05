@@ -289,7 +289,7 @@ var url;
 <body style="margin: 5px;">
 <!--startprint-->
 	<table id="dg" title="个人信息" class="easyui-datagrid" fitColumns="true"
-	 pagination="true" url="../getYonghus?yonghuId=<%=yonghuid %>" fit="true" rownumbers="true" toolbar="#tb">
+	 pagination="true" url="../getYonghus?yonghuId=<%=yonghuId %>" fit="true" rownumbers="true" toolbar="#tb">
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true"></th>
