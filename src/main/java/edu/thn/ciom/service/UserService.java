@@ -21,13 +21,16 @@ public class UserService {
     private final String dateFormat = "yyyy-MM-dd hh:mm:ss";
 
     public List<UserPojo> queryUsers(UserPojo record, String userName, int page, int rows,
-                           String sdate, String edate, String sdate1, String edate1) {
+                                     String sdate, String edate, String sdate1, String edate1) {
 
         UserPojoExample example = new UserPojoExample();
         UserPojoExample.Criteria criteria = example.createCriteria();
 
         if (StringUtils.hasText(userName))
             criteria.andUsernameEqualTo(userName);
+        if (record != null) {
+            if(record.getUserid()!=null) criteria.andUseridEqualTo(record.getUserid());
+        }
 
         Pair<Boolean, Date> sd = new Pair<>(false, null);
         Pair<Boolean, Date> ed = new Pair<>(false, null);

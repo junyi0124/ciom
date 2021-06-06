@@ -58,7 +58,7 @@ public class ShujuController {
         String userId = request.getParameter("userid");
 //        String bumenId = request.getParameter("bumenId");
 //        String buyuanId = request.getParameter("buyuanId");
-//        String buzhiId = request.getParameter("buzhiId");
+        String buzhiId = request.getParameter("buzhiid");
 //        String sdate = request.getParameter("sdate");
 //        String edate = request.getParameter("edate");
 //        String sdate1 = request.getParameter("sdate1");
@@ -101,9 +101,9 @@ public class ShujuController {
 //            if (StringUtils.hasText(buyuanId)) {
 //                shuju.setBuyuanId(Integer.parseInt(buyuanId));
 //            }
-//            if (StringUtils.hasText(buzhiId)) {
-//                shuju.setBuzhiId(Integer.parseInt(buzhiId));
-//            }
+            if (StringUtils.hasText(buzhiId)) {
+                shuju.setBuzhiid(Integer.parseInt(buzhiId));
+            }
 //            if (StringUtils.hasText(yonghuId)) {
 //                shuju.setYonghuId(Integer.parseInt(yonghuId));
 //            }

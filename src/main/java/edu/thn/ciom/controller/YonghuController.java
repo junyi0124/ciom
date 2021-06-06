@@ -45,7 +45,7 @@ public class YonghuController {
         response.setCharacterEncoding("UTF-8");
         String page = request.getParameter("page");
         String rows = request.getParameter("rows");
-        String yonghuId = request.getParameter("yonghuId");
+        String yonghuId = request.getParameter("yonghuid");
         String yonghuName = request.getParameter("yonghuname");
 //        String yonghuXingming = request.getParameter("yonghuXingming");
 //        String yonghuType = request.getParameter("yonghuType");

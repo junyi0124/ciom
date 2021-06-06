@@ -2,7 +2,7 @@
 <%
 PeizhiPojo newJcpeizhi = (PeizhiPojo)session.getAttribute("jcpeizhi");
 // 权限验证
-YongHuPojo yonghu = (YongHuPojo)session.getAttribute("yonghu");
+YongHuPojo yh = (YongHuPojo)session.getAttribute("yonghu");
 int yonghuId = yh.getYonghuid();
 int buzhiId = yh.getBuzhiid();
 %>

@@ -152,7 +152,7 @@ public class JianchuController {
             String sjjianchuMark = request.getParameter("sjjianchumark");
             String sjjianchuId = request.getParameter("sjjianchuid");
 
-//            String sjjianchuMark1 = request.getParameter("sjjianchuMark1");
+            String sjjianchuMark1 = request.getParameter("sjjianchumark1");
 //            String sjjianchuMark2 = request.getParameter("sjjianchuMark2");
 //            String sjjianchuMark3 = request.getParameter("sjjianchuMark3");
 //            String sjjianchuDate = request.getParameter("sjjianchuDate");
@@ -183,9 +183,9 @@ public class JianchuController {
             if (StringUtils.hasText(sjjianchuMark)) {
                 sjjianchu.setSjjianchumark(sjjianchuMark);
             }
-//            if (StringUtils.hasText(sjjianchuMark1)) {
-//                sjjianchu.setSjjianchumark1(sjjianchuMark1);
-//            }
+            if (StringUtils.hasText(sjjianchuMark1)) {
+                sjjianchu.setSjjianchumark1(sjjianchuMark1);
+            }
 //            if (StringUtils.hasText(sjjianchuMark2)) {
 //                sjjianchu.setSjjianchumark2(sjjianchuMark2);
 //            }
