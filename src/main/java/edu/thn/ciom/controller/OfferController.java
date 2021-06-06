@@ -458,7 +458,7 @@ public class OfferController {
             session.setAttribute("tongjiNames", tongjiNames);
             session.setAttribute("tongjiZongshus", tongjiZongshus);
             session.setAttribute("zongshu", zongshu);
-            response.sendRedirect("tongjitu/bingzhuangtu.jsp");
+            response.sendRedirect("tongjitu/bingzhuangtu");
 
         } catch (Exception e) {
             e.printStackTrace();
