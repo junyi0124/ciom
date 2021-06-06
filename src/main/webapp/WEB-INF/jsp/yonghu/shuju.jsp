@@ -106,7 +106,7 @@ var url;
 		var row=selectedRows[0];
 		$("#dlg").dialog("open").dialog("setTitle","编辑<%=title%>信息");
 		$("#fm").form("load",row);
-		url="../addSjduochu?shujuId="+row.shujuId+"&yonghuId=<%=yonghuId %>";
+		url="../addSjduochu?shujuid="+row.shujuid+"&yonghuid=<%=yonghuId %>";
 	}
 	
 	function formatSex(shujuSex, row) {  

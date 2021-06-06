@@ -71,12 +71,10 @@ public class OfferController {
 //        String edate1 = request.getParameter("edate1");
 
         DuochuPojo sjduochu = new DuochuPojo();
-        PageBean pageBean = null;
-        if ((StringUtils.hasText(page)) && (!page.equals("null"))) {
-            pageBean = new PageBean(Integer.parseInt(page), Integer.parseInt(rows));
-        } else {
-            pageBean = new PageBean(0, 0);
-        }
+
+        PageBean pageBean = (StringUtils.hasText(page)) && (!page.equals("null")) ?
+                new PageBean(Integer.parseInt(page), Integer.parseInt(rows)):
+                new PageBean(0, 0);
         try {
             if (StringUtils.hasText(sjduochuId)) {
                 sjduochu.setSjduochuid(Integer.parseInt(sjduochuId));
@@ -160,28 +158,28 @@ public class OfferController {
         response.setCharacterEncoding("UTF-8");
         JSONObject result = new JSONObject();
         try {
-            String sjduochuName = request.getParameter("sjduochuName");
-            String sjduochuMark = request.getParameter("sjduochuMark");
-            String sjduochuMark1 = request.getParameter("sjduochuMark1");
-            String sjduochuMark2 = request.getParameter("sjduochuMark2");
-            String sjduochuMark3 = request.getParameter("sjduochuMark3");
-            String sjduochuDate = request.getParameter("sjduochuDate");
-            String sjduochuDate1 = request.getParameter("sjduochuDate1");
-            String sjduochuZong = request.getParameter("sjduochuZong");
-            String sjduochuZong1 = request.getParameter("sjduochuZong1");
-            String sjduochuZong2 = request.getParameter("sjduochuZong2");
-            String sjduochuDouble = request.getParameter("sjduochuDouble");
-            String sjduochuDouble1 = request.getParameter("sjduochuDouble1");
-            String sjduochuDouble2 = request.getParameter("sjduochuDouble2");
-            String sjduochuType = request.getParameter("sjduochuType");
-            String sjduochuType1 = request.getParameter("sjduochuType1");
-            String sjduochuType2 = request.getParameter("sjduochuType2");
             String shujuId = request.getParameter("shujuid");
-            String sjqitaId = request.getParameter("sjqitaId");
-            String sjlaiyuanId = request.getParameter("sjlaiyuanId");
-            String yonghuId = request.getParameter("yonghuId");
-            String userId = request.getParameter("userId");
-            String sjduochuId = request.getParameter("sjduochuId");
+//            String sjqitaId = request.getParameter("sjqitaid");
+//            String sjlaiyuanId = request.getParameter("sjlaiyuanid");
+            String yonghuId = request.getParameter("yonghuid");
+            String userId = request.getParameter("userid");
+            String sjduochuId = request.getParameter("sjduochuid");
+            String sjduochuName = request.getParameter("sjduochuname");
+            String sjduochuMark = request.getParameter("sjduochunark");
+            String sjduochuMark1 = request.getParameter("sjduochumark1");
+            String sjduochuMark2 = request.getParameter("sjduochumark2");
+            String sjduochuMark3 = request.getParameter("sjduochumark3");
+            String sjduochuDate = request.getParameter("sjduochudate");
+            String sjduochuDate1 = request.getParameter("sjduochudate1");
+            String sjduochuZong = request.getParameter("sjduochuzong");
+            String sjduochuZong1 = request.getParameter("sjduochuzong1");
+            String sjduochuZong2 = request.getParameter("sjduochuzong2");
+            String sjduochuDouble = request.getParameter("sjduochudouble");
+            String sjduochuDouble1 = request.getParameter("sjduochudouble1");
+            String sjduochuDouble2 = request.getParameter("sjduochudouble2");
+            String sjduochuType = request.getParameter("sjduochutype");
+            String sjduochuType1 = request.getParameter("sjduochutype1");
+            String sjduochuType2 = request.getParameter("sjduochutype2");
             DuochuPojo sjduochu = new DuochuPojo();
 
             if (StringUtils.hasText(sjduochuId)) {
@@ -256,8 +254,7 @@ public class OfferController {
 
             if (StringUtils.hasText(yonghuId)) {
                 sjduochu.setYonghuid(Integer.parseInt(yonghuId));
-                YongHuPojo yonghu = new YongHuPojo();
-                yonghu = yonghuService.getYonghu(Integer.parseInt(yonghuId));
+                YongHuPojo yonghu =  yonghuService.getYonghu(Integer.parseInt(yonghuId));
                 sjduochu.setYonghuname(yonghu.getYonghuname());
 //                sjduochu.setBuzhiId(yonghu.getBuzhiId());
 //                sjduochu.setBuzhiName(yonghu.getBuzhiName());
