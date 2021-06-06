@@ -430,7 +430,7 @@ public class OfferController {
         List<ShujuPojo> shujus = new ArrayList<>();
         List<DuochuPojo> sjduochus = new ArrayList<>();
 
-        Double zongshu = 0.0;
+        double zongshu = 0.0;
         DuochuPojo sjduochu = new DuochuPojo();
         ShujuPojo shuju = new ShujuPojo();
         if (StringUtils.hasText(userId)) {
@@ -438,16 +438,16 @@ public class OfferController {
         }
         try {
             shujus = shujuService.queryShujus(shuju, 0, 0);
-            for (int i = 0; i < shujus.size(); i++) {
-                shujuIds.add(shujus.get(i).getShujuid());
-                tongjiNames.add(shujus.get(i).getShujuname());
+            for (ShujuPojo shujuPojo : shujus) {
+                shujuIds.add(shujuPojo.getShujuid());
+                tongjiNames.add(shujuPojo.getShujuname());
             }
-            for (int i = 0; i < shujuIds.size(); i++) {
-                Double sjduochuZongshu = 0.0;
-                sjduochu.setShujuid(shujuIds.get(i));
+            for (Integer shujuId : shujuIds) {
+                double sjduochuZongshu = 0.0;
+                sjduochu.setShujuid(shujuId);
                 sjduochus = offerService.querySjduochus(sjduochu, 0, 0);
-                for (int j = 0; j < sjduochus.size(); j++) {
-                    sjduochuZongshu = sjduochuZongshu + sjduochus.get(j).getSjduochudouble2();
+                for (DuochuPojo duochuPojo : sjduochus) {
+                    sjduochuZongshu = sjduochuZongshu + duochuPojo.getSjduochudouble2();
                 }
                 zongshu = zongshu + sjduochuZongshu;
                 tongjiZongshus.add(sjduochuZongshu);
