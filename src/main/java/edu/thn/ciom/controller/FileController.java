@@ -35,7 +35,7 @@ public class FileController {
                        HttpServletResponse response,
                        @PathVariable("type") String type,
                        @PathVariable("id") Integer id,
-                       MultipartFile file) throws IOException {
+                       @RequestParam("uploadFile") MultipartFile file) throws IOException {
         String targetDirectory = request.getSession().getServletContext().getRealPath(directory);
         // save file to local folder
         String filePath = fileService.upload(targetDirectory, file);
