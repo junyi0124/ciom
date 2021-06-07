@@ -14,17 +14,17 @@ import java.nio.file.StandardCopyOption;
 
 @Service
 public class FileService {
-    public String upload(String fileDir, MultipartFile file) {
+    public String upload(String baseDir, String filePath, MultipartFile file) {
 
-        String fileName = file.getOriginalFilename();
-        File dir = new File(fileDir, fileName);
+        //String fileName = file.getOriginalFilename();
+        File dir = new File(baseDir, filePath);
         if (!dir.exists()) {
             dir.mkdirs();
         }
         //MultipartFile自带的解析方法
         try {
             file.transferTo(dir);
-            return file.getName();
+            return filePath;
         } catch (IOException e) {
             e.printStackTrace();
             return "";

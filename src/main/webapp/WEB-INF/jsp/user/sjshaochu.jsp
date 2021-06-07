@@ -144,7 +144,7 @@ var userId = <%=userId%>;
 	
 	function formatXiazai(shujuImgName, row) {
 		if(shujuImgName){
-			return '<a target="_blank" style="color:red;" href="../downFile?filename=' + shujuImgName + '">下载' + '</a>'; 
+			return '<a target="_blank" style="color:red;" href="../downFile?filename=' + shujuImgName + '">下载' + '</a>';
 		}else {
 			return "未上传";
 		}
@@ -247,7 +247,8 @@ var userId = <%=userId%>;
 		var row=selectedRows[0];
 		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=title%><%=shaochu%>");
 		$("#shchfm").form("load",row);
-		shchurl="../shipinSjshaochu?sjshaochuId="+row.sjshaochuid;
+		//shchurl="../shipinSjshaochu?sjshaochuId="+row.sjshaochuid;
+		shchurl="../files/shaochu/" + row.sjshaochuid;
 	}
 	
 	function closeShangchuanSjshaochu(){
@@ -334,12 +335,12 @@ var userId = <%=userId%>;
 				<th field="username" width="20"><%=username%></th>
 				<th field="shujuid" width="20" hidden="true"><%=title%>ID</th>
 				<th field="shujuname" width="20"><%=title%></th>
-				<th field="yhrolename" width="20" formatter="formatXiazai">附件</th>
+				<th field="yhrolename" width="20" formatter="formatXiazai">附件</th><!--formatXiazai-->
 				<th field="sjshaochudouble" width="10">价格</th>
 				<th field="sjshaochuname" width="40">单号</th>
 				<th field="sjshaochumark" width="40">名称</th>
 				<th field="sjshaochumark1" width="80">详情</th>
-				<th field="sjshaochuimgname" width="20" formatter="formatXiazai">保单</th>
+				<th field="sjshaochuimgname" width="20" formatter="formatChakan">保单</th><!--formatXiazai-->
 				<th field="yonghuid" width="10" hidden="true"><%=yonghu%>ID</th>
 				<th field="yonghuname" width="20"><%=yonghu%></th>
 				<th field="sjshaochudate" width="20" formatter="datetostr">时间</th>

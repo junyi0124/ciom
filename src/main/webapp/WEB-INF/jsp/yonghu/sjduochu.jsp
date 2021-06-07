@@ -145,7 +145,8 @@ var url;
 	
 	function formatXiazai(shujuImgName, row) {
 		if(shujuImgName){
-			return '<a target="_blank" style="color:red;" href="../downFile?filename=' + shujuImgName + '">下载' + '</a>'; 
+		    //downFile?filename=
+			return '<a target="_blank" style="color:red;" href="../' + shujuImgName + '">下载' + '</a>';
 		}else {
 			return "未上传";
 		}
@@ -236,7 +237,8 @@ var url;
 		var row=selectedRows[0];
 		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=title%><%=douchu%>");
 		$("#shchfm").form("load",row);
-		shchurl="../shangchuanSjduochu?sjduochuId="+row.sjduochuId;
+		// shchurl="../shangchuanSjduochu?sjduochuId="+row.sjduochuId;
+		shchurl="../files/duochu/" + row.sjduochuid;
 	}
 	
 	function closeShangchuanSjduochu(){
@@ -326,7 +328,7 @@ var url;
 				<th field="sjduochuname" width="40">保险</th>
 				<th field="sjduochudouble" width="10">报价</th>
 				<th field="sjduochumark" width="120">详情</th>
-				<th field="sjduochuimgname" width="20" formatter="formatXiazai">详情</th>
+				<th field="sjduochuimg" width="20" formatter="formatXiazai">详情</th>
 				<th field="yonghuid" width="10" hidden="true"><%=yonghu%>ID</th>
 				<th field="yonghuname" width="20"><%=yonghu%></th>
 				<th field="sjduochudate" width="20" formatter="datetostr">时间</th>

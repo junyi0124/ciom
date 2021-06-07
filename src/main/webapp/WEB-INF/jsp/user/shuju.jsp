@@ -177,14 +177,14 @@ var userId = <%=userId%>;
 		});
 	}
 	
-	function doPrint() {      
-        bdhtml=window.document.body.innerHTML;      
-        sprnstr="<!--startprint-->";      
-        eprnstr="<!--endprint-->";      
-        prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17);      
-        prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr));      
-        window.document.body.innerHTML=prnhtml;   
-        window.print();      
+	function doPrint() {
+        bdhtml=window.document.body.innerHTML;
+        sprnstr="<!--startprint-->";
+        eprnstr="<!--endprint-->";
+        prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17);
+        prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr));
+        window.document.body.innerHTML=prnhtml;
+        window.print();
 	}
 	
 	function daoruShujus(){
@@ -228,7 +228,7 @@ var userId = <%=userId%>;
 		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=title%>信息");
 		$("#shchfm").form("load",row);
 		//shchurl="../shangchuanShuju?shujuid="+row.shujuid;
-		shchurl="../file/shuju/" + row.shujuid;
+		shchurl="../files/shuju/" + row.shujuid;
 	}
 	
 	function closeShangchuanShuju(){
@@ -327,7 +327,7 @@ var userId = <%=userId%>;
 				<th field="buzhiId" width="10" hidden="true"><%=areaname%>ID</th>
 				<th field="buzhiName" width="20"><%=areaname%></th>
 				<th field="shujuDate" width="20" formatter="datetostr">时间</th>
-  -->
+            -->
                 <th field="cb" checkbox="true"></th>
                 <th field="shujuid" width="10" hidden="true">编号</th>
                 <th field="sjleixingid" width="20" hidden="true"><%=typename%>ID</th>
