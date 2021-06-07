@@ -242,14 +242,14 @@ public class OfferController {
                 sjduochu.setShujuname(shuju.getShujuname());
 //                sjduochu.setSjleixingId(shuju.getSjleixingId());
 //                sjduochu.setSjleixingName(shuju.getSjleixingName());
-//                sjduochu.setUserId(shuju.getUserId());
-//                sjduochu.setUserName(shuju.getUserName());
+                sjduochu.setUserid(shuju.getUserid());
+                sjduochu.setUsername(shuju.getUsername());
 //                sjduochu.setBumenId(shuju.getBumenId());
 //                sjduochu.setBumenName(shuju.getBumenName());
 //                sjduochu.setBuyuanId(shuju.getBuyuanId());
 //                sjduochu.setBuyuanName(shuju.getBuyuanName());
-//                sjduochu.setBuzhiId(shuju.getBuzhiId());
-//                sjduochu.setBuzhiName(shuju.getBuzhiName());
+                sjduochu.setBuzhiid(shuju.getBuzhiid());
+                sjduochu.setBuzhiname(shuju.getBuzhiname());
             }
 
             if (StringUtils.hasText(yonghuId)) {
@@ -261,8 +261,7 @@ public class OfferController {
             }
             if (StringUtils.hasText(userId)) {
                 sjduochu.setUserid(Integer.parseInt(userId));
-                UserPojo user = new UserPojo();
-                user = userService.getUser(Integer.parseInt(userId));
+                UserPojo user = userService.getUser(Integer.parseInt(userId));
                 sjduochu.setUsername(user.getUsername());
 //                sjduochu.setBumenId(user.getBumenId());
 //                sjduochu.setBumenName(user.getBumenName());
