@@ -227,7 +227,8 @@ var userId = <%=userId%>;
 		var row=selectedRows[0];
 		$("#shangchuan").dialog("open").dialog("setTitle","上传<%=title%>信息");
 		$("#shchfm").form("load",row);
-		shchurl="../shangchuanShuju?shujuid="+row.shujuid;
+		//shchurl="../shangchuanShuju?shujuid="+row.shujuid;
+		shchurl="../file/shuju/" + row.shujuid;
 	}
 	
 	function closeShangchuanShuju(){
