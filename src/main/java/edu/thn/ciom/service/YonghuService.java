@@ -1,7 +1,7 @@
 package edu.thn.ciom.service;
 
 import edu.thn.ciom.dao.YongHuPojoMapper;
-import edu.thn.ciom.pojo.DaohangPojoExample;
+// import edu.thn.ciom.pojo.DaohangPojoExample;
 import edu.thn.ciom.pojo.YongHuPojo;
 import edu.thn.ciom.pojo.YongHuPojoExample;
 import edu.thn.ciom.util.DateUtil;
@@ -51,24 +51,19 @@ public class YonghuService {
     }
 
     public YongHuPojo getYonghu(int parseInt) {
-        // TODO Auto-generated method stub
         return yongHuPojoMapper.selectByPrimaryKey(parseInt);
     }
 
     public void modifyYonghu(YongHuPojo yonghu) {
-        // TODO Auto-generated method stub
         yongHuPojoMapper.updateByPrimaryKey(yonghu);
     }
 
     public void deleteYonghu(Integer id) {
-        // TODO Auto-generated method stub
         yongHuPojoMapper.deleteByPrimaryKey(id);
 
     }
 
     public void save(YongHuPojo yonghu) {
-        // TODO Auto-generated method stub
         yongHuPojoMapper.insertSelective(yonghu);
-
     }
 }
