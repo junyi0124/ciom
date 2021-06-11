@@ -217,7 +217,8 @@ public class JcpeizhiController {
             if (StringUtils.hasText(jcpeizhiType1)) {
                 jcpeizhi.setJcpeizhitype1(Integer.parseInt(jcpeizhiType1));
             }
-            @SuppressWarnings("unchecked")
+            
+            //@SuppressWarnings("unchecked")
             List<PeizhiPojo> jcpeizhis = jcpeizhiService.queryJcpeizhis(jcpeizhi, pageBean.getStart(), pageBean.getRows());
             JSONArray jsonArray = JSONArray.fromObject(jcpeizhis);
             for (PeizhiPojo j : jcpeizhis) {

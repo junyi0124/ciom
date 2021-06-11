@@ -327,8 +327,8 @@ public class OfferController {
             throws Exception {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        String sjduochuName = request.getParameter("sjduochuName");
-        String sjduochuId = request.getParameter("sjduochuId");
+        // String sjduochuName = request.getParameter("sjduochuName");
+        // String sjduochuId = request.getParameter("sjduochuId");
 //        String sjduochuType = request.getParameter("sjduochuType");
 //        String sjduochuType1 = request.getParameter("sjduochuType1");
 //        String sjduochuType2 = request.getParameter("sjduochuType2");

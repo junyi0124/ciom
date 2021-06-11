@@ -94,7 +94,7 @@ public class FileController {
     public void download(@PathVariable String type, @PathVariable Integer id,
                          HttpServletRequest request, HttpServletResponse response) {
         //fileService.getFile(type, id);
-        String name = "", path = "";
+        String name = "";//, path = "";
         if (type.equalsIgnoreCase("shuju")) {
             ShujuPojo shuju = shujuService.getShuju(id);
             if (shuju != null) {

@@ -23,8 +23,8 @@ public class JianchuController {
     private ShujuService shujuService;
     @Autowired
     private YonghuService yonghuService;
-    @Autowired
-    private UserService userService;
+    //@Autowired
+    //private UserService userService;
 
     @RequestMapping("/getSjjianchus")
     public void getSjjianchus(HttpServletRequest request,

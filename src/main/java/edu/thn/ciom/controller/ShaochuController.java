@@ -6,7 +6,7 @@ import edu.thn.ciom.pojo.ShujuPojo;
 import edu.thn.ciom.pojo.YongHuPojo;
 import edu.thn.ciom.service.ShaochuService;
 import edu.thn.ciom.service.ShujuService;
-import edu.thn.ciom.service.UserService;
+// import edu.thn.ciom.service.UserService;
 import edu.thn.ciom.service.YonghuService;
 // import edu.thn.ciom.util.DateUtil;
 import edu.thn.ciom.util.ResponseUtil;
@@ -98,18 +98,18 @@ public class ShaochuController {
 //            if (StringUtils.hasText(sjqitaId)) {
 //                sjshaochu.setSjqitaId(Integer.parseInt(sjqitaId));
 //            }
-//            if (StringUtils.hasText(shujuId)) {
-//                sjshaochu.setShujuId(Integer.parseInt(shujuId));
-//            }
+           if (StringUtils.hasText(shujuId)) {
+               sjshaochu.setShujuid(Integer.parseInt(shujuId));
+           }
 //            if (StringUtils.hasText(sjleixingId)) {
 //                sjshaochu.setSjleixingId(Integer.parseInt(sjleixingId));
 //            }
 //            if (StringUtils.hasText(sjxingtaiId)) {
 //                sjshaochu.setSjxingtaiId(Integer.parseInt(sjxingtaiId));
 //            }
-//            if (StringUtils.hasText(userId)) {
-//                sjshaochu.setUserId(Integer.parseInt(userId));
-//            }
+           if (StringUtils.hasText(userId)) {
+               sjshaochu.setUserid(Integer.parseInt(userId));
+           }
 //            if (StringUtils.hasText(bumenId)) {
 //                sjshaochu.setBumenId(Integer.parseInt(bumenId));
 //            }
@@ -421,8 +421,8 @@ public class ShaochuController {
             throws Exception {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        String sdate = request.getParameter("sdate");
-        String edate = request.getParameter("edate");
+        // String sdate = request.getParameter("sdate");
+        // String edate = request.getParameter("edate");
         String userId = request.getParameter("userId");
         String tijiaoUrl = "shujuTongji";
         List<Integer> shujuIds = new ArrayList<Integer>();
