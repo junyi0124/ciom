@@ -16,8 +16,7 @@ public class JcdaohangService {
     private DaohangPojoMapper daohangPojoMapper;
 
 
-    public List queryJcdaohangs(DaohangPojo record, int page, int rows) {
-        // TODO Auto-generated method stub
+    public List<DaohangPojo> queryJcdaohangs(DaohangPojo record, int page, int rows) {
         DaohangPojoExample example = new DaohangPojoExample();
         DaohangPojoExample.Criteria criteria = example.createCriteria();
         if (record != null) {
@@ -31,23 +30,19 @@ public class JcdaohangService {
     }
 
     public DaohangPojo getJcdaohang(int parseInt) {
-        // TODO Auto-generated method stub
         return daohangPojoMapper.selectByPrimaryKey(parseInt);
     }
 
     public void modifyJcdaohang(DaohangPojo jcdaohang) {
-        // TODO Auto-generated method stub
         daohangPojoMapper.updateByPrimaryKeySelective(jcdaohang);
     }
 
     public void deleteJcdaohang(Integer id) {
-        // TODO Auto-generated method stub
         daohangPojoMapper.deleteByPrimaryKey(id);
 
     }
 
     public void save(DaohangPojo jcdaohang) {
-        // TODO Auto-generated method stub
         daohangPojoMapper.insertSelective(jcdaohang);
 
     }

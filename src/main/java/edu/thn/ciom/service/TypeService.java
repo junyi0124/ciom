@@ -20,7 +20,7 @@ public class TypeService {
         LeiXingPojoExample example = new LeiXingPojoExample();
         LeiXingPojoExample.Criteria criteria = example.createCriteria();
 
-        if (record == null) {
+        if (record != null) {
             if (StringUtils.hasText(record.getSjleixingname()))
                 criteria.andSjleixingnameLike(record.getSjleixingname());
             if (StringUtils.hasText(record.getSjleixingmark()))
