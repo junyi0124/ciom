@@ -63,8 +63,8 @@ public class YonghuController {
 //        String buzhiId = request.getParameter("buzhiId");
         String sdate = request.getParameter("sdate");
         String edate = request.getParameter("edate");
-        String sdate1 = request.getParameter("sdate1");
-        String edate1 = request.getParameter("edate1");
+        // String sdate1 = request.getParameter("sdate1");
+        // String edate1 = request.getParameter("edate1");
         YongHuPojo yonghu = new YongHuPojo();
         PageBean pageBean = null;
         if ((StringUtils.hasText(page)) && (!page.equals("null"))) {
@@ -460,7 +460,7 @@ buzhiid: 1
             String bumenId = request.getParameter("bumenId");
             String buyuanId = request.getParameter("buyuanId");
             String buzhiId = request.getParameter("buzhiId");
-            String yonghuId = request.getParameter("yonghuId");
+            // String yonghuId = request.getParameter("yonghuId");
             YongHuPojo yonghu = new YongHuPojo();
 
             // if (StringUtils.hasText(yonghuId)) {
@@ -646,22 +646,22 @@ buzhiid: 1
             throws Exception {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        String yonghuName = request.getParameter("yonghuName");
-        String yonghuXingming = request.getParameter("yonghuXingming");
-        String yonghuId = request.getParameter("yonghuId");
-        String yonghuType = request.getParameter("yonghuType");
-        String yonghuType1 = request.getParameter("yonghuType1");
-        String yonghuType2 = request.getParameter("yonghuType2");
-        String yhroleId = request.getParameter("yhroleId");
-        String byumenId = request.getParameter("byumenId");
-        String byuzhiId = request.getParameter("byuzhiId");
-        String byuyuanId = request.getParameter("byuyuanId");
-        String yonghuMinzu = request.getParameter("yonghuMinzu");
-        String yonghuSex = request.getParameter("yonghuSex");
-        String userId = request.getParameter("userId");
-        String bumenId = request.getParameter("bumenId");
-        String buyuanId = request.getParameter("buyuanId");
-        String buzhiId = request.getParameter("buzhiId");
+        // String yonghuName = request.getParameter("yonghuName");
+        // String yonghuXingming = request.getParameter("yonghuXingming");
+        // String yonghuId = request.getParameter("yonghuId");
+        // String yonghuType = request.getParameter("yonghuType");
+        // String yonghuType1 = request.getParameter("yonghuType1");
+        // String yonghuType2 = request.getParameter("yonghuType2");
+        // String yhroleId = request.getParameter("yhroleId");
+        // String byumenId = request.getParameter("byumenId");
+        // String byuzhiId = request.getParameter("byuzhiId");
+        // String byuyuanId = request.getParameter("byuyuanId");
+        // String yonghuMinzu = request.getParameter("yonghuMinzu");
+        // String yonghuSex = request.getParameter("yonghuSex");
+        // String userId = request.getParameter("userId");
+        // String bumenId = request.getParameter("bumenId");
+        // String buyuanId = request.getParameter("buyuanId");
+        // String buzhiId = request.getParameter("buzhiId");
         YongHuPojo yonghu = new YongHuPojo();
         try {
 //            if (StringUtils.hasText(yonghuXingming)) {

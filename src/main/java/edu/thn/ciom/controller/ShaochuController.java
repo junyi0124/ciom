@@ -2,13 +2,13 @@ package edu.thn.ciom.controller;
 
 import edu.thn.ciom.pojo.ShaoChuPojo;
 import edu.thn.ciom.pojo.ShujuPojo;
-import edu.thn.ciom.pojo.UserPojo;
+// import edu.thn.ciom.pojo.UserPojo;
 import edu.thn.ciom.pojo.YongHuPojo;
 import edu.thn.ciom.service.ShaochuService;
 import edu.thn.ciom.service.ShujuService;
 import edu.thn.ciom.service.UserService;
 import edu.thn.ciom.service.YonghuService;
-import edu.thn.ciom.util.DateUtil;
+// import edu.thn.ciom.util.DateUtil;
 import edu.thn.ciom.util.ResponseUtil;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartFile;
+// import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,8 +34,8 @@ public class ShaochuController {
     @Autowired
     private YonghuService yonghuService;
 
-    @Autowired
-    private UserService userService;
+    // @Autowired
+    // private UserService userService;
 
     @Autowired
     private ShujuService shujuService;

@@ -167,7 +167,7 @@ public class ShujuController {
 //            String shujuDouble4 = request.getParameter("shujudouble4");
             String yonghuId = request.getParameter("yonghuid");
             String userId = request.getParameter("userid");
-            String buzhiId = request.getParameter("buzhiid");
+            // String buzhiId = request.getParameter("buzhiid");
             String shujuId = request.getParameter("shujuid");
             ShujuPojo shuju = new ShujuPojo();
 

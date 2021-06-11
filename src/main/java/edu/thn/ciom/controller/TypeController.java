@@ -73,7 +73,7 @@ public class TypeController {
             throws Exception {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        boolean isNew = true;
+        // boolean isNew = true;
         try {
             JSONObject result = new JSONObject();
 
@@ -94,7 +94,7 @@ public class TypeController {
 
             if (StringUtils.hasText(sjleixingId)) {
                 typePojo = typeService.getSjleixing(Integer.parseInt(sjleixingId));
-                if (typePojo != null) isNew = false;
+                // if (typePojo != null) isNew = false;
             }
 
             if (StringUtils.hasText(sjleixingName)) {

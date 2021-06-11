@@ -15,7 +15,7 @@ public class AdminService {
     @Autowired
     private AdminPojoMapper adminPojoMapper;
 
-    public List queryAdmins(AdminPojo record, int page, int rows) {
+    public List<AdminPojo> queryAdmins(AdminPojo record, int page, int rows) {
         AdminPojoExample example = new AdminPojoExample();
         AdminPojoExample.Criteria criteria = example.createCriteria();
 
